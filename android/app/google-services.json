@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "583539557800",
+    "project_id": "my-english-pal-web",
+    "storage_bucket": "my-english-pal-web.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583539557800:android:e4ee279d1c4c51913d899d",
+        "android_client_info": {
+          "package_name": "com.example.myenglishpal_web"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "583539557800-ga7dcfo13ag00cjkb45ocaandlplpong.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEqfr6CjLMIuQ8mug55kIA7rTAyCk_9yQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "583539557800-ga7dcfo13ag00cjkb45ocaandlplpong.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
