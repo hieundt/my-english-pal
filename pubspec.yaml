@@ -43,6 +43,7 @@ dependencies:
   flutter_vector_icons: ^2.0.0
   carousel_slider: ^4.1.1
   smooth_page_indicator: ^1.0.0+2
+  responsive_framework: ^0.2.0
 
 dev_dependencies:
   flutter_test:
@@ -68,11 +69,28 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/beach.jpg
-    - assets/images/education.png
-    - assets/images/technology.png
     - assets/images/shiba.jpg
+
+    - assets/images/community/content/magazine.jpg
+    - assets/images/community/content/talking_idioms.png
+    - assets/images/community/header/community_header.png
     
+    - assets/images/home_page/header/header_1.png
+    - assets/images/home_page/header/header_2.png
+    - assets/images/home_page/header/header_3.png
+    - assets/images/home_page/header/header_4.jpg
+    - assets/images/home_page/header/header_5.png
+    - assets/images/home_page/header/header_6.jpg
+    - assets/images/home_page/header/header_7.jpg
+    - assets/images/home_page/header/header_8.png
+
+    - assets/images/home_page/content/part_1.jpg
+    - assets/images/home_page/content/part_2.png
+    - assets/images/home_page/content/part_3.png
+    - assets/images/home_page/content/part_4.png
+    - assets/images/home_page/content/part_5.jpg
+    - assets/images/home_page/content/part_6.png
+    - assets/images/home_page/content/part_7.png
     
  
 
