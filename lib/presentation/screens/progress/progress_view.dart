@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:myenglishpal_web/presentation/screens/progress/components/content/content.dart';
+import 'package:myenglishpal_web/presentation/screens/progress/components/header/header.dart';
 
-class ProgressView extends StatefulWidget {
+class ProgressView extends StatelessWidget {
   const ProgressView({super.key});
 
   @override
-  State<ProgressView> createState() => _ProgressViewState();
-}
-
-class _ProgressViewState extends State<ProgressView> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('This is your progress'),
-      ),
+      body: ListView(children: const [
+        SizedBox(
+          height: 50,
+        ),
+        ProgressHeader(),
+        ProgressContent(),
+      ]),
     );
   }
 }

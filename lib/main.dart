@@ -44,6 +44,7 @@ class MyEnglishPal extends StatelessWidget {
         ],
       ),
       home: const NavigateController(),
+      //initialRoute: (context) => const SplashView(),
       routes: {
         signInRoute: (context) => const SignInView(),
         registerRoute: (context) => const RegisterView(),

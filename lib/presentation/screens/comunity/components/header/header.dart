@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/screens/comunity/components/header/data.dart';
-
 import 'package:responsive_framework/responsive_framework.dart';
 
 class CommunityHeader extends StatelessWidget {
@@ -11,18 +10,15 @@ class CommunityHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-            colors: [
-              Colors.redAccent,
-              Color.fromARGB(1, 248, 187, 208),
-            ],
-            stops: [
-              0.0,
-              1.0
-            ],
-            begin: FractionalOffset.topLeft,
-            end: FractionalOffset.bottomRight,
-            tileMode: TileMode.repeated),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: const Offset(0, 3),
+          ),
+        ],
+        color: Colors.lightBlue[100],
         borderRadius: BorderRadius.circular(30.0),
       ),
       width: MediaQuery.of(context).size.width,
@@ -41,7 +37,9 @@ class CommunityHeader extends StatelessWidget {
                 Text(
                   communityHeaderData.title,
                   style: const TextStyle(
-                    fontWeight: FontWeight.bold,
+                    color: Colors.black54,
+                    fontWeight: FontWeight.w900,
+                    fontSize: 75,
                   ),
                 ),
                 const SizedBox(
@@ -49,7 +47,11 @@ class CommunityHeader extends StatelessWidget {
                 ),
                 Text(
                   communityHeaderData.description,
-                  style: const TextStyle(fontSize: 16),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black54,
+                    fontSize: 20.0,
+                  ),
                   textAlign: TextAlign.left,
                 ),
               ],

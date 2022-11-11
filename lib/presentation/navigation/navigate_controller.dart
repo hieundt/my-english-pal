@@ -31,16 +31,11 @@ class _NavigateControllerState extends State<NavigateController> {
     return Scaffold(
       appBar: mainAppBar,
       body: SafeArea(
-        child: ResponsiveVisibility(
-          // hiddenWhen: const [
-          //   Condition.smallerThan(name: TABLET),
-          // ],
-          // visibleWhen: const [
-          //   Condition.largerThan(name: TABLET),
-          // ],
-          child: Row(
-            children: [
+        child: Row(
+          children: [
+            if (ResponsiveWrapper.of(context).isLargerThan(TABLET))
               NavigationRail(
+                extended: true,
                 onDestinationSelected: (index) {
                   setState(() {
                     _selectedIndex = index;
@@ -49,26 +44,26 @@ class _NavigateControllerState extends State<NavigateController> {
                 destinations: defaultNavigationRailItem,
                 selectedIndex: _selectedIndex,
               ),
-              Expanded(
-                child: _screens[_selectedIndex],
-              ),
-            ],
-          ),
+            Expanded(
+              child: _screens[_selectedIndex],
+            ),
+          ],
         ),
       ),
-      //! ĐÂY LÀ BOTTOM NAVIGATION BAR
-      //! CHỖ NÀY BỊ BUG KO HIỂN THỊ ĐƯỢC VIEW, ĐANG FIX
-      // bottomNavigationBar: BottomNavigationBar(
-      //   currentIndex: _selectedIndex,
-      //   unselectedItemColor: Colors.grey,
-      //   selectedItemColor: Colors.indigoAccent,
-      //   onTap: (index) {
-      //     setState(() {
-      //       _selectedIndex = index;
-      //     });
-      //   },
-      //   items: defaultNavigationBarItem,
-      // ),
+      bottomNavigationBar:
+          (ResponsiveWrapper.of(context).isSmallerThan(DESKTOP))
+              ? BottomNavigationBar(
+                  currentIndex: _selectedIndex,
+                  unselectedItemColor: Colors.grey,
+                  selectedItemColor: Colors.indigoAccent,
+                  onTap: (index) {
+                    setState(() {
+                      _selectedIndex = index;
+                    });
+                  },
+                  items: defaultNavigationBarItem,
+                )
+              : null,
     );
   }
 }
