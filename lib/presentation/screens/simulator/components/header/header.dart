@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class AssessmentCenterHeader extends StatelessWidget {
-  const AssessmentCenterHeader({super.key});
+class SimulatorHeader extends StatelessWidget {
+  const SimulatorHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Card(
-        color: Colors.lightBlue[100],
+        color: Colors.blueGrey[50],
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
@@ -21,8 +21,8 @@ class AssessmentCenterHeader extends StatelessWidget {
             'TOEIC Exam Simulator',
             style: TextStyle(
               color: Colors.black54,
-              fontWeight: FontWeight.bold,
-              fontSize: 100.0,
+              fontWeight: FontWeight.w900,
+              fontSize: 70,
             ),
             textAlign: TextAlign.center,
           ),

@@ -39,7 +39,7 @@ class CommunityHeader extends StatelessWidget {
                   style: const TextStyle(
                     color: Colors.black54,
                     fontWeight: FontWeight.w900,
-                    fontSize: 75,
+                    fontSize: 57,
                   ),
                 ),
                 const SizedBox(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/presentation/screens/assessment_center/components/content/data.dart';
+import 'package:myenglishpal_web/presentation/screens/simulator/components/content/data.dart';
 
-class AssessmentCenterContentItem extends StatelessWidget {
-  final AssessmentCenterContentData assessmentCenterContentData;
-  const AssessmentCenterContentItem({
+class SimulatorContentNormalItem extends StatelessWidget {
+  final SimulatorContentData assessmentCenterContentData;
+  const SimulatorContentNormalItem({
     super.key,
     required this.assessmentCenterContentData,
   });
@@ -13,12 +13,10 @@ class AssessmentCenterContentItem extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Card(
-        color: Colors.lightBlue[100],
+        color: Colors.greenAccent[400],
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
-        elevation: 50.0,
-        shadowColor: Colors.grey[900],
         margin: const EdgeInsets.fromLTRB(20, 0, 20, 20),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -26,17 +24,17 @@ class AssessmentCenterContentItem extends StatelessWidget {
             children: [
               Text(
                 assessmentCenterContentData.title,
-                style: const TextStyle(
-                  color: Colors.black54,
-                  fontWeight: FontWeight.w900,
+                style: TextStyle(
+                  color: Colors.grey[200],
+                  fontWeight: FontWeight.w600,
                   fontSize: 80.0,
                 ),
                 textAlign: TextAlign.left,
               ),
               Text(
                 assessmentCenterContentData.description,
-                style: const TextStyle(
-                  color: Colors.black54,
+                style: TextStyle(
+                  color: Colors.grey[200],
                   fontWeight: FontWeight.w400,
                   fontSize: 40.0,
                 ),

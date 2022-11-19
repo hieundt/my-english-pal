@@ -36,14 +36,23 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_vector_icons: ^2.0.0
+  google_fonts: ^3.0.1
+  flutter_svg: ^1.1.1+1
+
   firebase_core: ^1.22.0
   firebase_auth: ^3.9.0
   cloud_firestore: ^3.4.8
   firebase_analytics: ^9.3.5
-  flutter_vector_icons: ^2.0.0
+
+  responsive_framework: ^0.2.0  
   carousel_slider: ^4.1.1
-  smooth_page_indicator: ^1.0.0+2
-  responsive_framework: ^0.2.0
+  percent_indicator: ^4.2.2
+  animated_text_kit: ^4.2.2
+  animated_splash_screen: ^1.3.0
+  page_transition: ^2.0.9
+  flutter_spinkit: ^5.1.0
+  
 
 dev_dependencies:
   flutter_test:
@@ -69,30 +78,16 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/shiba.jpg
-
-    - assets/images/community/content/magazine.jpg
-    - assets/images/community/content/talking_idioms.png
-    - assets/images/community/header/community_header.png
     
-    - assets/images/home_page/header/header_1.png
-    - assets/images/home_page/header/header_2.png
-    - assets/images/home_page/header/header_3.png
-    - assets/images/home_page/header/header_4.jpg
-    - assets/images/home_page/header/header_5.png
-    - assets/images/home_page/header/header_6.jpg
-    - assets/images/home_page/header/header_7.jpg
-    - assets/images/home_page/header/header_8.png
+    - assets/images/
 
-    - assets/images/home_page/content/part_1.jpg
-    - assets/images/home_page/content/part_2.png
-    - assets/images/home_page/content/part_3.png
-    - assets/images/home_page/content/part_4.png
-    - assets/images/home_page/content/part_5.jpg
-    - assets/images/home_page/content/part_6.png
-    - assets/images/home_page/content/part_7.png
-    
- 
+    - assets/images/app_logo/
+
+    - assets/images/home_page/header/
+    - assets/images/home_page/content/
+
+    - assets/images/community/content/
+    - assets/images/community/header/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

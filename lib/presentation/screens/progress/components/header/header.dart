@@ -18,11 +18,11 @@ class ProgressHeader extends StatelessWidget {
         child: const Padding(
           padding: EdgeInsets.all(8.0),
           child: Text(
-            'This Is Your Progress',
+            'My Progress',
             style: TextStyle(
               color: Colors.black54,
               fontWeight: FontWeight.bold,
-              fontSize: 100.0,
+              fontSize: 70,
             ),
             textAlign: TextAlign.center,
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/navigate_items.dart';
-import 'package:myenglishpal_web/presentation/screens/assessment_center/assessment_center_view.dart';
+import 'package:myenglishpal_web/presentation/screens/simulator/simulator_view.dart';
 import 'package:myenglishpal_web/presentation/screens/comunity/community_view.dart';
 import 'package:myenglishpal_web/presentation/screens/grammar_book/grammar_book_view.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/home_page_view.dart';
@@ -20,7 +20,7 @@ class _NavigateControllerState extends State<NavigateController> {
     const HomePageView(),
     const ProgressView(),
     const CommunityView(),
-    const AssessmentCenterView(),
+    const SimulatorView(),
     const GrammarBookView(),
   ];
 
@@ -53,6 +53,7 @@ class _NavigateControllerState extends State<NavigateController> {
       bottomNavigationBar:
           (ResponsiveWrapper.of(context).isSmallerThan(DESKTOP))
               ? BottomNavigationBar(
+                  type: BottomNavigationBarType.fixed,
                   currentIndex: _selectedIndex,
                   unselectedItemColor: Colors.grey,
                   selectedItemColor: Colors.indigoAccent,

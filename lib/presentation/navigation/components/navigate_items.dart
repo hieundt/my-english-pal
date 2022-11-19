@@ -16,11 +16,11 @@ const defaultNavigationBarItem = [
   ),
   BottomNavigationBarItem(
     icon: Icon(CupertinoIcons.doc_checkmark),
-    label: 'Assessment Center',
+    label: 'Simulator',
   ),
   BottomNavigationBarItem(
     icon: Icon(CupertinoIcons.create),
-    label: 'Grammar Book',
+    label: 'Grammar',
   ),
 ];
 

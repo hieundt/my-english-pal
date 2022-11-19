@@ -8,13 +8,11 @@ class ProgressTimeOnTask extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
-      height: 350,
+      height: 150,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
-        elevation: 50.0,
-        shadowColor: Colors.grey[900],
         margin: const EdgeInsets.fromLTRB(20, 0, 20, 20),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -23,16 +21,16 @@ class ProgressTimeOnTask extends StatelessWidget {
               Icon(
                 CupertinoIcons.hourglass,
                 color: Colors.brown[300],
-                size: 100,
+                size: 50,
               ),
               const SizedBox(
                 height: 5.0,
               ),
               const Text(
-                'Time on task  11:35 ',
+                'Time on task',
                 style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  fontSize: 50,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 18.5,
                 ),
               ),
             ],

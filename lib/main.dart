@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/constants/routes.dart';
+import 'package:myenglishpal_web/presentation/screens/splash/splash_view.dart';
+import 'package:myenglishpal_web/routes.dart';
 import 'package:myenglishpal_web/presentation/navigation/navigate_controller.dart';
 import 'package:myenglishpal_web/presentation/screens/comunity/community_view.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/home_page_view.dart';
@@ -43,13 +44,14 @@ class MyEnglishPal extends StatelessWidget {
           ),
         ],
       ),
-      home: const NavigateController(),
-      //initialRoute: (context) => const SplashView(),
+      home: const SplashView(),
+      //initialRoute: splashRoute,
       routes: {
         signInRoute: (context) => const SignInView(),
         registerRoute: (context) => const RegisterView(),
-        homePageRoute: (context) => const HomePageView(),
         verifyEmailRoute: (context) => const VerifyEmailView(),
+        navigateControllerRoute: (context) => const NavigateController(),
+        homePageRoute: (context) => const HomePageView(),
         comunityRoute: (context) => const CommunityView()
       },
       debugShowCheckedModeBanner: false,

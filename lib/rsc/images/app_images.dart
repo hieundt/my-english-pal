@@ -1,3 +1,7 @@
+class AppLogo {
+  static const myEnglishPalLogo = 'assets/images/app_logo/my_english_pal.png';
+}
+
 class HomePageImages {
   static const shibaImage = 'assets/images/shiba.jpg';
 

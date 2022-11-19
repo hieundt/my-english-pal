@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/components/header/data.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomePageHeader extends StatefulWidget {
   const HomePageHeader({
@@ -32,26 +31,6 @@ class _HomePageHeaderState extends State<HomePageHeader> {
         .toList();
   }
 
-  Widget buildIndicator() => AnimatedSmoothIndicator(
-        activeIndex: _current,
-        count: homePageHeaderTitle.length,
-        effect: CustomizableEffect(
-          activeDotDecoration: DotDecoration(
-            width: 100,
-            height: 12,
-            color: Colors.indigo,
-            borderRadius: BorderRadius.circular(24),
-          ),
-          dotDecoration: DotDecoration(
-            width: 40,
-            height: 12,
-            color: Colors.grey,
-            borderRadius: BorderRadius.circular(16),
-            verticalOffset: 0,
-          ),
-        ),
-      );
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -72,10 +51,6 @@ class _HomePageHeaderState extends State<HomePageHeader> {
                 },
               ),
             ),
-            const SizedBox(
-              height: 30.0,
-            ),
-            buildIndicator(),
           ],
         ),
       ),
