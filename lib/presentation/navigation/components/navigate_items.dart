@@ -39,10 +39,10 @@ const defaultNavigationRailItem = [
   ),
   NavigationRailDestination(
     icon: Icon(CupertinoIcons.doc_checkmark),
-    label: Text('Assessment Center'),
+    label: Text('Simulator'),
   ),
   NavigationRailDestination(
     icon: Icon(CupertinoIcons.create),
-    label: Text('Grammar Book'),
+    label: Text('Grammar'),
   ),
 ];

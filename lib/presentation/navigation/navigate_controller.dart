@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/navigate_items.dart';
 import 'package:myenglishpal_web/presentation/screens/simulator/simulator_view.dart';
 import 'package:myenglishpal_web/presentation/screens/comunity/community_view.dart';
-import 'package:myenglishpal_web/presentation/screens/grammar_book/grammar_book_view.dart';
+import 'package:myenglishpal_web/presentation/screens/grammar/grammar_view.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/home_page_view.dart';
 import 'package:myenglishpal_web/presentation/screens/progress/progress_view.dart';
+import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'components/main_appbar/main_appabar.dart';
 
@@ -21,7 +23,7 @@ class _NavigateControllerState extends State<NavigateController> {
     const ProgressView(),
     const CommunityView(),
     const SimulatorView(),
-    const GrammarBookView(),
+    const GrammarView(),
   ];
 
   int _selectedIndex = 0;
@@ -35,7 +37,16 @@ class _NavigateControllerState extends State<NavigateController> {
           children: [
             if (ResponsiveWrapper.of(context).isLargerThan(TABLET))
               NavigationRail(
-                extended: true,
+                minWidth: 100,
+                labelType: NavigationRailLabelType.selected,
+                selectedLabelTextStyle: ralewayStyle.copyWith(
+                  color: AppColors.mainThemeColor,
+                  fontWeight: FontWeight.w900,
+                ),
+                selectedIconTheme: const IconThemeData(
+                  color: AppColors.mainThemeColor,
+                  size: 50,
+                ),
                 onDestinationSelected: (index) {
                   setState(() {
                     _selectedIndex = index;

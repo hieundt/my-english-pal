@@ -1,53 +1,38 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:myenglishpal_web/presentation/navigation/navigate_controller.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
-import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedSplashScreen(
-      disableNavigation: true,
-      splashIconSize: 500,
-      duration: 5,
-      splashTransition: SplashTransition.fadeTransition,
-      backgroundColor: const Color(0xFF765EFC),
-      splash: Column(
-        children: [
-          Image.asset(
-            AppLogo.myEnglishPalLogo,
-            scale: 1.5,
+    return AnimatedSplashScreen.withScreenFunction(
+      splash: AppLogo.myEnglishPalLogo,
+      screenFunction: () async {
+        return const NavigateController();
+      },
+      splashIconSize: ResponsiveValue(
+        context,
+        defaultValue: 300.0,
+        valueWhen: [
+          const Condition.smallerThan(
+            name: MOBILE,
+            value: 150.0,
           ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: DefaultTextStyle(
-              textAlign: TextAlign.center,
-              style: ralewayStyle.copyWith(
-                fontSize: 100,
-                color: AppColors.whiteColor,
-                fontWeight: FontWeight.w800,
-              ),
-              child: AnimatedTextKit(
-                animatedTexts: [
-                  TyperAnimatedText(
-                    'My English Pal',
-                    speed: const Duration(
-                      milliseconds: 350,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          )
+          const Condition.smallerThan(
+            name: TABLET,
+            value: 200.0,
+          ),
         ],
-      ),
-      nextScreen: const NavigateController(),
+      ).value,
+      backgroundColor: AppColors.mainThemeColor,
+      splashTransition: SplashTransition.fadeTransition,
+      pageTransitionType: PageTransitionType.fade,
     );
   }
 }

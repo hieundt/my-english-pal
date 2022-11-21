@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/presentation/screens/homepage/components/content/listening_content.dart';
-import 'package:myenglishpal_web/presentation/screens/homepage/components/content/reading_content.dart';
-import 'package:myenglishpal_web/presentation/screens/homepage/components/header/header.dart';
+import 'package:myenglishpal_web/presentation/screens/homepage/components/content.dart';
+import 'package:myenglishpal_web/presentation/screens/homepage/components/header.dart';
+import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 
 class HomePageView extends StatelessWidget {
   const HomePageView({super.key});
@@ -10,53 +11,31 @@ class HomePageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        padding: const EdgeInsets.all(15.0),
-        children: const [
-          Text(
-            'Greeting!',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 50,
-            ),
-          ),
+        children: [
           SizedBox(
-            height: 5.0,
-          ),
-          Text(
-            'What we have here',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 35,
+            height: 100,
+            child: Text(
+              'Have a good day',
+              style: ralewayStyle.copyWith(
+                fontSize: 50,
+                color: AppColors.greyTextColor,
+                fontWeight: FontWeight.w900,
+              ),
             ),
           ),
-          //HomePageHeader(),
-          HomePageHeader(),
+          const HomePageHeader(),
           SizedBox(
-            height: 20.0,
-          ),
-          Text(
-            'Listening practices',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 35,
+            height: 100,
+            child: Text(
+              'Training section',
+              style: ralewayStyle.copyWith(
+                fontSize: 50,
+                color: AppColors.greyTextColor,
+                fontWeight: FontWeight.w900,
+              ),
             ),
           ),
-          SizedBox(
-            height: 10.0,
-          ),
-          HomePageListeningContent(),
-          Text(
-            'Reading practices',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 35,
-            ),
-          ),
-          HomePageReadingContent(),
+          const HomePageContent(),
         ],
       ),
     );

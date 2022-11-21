@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class PopUpList extends StatelessWidget {
-  const PopUpList(
-      {super.key, required this.menuList, this.icon, required this.tooltip});
+  const PopUpList({
+    super.key,
+    required this.menuList,
+    this.icon,
+    required this.tooltip,
+  });
 
   final List<PopupMenuEntry> menuList;
   final Widget? icon;

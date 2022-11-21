@@ -1,10 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/main_appbar/popup_list.dart';
+import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 
 var mainAppBar = AppBar(
-  title: const Text('My English Pal'),
+  toolbarTextStyle: ralewayStyle.copyWith(
+    color: AppColors.whiteColor,
+    fontWeight: FontWeight.w900,
+  ),
+  elevation: 0,
+  backgroundColor: AppColors.mainThemeColor,
+  leadingWidth: 50,
+  leading: Image.asset(
+    AppLogo.myEnglishPalLogo,
+  ),
+  title: const Text(
+    'My English Pal',
+  ),
   actions: const [
     //! Dictionary button
     PopUpList(
