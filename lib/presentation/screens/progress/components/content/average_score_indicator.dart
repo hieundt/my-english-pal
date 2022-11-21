@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-class ProgressAverageTestScoreIndicator extends StatelessWidget {
-  const ProgressAverageTestScoreIndicator({super.key});
+class ProgressAverageScoreIndicator extends StatelessWidget {
+  const ProgressAverageScoreIndicator({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: CircularPercentIndicator(
-        radius: 120,
-        lineWidth: 15,
+        radius: 100,
+        lineWidth: 30,
         percent: 60 / 100,
         animation: true,
         animationDuration: 1500,
         center: const Text('60%'),
-        progressColor: Colors.lightBlue[100],
+        progressColor: AppColors.lightPinkColor,
         footer: const Text('Average Test Score'),
       ),
     );

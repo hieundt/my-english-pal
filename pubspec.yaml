@@ -86,8 +86,13 @@ flutter:
     - assets/images/home_page/header/
     - assets/images/home_page/content/
 
-    - assets/images/community/content/
     - assets/images/community/header/
+    - assets/images/community/content/
+    
+    - assets/images/simulator/header/
+    - assets/images/simulator/content/
+    
+    - assets/images/progress/header/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

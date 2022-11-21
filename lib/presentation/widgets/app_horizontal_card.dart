@@ -24,8 +24,9 @@ class AppHorizontalCard extends StatelessWidget {
 
   final ElevatedButton? button;
 
+  final double cardWidth;
   final Color? color;
-  final Color shadowColor;
+  final Color? shadowColor;
   final RoundedRectangleBorder? shape;
   final double? elevation;
   final EdgeInsetsGeometry? margin;
@@ -42,8 +43,9 @@ class AppHorizontalCard extends StatelessWidget {
     double imageWidth = 600,
     double descriptionFontSize = 10,
     ElevatedButton? button,
+    double cardWidth = 1000,
     Color? color = AppColors.backColor,
-    Color shadowColor = AppColors.greyColor,
+    Color? shadowColor = AppColors.greyColor,
     RoundedRectangleBorder? shape,
     double? elevation = 50.0,
     EdgeInsetsGeometry? margin,
@@ -58,6 +60,7 @@ class AppHorizontalCard extends StatelessWidget {
       description: description,
       descriptionFontSize: descriptionFontSize,
       button: button,
+      cardWidth: cardWidth,
       color: color,
       shadowColor: shadowColor,
       shape: shape,
@@ -71,22 +74,23 @@ class AppHorizontalCard extends StatelessWidget {
     required this.title,
     required this.titleFontSize,
     required this.image,
-    required this.imageHeight,
-    required this.imageWidth,
     required this.description,
-    required this.descriptionFontSize,
-    required this.button,
-    required this.color,
+    required this.cardWidth,
     required this.shadowColor,
-    required this.shape,
-    required this.elevation,
-    required this.margin,
+    this.imageHeight,
+    this.imageWidth,
+    this.descriptionFontSize,
+    this.button,
+    this.color,
+    this.shape,
+    this.elevation,
+    this.margin,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width,
+      width: cardWidth,
       child: Card(
         shape: shape,
         color: color,

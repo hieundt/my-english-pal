@@ -40,11 +40,11 @@ class _NavigateControllerState extends State<NavigateController> {
                 minWidth: 100,
                 labelType: NavigationRailLabelType.selected,
                 selectedLabelTextStyle: ralewayStyle.copyWith(
-                  color: AppColors.mainThemeColor,
+                  color: AppColors.pinkColor,
                   fontWeight: FontWeight.w900,
                 ),
-                selectedIconTheme: const IconThemeData(
-                  color: AppColors.mainThemeColor,
+                selectedIconTheme: IconThemeData(
+                  color: AppColors.pinkColor,
                   size: 50,
                 ),
                 onDestinationSelected: (index) {
@@ -67,7 +67,7 @@ class _NavigateControllerState extends State<NavigateController> {
                   type: BottomNavigationBarType.fixed,
                   currentIndex: _selectedIndex,
                   unselectedItemColor: Colors.grey,
-                  selectedItemColor: Colors.indigoAccent,
+                  selectedItemColor: AppColors.pinkColor,
                   onTap: (index) {
                     setState(() {
                       _selectedIndex = index;

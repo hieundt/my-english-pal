@@ -7,7 +7,7 @@ class ProgressTimeOnTask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery.of(context).size.width / 3,
       height: 150,
       child: Card(
         shape: RoundedRectangleBorder(

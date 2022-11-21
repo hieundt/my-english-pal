@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_vertical_card.dart';
+import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/strings/simulator_view_string.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -10,32 +11,42 @@ class SimulatorContent extends StatelessWidget {
   Widget build(BuildContext context) {
     List<SimulatorContentString> simulatorContentString =
         SimulatorContentString.simulatorContentString;
-    return ResponsiveGridView.builder(
-      shrinkWrap: true,
-      clipBehavior: Clip.none,
-      alignment: ResponsiveWrapper.of(context).isLargerThan(TABLET)
-          ? Alignment.center
-          : Alignment.topCenter,
-      itemCount: simulatorContentString.length,
-      gridDelegate: const ResponsiveGridDelegate(
-        crossAxisExtent: 500,
-        mainAxisSpacing: 50,
-        crossAxisSpacing: 10,
-      ),
-      itemBuilder: (context, index) {
-        return Column(children: [
-          AppVerticalCard(
-            imageHeight: 135,
-            titleFontSize: 10,
+    return ResponsiveRowColumn(
+      layout: ResponsiveWrapper.of(context).isSmallerThan(TABLET)
+          ? ResponsiveRowColumnType.COLUMN
+          : ResponsiveRowColumnType.ROW,
+      rowPadding: const EdgeInsets.all(20),
+      columnPadding: const EdgeInsets.all(20),
+      children: [
+        ResponsiveRowColumnItem(
+          rowFlex: 1,
+          child: AppVerticalCard(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
-            title: simulatorContentString[index].title,
-            image: '',
-            //image: simulatorContentString[index].image,
+            elevation: 0,
+            imageWidth: 500,
+            imageHeight: 300,
+            color: AppColors.lightBlueColor,
+            title: simulatorContentString[0].title,
+            image: simulatorContentString[0].image,
           ),
-        ]);
-      },
+        ),
+        ResponsiveRowColumnItem(
+          rowFlex: 1,
+          child: AppVerticalCard(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            elevation: 0,
+            imageWidth: 500,
+            imageHeight: 300,
+            color: AppColors.lightBlueColor,
+            title: simulatorContentString[1].title,
+            image: simulatorContentString[1].image,
+          ),
+        ),
+      ],
     );
   }
 }

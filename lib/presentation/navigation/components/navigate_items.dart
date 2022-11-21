@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 
 const defaultNavigationBarItem = [
   BottomNavigationBarItem(
-    icon: Icon(CupertinoIcons.home),
+    icon: Icon(CupertinoIcons.house_fill),
     label: 'Home',
   ),
   BottomNavigationBarItem(
-    icon: Icon(CupertinoIcons.chart_bar),
+    icon: Icon(CupertinoIcons.chart_pie_fill),
     label: 'Progress',
   ),
   BottomNavigationBarItem(
-    icon: Icon(CupertinoIcons.group),
+    icon: Icon(CupertinoIcons.group_solid),
     label: 'Comunity',
   ),
   BottomNavigationBarItem(
-    icon: Icon(CupertinoIcons.doc_checkmark),
+    icon: Icon(CupertinoIcons.doc_checkmark_fill),
     label: 'Simulator',
   ),
   BottomNavigationBarItem(
@@ -26,19 +26,19 @@ const defaultNavigationBarItem = [
 
 const defaultNavigationRailItem = [
   NavigationRailDestination(
-    icon: Icon(CupertinoIcons.home),
+    icon: Icon(CupertinoIcons.house_fill),
     label: Text('Home'),
   ),
   NavigationRailDestination(
-    icon: Icon(CupertinoIcons.chart_bar),
+    icon: Icon(CupertinoIcons.chart_pie_fill),
     label: Text('Progress'),
   ),
   NavigationRailDestination(
-    icon: Icon(CupertinoIcons.group),
+    icon: Icon(CupertinoIcons.group_solid),
     label: Text('Comunity'),
   ),
   NavigationRailDestination(
-    icon: Icon(CupertinoIcons.doc_checkmark),
+    icon: Icon(CupertinoIcons.doc_checkmark_fill),
     label: Text('Simulator'),
   ),
   NavigationRailDestination(

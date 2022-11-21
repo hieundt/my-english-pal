@@ -1,3 +1,5 @@
+import 'package:myenglishpal_web/presentation/screens/progress/components/header.dart';
+
 class AppLogo {
   static const myEnglishPalLogo = 'assets/images/app_logo/my_english_pal.png';
 }
@@ -32,4 +34,17 @@ class CommunityImages {
   static const magazine = 'assets/images/community/content/magazine.jpg';
   static const talkingIdioms =
       'assets/images/community/content/talking_idioms.png';
+}
+
+class SimulatorImages {
+  static const headerImage =
+      'assets/images/simulator/header/simulator_header.png';
+  static const normalModeImage =
+      'assets/images/simulator/content/normal_mode.jpg';
+  static const hardModeImage = 'assets/images/simulator/content/hard_mode.jpg';
+}
+
+class ProgressImages {
+  static const headerImage =
+      'assets/images/progress/header/progress_header.jpg';
 }

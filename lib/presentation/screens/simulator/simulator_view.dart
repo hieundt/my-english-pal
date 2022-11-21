@@ -10,9 +10,6 @@ class SimulatorView extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: const [
-          SizedBox(
-            height: 100,
-          ),
           SimulatorHeader(),
           SimulatorContent(),
         ],

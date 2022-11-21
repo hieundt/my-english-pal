@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/presentation/screens/progress/components/content/average_test_score/indicator.dart';
+import 'package:myenglishpal_web/presentation/screens/progress/components/content/average_score_indicator.dart';
 import 'package:myenglishpal_web/presentation/screens/progress/components/content/day_streak/day_streak.dart';
-import 'package:myenglishpal_web/presentation/screens/progress/components/content/task_completion/indicator.dart';
+import 'package:myenglishpal_web/presentation/screens/progress/components/content/task_completion_indicator.dart';
 import 'package:myenglishpal_web/presentation/screens/progress/components/content/time_on_task/time_on_task.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -49,7 +49,7 @@ class ProgressContent extends StatelessWidget {
       children: const [
         ProgressDayStreak(),
         ProgressTimeOnTask(),
-        ProgressAverageTestScoreIndicator(),
+        ProgressAverageScoreIndicator(),
         SizedBox(
           height: 50,
         ),

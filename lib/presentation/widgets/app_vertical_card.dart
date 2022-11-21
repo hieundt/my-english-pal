@@ -16,7 +16,7 @@ class AppVerticalCard extends StatelessWidget {
 
   final ElevatedButton? button;
 
-  final Color color;
+  final Color? color;
   final Color shadowColor;
   final RoundedRectangleBorder? shape;
   final double? elevation;
@@ -31,7 +31,7 @@ class AppVerticalCard extends StatelessWidget {
     String description = '',
     double? descriptionFontSize = 10,
     ElevatedButton? button,
-    Color color = Colors.white,
+    Color? color = Colors.white,
     Color shadowColor = Colors.grey,
     RoundedRectangleBorder? shape,
     double? elevation = 50.0,
@@ -77,6 +77,7 @@ class AppVerticalCard extends StatelessWidget {
       child: Card(
         shape: shape,
         elevation: elevation,
+        color: color,
         shadowColor: shadowColor,
         margin: margin,
         child: ResponsiveRowColumn(
