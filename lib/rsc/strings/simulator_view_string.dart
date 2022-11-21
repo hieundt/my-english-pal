@@ -1,10 +1,10 @@
-class SimulatorContentData {
-  static final assessmentCenterContentData = [
-    SimulatorContentData(
+class SimulatorContentString {
+  static final simulatorContentString = [
+    SimulatorContentString(
       title: 'Normal mode',
       description: 'You are a beginner?\nTry this',
     ),
-    SimulatorContentData(
+    SimulatorContentString(
       title: 'Hard mode',
       description: 'Too easy for you?\nTake on some challenges',
     ),
@@ -13,7 +13,7 @@ class SimulatorContentData {
   String title;
   String description;
 
-  SimulatorContentData({
+  SimulatorContentString({
     required this.title,
     required this.description,
   });

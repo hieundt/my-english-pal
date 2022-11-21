@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/presentation/screens/simulator/components/content/content.dart';
-import 'package:myenglishpal_web/presentation/screens/simulator/components/header/header.dart';
+import 'package:myenglishpal_web/presentation/screens/simulator/components/content.dart';
+import 'package:myenglishpal_web/presentation/screens/simulator/components/header.dart';
 
 class SimulatorView extends StatelessWidget {
   const SimulatorView({super.key});
