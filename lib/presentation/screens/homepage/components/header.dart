@@ -24,60 +24,9 @@ class _HomePageHeaderState extends State<HomePageHeader> {
           (e) => AppVerticalCard(
             image: e.image,
             title: e.title,
-            imageWidth: ResponsiveValue(
-              context,
-              defaultValue: 600.0,
-              valueWhen: [
-                const Condition.equals(
-                  name: MOBILE,
-                  value: 130.0,
-                ),
-                const Condition.equals(
-                  name: TABLET,
-                  value: 300.0,
-                ),
-              ],
-            ).value,
-            imageHeight: ResponsiveValue(
-              context,
-              defaultValue: 600.0,
-              valueWhen: [
-                const Condition.smallerThan(
-                  name: MOBILE,
-                  value: 140.0,
-                ),
-                const Condition.equals(
-                  name: MOBILE,
-                  value: 230.0,
-                ),
-                const Condition.largerThan(
-                  name: MOBILE,
-                  value: 250.0,
-                ),
-                const Condition.smallerThan(
-                  name: TABLET,
-                  value: 250.0,
-                ),
-              ],
-            ).value,
-            titleFontSize: ResponsiveValue(
-              context,
-              defaultValue: 26.0,
-              valueWhen: [
-                const Condition.smallerThan(
-                  name: DESKTOP,
-                  value: 20.0,
-                ),
-                const Condition.smallerThan(
-                  name: TABLET,
-                  value: 15.0,
-                ),
-                const Condition.smallerThan(
-                  name: MOBILE,
-                  value: 10.0,
-                ),
-              ],
-            ).value,
+            imageWidth: 600,
+            imageHeight: 400,
+            titleFontSize: 26,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),

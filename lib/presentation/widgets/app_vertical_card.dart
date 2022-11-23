@@ -17,7 +17,7 @@ class AppVerticalCard extends StatelessWidget {
   final ElevatedButton? button;
 
   final Color? color;
-  final Color shadowColor;
+  final Color? shadowColor;
   final RoundedRectangleBorder? shape;
   final double? elevation;
   final EdgeInsetsGeometry? margin;
@@ -32,7 +32,7 @@ class AppVerticalCard extends StatelessWidget {
     double? descriptionFontSize = 10,
     ElevatedButton? button,
     Color? color = Colors.white,
-    Color shadowColor = Colors.grey,
+    Color? shadowColor = Colors.grey,
     RoundedRectangleBorder? shape,
     double? elevation = 50.0,
     EdgeInsetsGeometry? margin,

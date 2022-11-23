@@ -23,17 +23,19 @@ class HomePageContent extends StatelessWidget {
         crossAxisSpacing: 10,
       ),
       itemBuilder: (context, index) {
-        return Column(children: [
-          AppVerticalCard(
-            imageHeight: 135,
-            titleFontSize: 10,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
+        return Column(
+          children: [
+            AppVerticalCard(
+              imageHeight: 135,
+              titleFontSize: 10,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              title: homePageContentString[index].title,
+              image: homePageContentString[index].image,
             ),
-            title: homePageContentString[index].title,
-            image: homePageContentString[index].image,
-          ),
-        ]);
+          ],
+        );
       },
     );
   }

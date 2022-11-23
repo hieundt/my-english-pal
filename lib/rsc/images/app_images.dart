@@ -1,5 +1,3 @@
-import 'package:myenglishpal_web/presentation/screens/progress/components/header.dart';
-
 class AppLogo {
   static const myEnglishPalLogo = 'assets/images/app_logo/my_english_pal.png';
 }
@@ -47,4 +45,13 @@ class SimulatorImages {
 class ProgressImages {
   static const headerImage =
       'assets/images/progress/header/progress_header.jpg';
+}
+
+class GrammarImages {
+  static const headerImage = 'assets/images/grammar/header/grammar_header.jpg';
+  static const contentPresentTenseIcon =
+      'assets/images/grammar/content/present.png';
+  static const contentFutureTenseIcon =
+      'assets/images/grammar/content/future.png';
+  static const contentPastTenseIcon = 'assets/images/grammar/content/past.png';
 }
