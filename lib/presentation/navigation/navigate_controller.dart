@@ -43,7 +43,7 @@ class _NavigateControllerState extends State<NavigateController> {
                   color: AppColors.pinkColor,
                   fontWeight: FontWeight.w900,
                 ),
-                selectedIconTheme: IconThemeData(
+                selectedIconTheme: const IconThemeData(
                   color: AppColors.pinkColor,
                   size: 50,
                 ),

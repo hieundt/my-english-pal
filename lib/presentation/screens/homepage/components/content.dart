@@ -1,32 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
+import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/strings/home_page_view_string.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_vertical_card.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-class HomePageContent extends StatelessWidget {
+class HomePageContent extends StatefulWidget {
   const HomePageContent({super.key});
 
+  @override
+  State<HomePageContent> createState() => _HomePageContentState();
+}
+
+class _HomePageContentState extends State<HomePageContent> {
   @override
   Widget build(BuildContext context) {
     List<HomePageContentString> homePageContentString =
         HomePageContentString.homePageContentString;
-    return ResponsiveGridView.builder(
+
+    return GridView.builder(
       shrinkWrap: true,
       clipBehavior: Clip.none,
-      alignment: ResponsiveWrapper.of(context).isLargerThan(TABLET)
-          ? Alignment.center
-          : Alignment.topCenter,
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: homePageContentString.length,
-      gridDelegate: const ResponsiveGridDelegate(
-        crossAxisExtent: 230,
-        mainAxisSpacing: 50,
-        crossAxisSpacing: 10,
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 500,
+        mainAxisExtent: 350,
+        mainAxisSpacing: 5,
+        crossAxisSpacing: 20,
+        childAspectRatio: 3 / 2,
       ),
       itemBuilder: (context, index) {
         return Column(
           children: [
             AppVerticalCard(
-              imageHeight: 135,
+              button: AppButton(
+                layout: AppButtonType.ELEVATEDBUTTON,
+                buttonText: 'Start',
+                buttonColor: AppColors.lightPinkColor,
+                onPressed: () {},
+              ),
+              imageHeight: 200,
               titleFontSize: 10,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),

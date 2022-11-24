@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-class ProgressAverageScoreIndicator extends StatelessWidget {
-  const ProgressAverageScoreIndicator({super.key});
+class ProgressAverageScore extends StatelessWidget {
+  const ProgressAverageScore({super.key});
 
   @override
   Widget build(BuildContext context) {

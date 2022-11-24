@@ -30,7 +30,7 @@ class SplashView extends StatelessWidget {
           ),
         ],
       ).value,
-      backgroundColor: AppColors.mainThemeColor!,
+      backgroundColor: AppColors.mainThemeColor,
       splashTransition: SplashTransition.fadeTransition,
       pageTransitionType: PageTransitionType.fade,
     );

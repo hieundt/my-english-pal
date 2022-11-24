@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -22,7 +23,7 @@ class AppHorizontalCard extends StatelessWidget {
   final String description;
   final double? descriptionFontSize;
 
-  final ElevatedButton? button;
+  final AppButton button;
 
   final double cardWidth;
   final Color? color;
@@ -37,12 +38,12 @@ class AppHorizontalCard extends StatelessWidget {
     required AppHorizontalCardType layout,
     required String title,
     required String image,
+    required AppButton button,
     String description = '',
     double titleFontSize = 26,
     double imageHeight = 400.0,
     double imageWidth = 600,
     double descriptionFontSize = 10,
-    ElevatedButton? button,
     double cardWidth = 1000,
     Color? color = AppColors.backColor,
     Color? shadowColor = AppColors.greyColor,
@@ -77,10 +78,10 @@ class AppHorizontalCard extends StatelessWidget {
     required this.description,
     required this.cardWidth,
     required this.shadowColor,
+    required this.button,
     this.imageHeight,
     this.imageWidth,
     this.descriptionFontSize,
-    this.button,
     this.color,
     this.shape,
     this.elevation,
@@ -107,7 +108,7 @@ class AppHorizontalCard extends StatelessWidget {
                 columnPadding: const EdgeInsets.all(20.0),
                 children: [
                   ResponsiveRowColumnItem(
-                    rowFlex: 3,
+                    rowFlex: 6,
                     child: Image.asset(
                       image,
                       height: imageHeight,
@@ -122,7 +123,7 @@ class AppHorizontalCard extends StatelessWidget {
                     ),
                   ),
                   ResponsiveRowColumnItem(
-                    rowFlex: 1,
+                    rowFlex: 3,
                     child: ResponsiveRowColumn(
                       layout: ResponsiveRowColumnType.COLUMN,
                       children: [
@@ -146,6 +147,9 @@ class AppHorizontalCard extends StatelessWidget {
                             ),
                           ),
                         ),
+                        ResponsiveRowColumnItem(
+                          child: button,
+                        )
                       ],
                     ),
                   ),
@@ -184,6 +188,9 @@ class AppHorizontalCard extends StatelessWidget {
                             ),
                           ),
                         ),
+                        ResponsiveRowColumnItem(
+                          child: button,
+                        )
                       ],
                     ),
                   ),

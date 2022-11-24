@@ -44,39 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBS0n8cxgfpo9lsA4oEGQa5ZyfY6PrQfB8',
-    appId: '1:583539557800:web:5f56b1ca25eed9973d899d',
-    messagingSenderId: '583539557800',
-    projectId: 'my-english-pal-web',
-    authDomain: 'my-english-pal-web.firebaseapp.com',
-    storageBucket: 'my-english-pal-web.appspot.com',
+    apiKey: 'AIzaSyCaQKhmLY6kddE2RqfLRz9BeI3Vc1YaT9w',
+    appId: '1:374517583382:web:5c269403133da966256f37',
+    messagingSenderId: '374517583382',
+    projectId: 'my-english-pal-6e6e7',
+    authDomain: 'my-english-pal-6e6e7.firebaseapp.com',
+    storageBucket: 'my-english-pal-6e6e7.appspot.com',
+    measurementId: 'G-VPND06TBMD',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAEqfr6CjLMIuQ8mug55kIA7rTAyCk_9yQ',
-    appId: '1:583539557800:android:e4ee279d1c4c51913d899d',
-    messagingSenderId: '583539557800',
-    projectId: 'my-english-pal-web',
-    storageBucket: 'my-english-pal-web.appspot.com',
+    apiKey: 'AIzaSyA5anXLYSQwTUG5X8_UT-fP5dVGFHypp4M',
+    appId: '1:374517583382:android:e6e9f15357ba2488256f37',
+    messagingSenderId: '374517583382',
+    projectId: 'my-english-pal-6e6e7',
+    storageBucket: 'my-english-pal-6e6e7.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyB6o9NrBY-GgE1tpBGQzb9is9oSK_vS_o8',
-    appId: '1:583539557800:ios:e55f7a843b47363c3d899d',
-    messagingSenderId: '583539557800',
-    projectId: 'my-english-pal-web',
-    storageBucket: 'my-english-pal-web.appspot.com',
-    iosClientId: '583539557800-tfcvd9gmtpuhbfb52nkfs0bkl22cq0t9.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAkgWbyXmpEcbs0mZ1jNeVrCUHGHwEIhQ8',
+    appId: '1:374517583382:ios:56cad65ff4835b69256f37',
+    messagingSenderId: '374517583382',
+    projectId: 'my-english-pal-6e6e7',
+    storageBucket: 'my-english-pal-6e6e7.appspot.com',
+    iosClientId: '374517583382-pebrjooujqmr5judlhvhnisimfnn9t2n.apps.googleusercontent.com',
     iosBundleId: 'com.example.myenglishpalWeb',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyB6o9NrBY-GgE1tpBGQzb9is9oSK_vS_o8',
-    appId: '1:583539557800:ios:e55f7a843b47363c3d899d',
-    messagingSenderId: '583539557800',
-    projectId: 'my-english-pal-web',
-    storageBucket: 'my-english-pal-web.appspot.com',
-    iosClientId: '583539557800-tfcvd9gmtpuhbfb52nkfs0bkl22cq0t9.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAkgWbyXmpEcbs0mZ1jNeVrCUHGHwEIhQ8',
+    appId: '1:374517583382:ios:56cad65ff4835b69256f37',
+    messagingSenderId: '374517583382',
+    projectId: 'my-english-pal-6e6e7',
+    storageBucket: 'my-english-pal-6e6e7.appspot.com',
+    iosClientId: '374517583382-pebrjooujqmr5judlhvhnisimfnn9t2n.apps.googleusercontent.com',
     iosBundleId: 'com.example.myenglishpalWeb',
   );
 }
