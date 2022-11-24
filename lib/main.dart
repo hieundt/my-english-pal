@@ -44,7 +44,7 @@ class MyEnglishPal extends StatelessWidget {
           ),
         ],
       ),
-      home: const SplashView(),
+      home: const SignInView(),
       //initialRoute: splashRoute,
       routes: {
         signInRoute: (context) => const SignInView(),

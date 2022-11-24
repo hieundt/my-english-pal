@@ -55,3 +55,7 @@ class GrammarImages {
       'assets/images/grammar/content/future.png';
   static const contentPastTenseIcon = 'assets/images/grammar/content/past.png';
 }
+
+class UserViewImages {
+  static const headerImage = 'assets/images/user_view/user_view_header.jpg';
+}
