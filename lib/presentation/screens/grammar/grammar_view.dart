@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/screens/grammar/components/content.dart';
 import 'package:myenglishpal_web/presentation/screens/grammar/components/header.dart';
-import 'package:myenglishpal_web/presentation/screens/homepage/components/content.dart';
-import 'package:myenglishpal_web/presentation/screens/homepage/components/header.dart';
 
 class GrammarView extends StatelessWidget {
   const GrammarView({super.key});
@@ -11,7 +9,7 @@ class GrammarView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: [
+        children: const [
           GrammarHeader(),
           GrammarContent(),
         ],
