@@ -57,5 +57,5 @@ class GrammarImages {
 }
 
 class UserViewImages {
-  static const headerImage = 'assets/images/user_view/user_view_header.jpg';
+  static const backgroundImage = 'assets/images/user_view/background.jpg';
 }

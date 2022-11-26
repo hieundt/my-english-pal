@@ -11,18 +11,21 @@ enum AppTextFieldType {
 
 class AppTextField extends StatefulWidget {
   final AppTextFieldType layout;
+  final String hintText;
 
-  get isEmail => layout == AppTextFieldType.EMAIL;
   factory AppTextField({
     required AppTextFieldType layout,
+    required String hintText,
   }) {
     return AppTextField._internal(
       layout: layout,
+      hintText: hintText,
     );
   }
 
   const AppTextField._internal({
     required this.layout,
+    required this.hintText,
   });
 
   @override
@@ -37,7 +40,7 @@ class _AppTextFieldState extends State<AppTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width / 2,
+      width: MediaQuery.of(context).size.width / 3,
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         boxShadow: [
@@ -86,9 +89,7 @@ class _AppTextFieldState extends State<AppTextField> {
                         : CupertinoIcons.eye,
                   ),
                 ),
-          hintText: (widget.layout == AppTextFieldType.EMAIL)
-              ? 'Enter your email here'
-              : 'Enter your password here',
+          hintText: widget.hintText,
           hintStyle: ralewayStyle.copyWith(
             fontSize: 15,
             color: AppColors.blackTextColor,

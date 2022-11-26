@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static final mainThemeColor = Colors.lightBlueAccent[100];
-  static final lightBlueColor = Colors.lightBlue[50];
-  static final brownColor = Colors.brown[100];
-  static final blueGreyColor = Colors.blueGrey[50];
-  static final pinkColor = Colors.pink[100];
-  static final lightPinkColor = Colors.pink[50];
+  static const mainThemeColor = Color(0xFF80D8FF);
+  static const lightBlueColor = Color(0xFFE1F5FE);
+  static const brownColor = Color(0xFFD7CCC8);
+  static const blueGreyColor = Color(0xFFECEFF1);
+  static const pinkColor = Color(0xFFF8BBD0);
+  static const lightPinkColor = Color(0xFFFCE4EC);
   static const blackColor = Colors.black;
   static const backColor = Color(0xffF6F6F6);
   static const blackTextColor = Colors.black54;
