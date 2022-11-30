@@ -15,6 +15,8 @@ class AppButton extends StatelessWidget {
   final Color? buttonTextColor;
   final Color? buttonColor;
 
+  final void Function()? onPressed;
+
   get isElevated => layout == AppButtonType.ELEVATEDBUTTON;
   get isOutlined => layout == AppButtonType.OUTLINEDBUTTON;
   get isText => layout == AppButtonType.TEXTBUTTON;
@@ -22,11 +24,13 @@ class AppButton extends StatelessWidget {
   factory AppButton({
     required AppButtonType layout,
     required String buttonText,
+    required void Function()? onPressed,
     Color? buttonTextColor = AppColors.blackColor,
     Color? buttonColor = AppColors.mainThemeColor,
   }) {
     return AppButton._internal(
       layout: layout,
+      onPressed: onPressed,
       buttonText: buttonText,
       buttonTextColor: buttonTextColor,
       buttonColor: buttonColor,
@@ -36,6 +40,7 @@ class AppButton extends StatelessWidget {
   const AppButton._internal({
     required this.layout,
     required this.buttonText,
+    required this.onPressed,
     this.buttonTextColor,
     this.buttonColor,
   });
@@ -52,7 +57,7 @@ class AppButton extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           buttonText,
           style: ralewayStyle.copyWith(
@@ -74,7 +79,7 @@ class AppButton extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           buttonText,
           style: ralewayStyle.copyWith(
@@ -86,6 +91,7 @@ class AppButton extends StatelessWidget {
       );
     }
     return TextButton(
+      onPressed: onPressed,
       child: Text(
         buttonText,
         style: ralewayStyle.copyWith(
@@ -94,7 +100,6 @@ class AppButton extends StatelessWidget {
           fontWeight: FontWeight.w500,
         ),
       ),
-      onPressed: () {},
     );
   }
 }

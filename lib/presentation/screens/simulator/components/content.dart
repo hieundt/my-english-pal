@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_vertical_card.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/strings/simulator_view_string.dart';
@@ -30,11 +31,21 @@ class SimulatorContent extends StatelessWidget {
             color: AppColors.lightBlueColor,
             title: simulatorContentString[0].title,
             image: simulatorContentString[0].image,
+            button: AppButton(
+              layout: AppButtonType.ELEVATEDBUTTON,
+              buttonText: 'Join test',
+              onPressed: () {},
+            ),
           ),
         ),
         ResponsiveRowColumnItem(
           rowFlex: 1,
           child: AppVerticalCard(
+            button: AppButton(
+              layout: AppButtonType.ELEVATEDBUTTON,
+              buttonText: 'Join test',
+              onPressed: () {},
+            ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),

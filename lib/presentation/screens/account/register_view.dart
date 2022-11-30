@@ -36,6 +36,7 @@ class _RegisterViewState extends State<RegisterView> {
           AppButton(
             layout: AppButtonType.ELEVATEDBUTTON,
             buttonText: 'Register',
+            onPressed: () {},
           ),
           AccountViewFooter(
             description: "Already have an account?",

@@ -15,7 +15,7 @@ class HomePageView extends StatelessWidget {
           SizedBox(
             height: 100,
             child: Text(
-              'Have a good day',
+              'Vocabulary section',
               style: ralewayStyle.copyWith(
                 fontSize: 50,
                 color: AppColors.greyTextColor,
@@ -27,7 +27,7 @@ class HomePageView extends StatelessWidget {
           SizedBox(
             height: 100,
             child: Text(
-              'Training section',
+              'Trainning section',
               style: ralewayStyle.copyWith(
                 fontSize: 50,
                 color: AppColors.greyTextColor,

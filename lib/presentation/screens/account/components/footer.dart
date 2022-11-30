@@ -46,6 +46,7 @@ class AccountViewFooter extends StatelessWidget {
             layout: AppButtonType.TEXTBUTTON,
             buttonText: buttonText,
             buttonTextColor: AppColors.mainThemeColor,
+            onPressed: () {},
           ),
         ),
       ],

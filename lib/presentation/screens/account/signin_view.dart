@@ -23,19 +23,21 @@ class _SignInViewState extends State<SignInView> {
           ),
           AppTextField(
             layout: AppTextFieldType.EMAIL,
-            hintText: '',
+            hintText: 'Enter your email here',
           ),
           AppTextField(
             layout: AppTextFieldType.PASSWORD,
-            hintText: '',
+            hintText: 'Enter your password here',
           ),
           AppButton(
             layout: AppButtonType.TEXTBUTTON,
             buttonText: 'Forgot password?',
+            onPressed: () {},
           ),
           AppButton(
             layout: AppButtonType.ELEVATEDBUTTON,
             buttonText: 'Sign In',
+            onPressed: () {},
           ),
           AccountViewFooter(
             description: "Don't have an account?",
