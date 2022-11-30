@@ -7,20 +7,24 @@ import 'package:responsive_framework/responsive_framework.dart';
 class AccountViewFooter extends StatelessWidget {
   final String description;
   final String buttonText;
+  final void Function()? onPressed;
 
   factory AccountViewFooter({
     required String description,
     required String buttonText,
+    required void Function()? onPressed,
   }) {
     return AccountViewFooter._internal(
       description: description,
       buttonText: buttonText,
+      onPressed: onPressed,
     );
   }
 
   const AccountViewFooter._internal({
     required this.description,
     required this.buttonText,
+    required this.onPressed,
   });
 
   @override
@@ -46,6 +50,7 @@ class AccountViewFooter extends StatelessWidget {
             layout: AppButtonType.TEXTBUTTON,
             buttonText: buttonText,
             buttonTextColor: AppColors.mainThemeColor,
+            onPressed: onPressed,
           ),
         ),
       ],

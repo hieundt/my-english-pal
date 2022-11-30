@@ -3,6 +3,7 @@ import 'package:myenglishpal_web/presentation/screens/account/components/footer.
 import 'package:myenglishpal_web/presentation/screens/account/components/header.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_text_field.dart';
+import 'package:myenglishpal_web/routes.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({super.key});
@@ -23,23 +24,31 @@ class _SignInViewState extends State<SignInView> {
           ),
           AppTextField(
             layout: AppTextFieldType.EMAIL,
-            hintText: '',
+            hintText: 'Enter your email here',
           ),
           AppTextField(
             layout: AppTextFieldType.PASSWORD,
-            hintText: '',
+            hintText: 'Enter your password here',
           ),
           AppButton(
             layout: AppButtonType.TEXTBUTTON,
             buttonText: 'Forgot password?',
+            onPressed: () {},
           ),
           AppButton(
             layout: AppButtonType.ELEVATEDBUTTON,
             buttonText: 'Sign In',
+            onPressed: () {},
           ),
           AccountViewFooter(
             description: "Don't have an account?",
             buttonText: 'Create',
+            onPressed: () {
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                registerRoute,
+                (route) => false,
+              );
+            },
           ),
         ],
       ),

@@ -3,6 +3,7 @@ import 'package:myenglishpal_web/presentation/screens/account/components/footer.
 import 'package:myenglishpal_web/presentation/screens/account/components/header.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_text_field.dart';
+import 'package:myenglishpal_web/routes.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -36,10 +37,17 @@ class _RegisterViewState extends State<RegisterView> {
           AppButton(
             layout: AppButtonType.ELEVATEDBUTTON,
             buttonText: 'Register',
+            onPressed: () {},
           ),
           AccountViewFooter(
             description: "Already have an account?",
             buttonText: 'Sign In',
+            onPressed: () {
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                signInRoute,
+                (route) => false,
+              );
+            },
           ),
         ],
       ),

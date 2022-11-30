@@ -2,9 +2,11 @@ class AppLogo {
   static const myEnglishPalLogo = 'assets/images/app_logo/my_english_pal.png';
 }
 
-class HomePageImages {
-  static const shibaImage = 'assets/images/shiba.jpg';
+class UserAvatar {
+  static const shibaImage = 'assets/images/user_avatar/shiba.jpg';
+}
 
+class HomePageImages {
   static const headeroneImages = 'assets/images/home_page/header/header_1.png';
   static const headertwoImages = 'assets/images/home_page/header/header_2.png';
   static const headerthreeImages =

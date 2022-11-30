@@ -1,14 +1,18 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/presentation/navigation/components/navigate_items.dart';
+import 'package:myenglishpal_web/presentation/navigation/navigate_items.dart';
 import 'package:myenglishpal_web/presentation/screens/simulator/simulator_view.dart';
 import 'package:myenglishpal_web/presentation/screens/comunity/community_view.dart';
 import 'package:myenglishpal_web/presentation/screens/grammar/grammar_view.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/home_page_view.dart';
-import 'package:myenglishpal_web/presentation/screens/progress/progress_view.dart';
+import 'package:myenglishpal_web/presentation/screens/account/profile/profile_view.dart';
+
+import 'package:myenglishpal_web/routes.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
+import 'package:myenglishpal_web/rsc/images/app_images.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'components/main_appbar/main_appabar.dart';
+import '../widgets/main_appabar.dart';
 
 class NavigateController extends StatefulWidget {
   const NavigateController({super.key});
@@ -20,7 +24,6 @@ class NavigateController extends StatefulWidget {
 class _NavigateControllerState extends State<NavigateController> {
   final List<Widget> _screens = [
     const HomePageView(),
-    const ProgressView(),
     const CommunityView(),
     const SimulatorView(),
     const GrammarView(),
@@ -31,7 +34,9 @@ class _NavigateControllerState extends State<NavigateController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: mainAppBar,
+      appBar: MainAppBar(
+        title: 'My English Pal',
+      ),
       body: SafeArea(
         child: Row(
           children: [
@@ -43,14 +48,16 @@ class _NavigateControllerState extends State<NavigateController> {
                   color: AppColors.pinkColor,
                   fontWeight: FontWeight.w900,
                 ),
-                selectedIconTheme: IconThemeData(
+                selectedIconTheme: const IconThemeData(
                   color: AppColors.pinkColor,
                   size: 50,
                 ),
                 onDestinationSelected: (index) {
-                  setState(() {
-                    _selectedIndex = index;
-                  });
+                  setState(
+                    () {
+                      _selectedIndex = index;
+                    },
+                  );
                 },
                 destinations: defaultNavigationRailItem,
                 selectedIndex: _selectedIndex,
@@ -66,12 +73,14 @@ class _NavigateControllerState extends State<NavigateController> {
               ? BottomNavigationBar(
                   type: BottomNavigationBarType.fixed,
                   currentIndex: _selectedIndex,
-                  unselectedItemColor: Colors.grey,
+                  unselectedItemColor: AppColors.greyColor,
                   selectedItemColor: AppColors.pinkColor,
                   onTap: (index) {
-                    setState(() {
-                      _selectedIndex = index;
-                    });
+                    setState(
+                      () {
+                        _selectedIndex = index;
+                      },
+                    );
                   },
                   items: defaultNavigationBarItem,
                 )

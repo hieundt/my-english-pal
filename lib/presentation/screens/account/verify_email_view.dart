@@ -28,6 +28,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
           AppButton(
             layout: AppButtonType.ELEVATEDBUTTON,
             buttonText: 'Send a link',
+            onPressed: () {},
           ),
         ],
       ),

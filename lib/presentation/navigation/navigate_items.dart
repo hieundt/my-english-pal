@@ -7,10 +7,6 @@ const defaultNavigationBarItem = [
     label: 'Home',
   ),
   BottomNavigationBarItem(
-    icon: Icon(CupertinoIcons.chart_pie_fill),
-    label: 'Progress',
-  ),
-  BottomNavigationBarItem(
     icon: Icon(CupertinoIcons.group_solid),
     label: 'Comunity',
   ),
@@ -28,10 +24,6 @@ const defaultNavigationRailItem = [
   NavigationRailDestination(
     icon: Icon(CupertinoIcons.house_fill),
     label: Text('Home'),
-  ),
-  NavigationRailDestination(
-    icon: Icon(CupertinoIcons.chart_pie_fill),
-    label: Text('Progress'),
   ),
   NavigationRailDestination(
     icon: Icon(CupertinoIcons.group_solid),

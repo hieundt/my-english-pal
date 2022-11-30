@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -14,7 +15,7 @@ class AppVerticalCard extends StatelessWidget {
   final String description;
   final double? descriptionFontSize;
 
-  final ElevatedButton? button;
+  final AppButton button;
 
   final Color? color;
   final Color? shadowColor;
@@ -30,7 +31,7 @@ class AppVerticalCard extends StatelessWidget {
     double? imageWidth = 600,
     String description = '',
     double? descriptionFontSize = 10,
-    ElevatedButton? button,
+    required AppButton button,
     Color? color = Colors.white,
     Color? shadowColor = Colors.grey,
     RoundedRectangleBorder? shape,
@@ -73,7 +74,6 @@ class AppVerticalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width / 1.5,
       child: Card(
         shape: shape,
         elevation: elevation,
@@ -87,7 +87,7 @@ class AppVerticalCard extends StatelessWidget {
           columnPadding: const EdgeInsets.all(15.0),
           children: [
             ResponsiveRowColumnItem(
-              rowFlex: 1,
+              rowFlex: 2,
               child: Image.asset(
                 image,
                 height: imageHeight,
@@ -116,6 +116,10 @@ class AppVerticalCard extends StatelessWidget {
                   fontWeight: FontWeight.w800,
                 ),
               ),
+            ),
+            ResponsiveRowColumnItem(
+              rowFlex: 1,
+              child: button,
             ),
           ],
         ),
