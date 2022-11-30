@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/presentation/screens/homepage/components/content.dart';
+import 'package:myenglishpal_web/presentation/screens/homepage/components/content/training.dart';
+import 'package:myenglishpal_web/presentation/screens/homepage/components/content/vocabulary.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/components/header.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
@@ -12,18 +13,19 @@ class HomePageView extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          SizedBox(
+          const HomePageHeader(),
+          const SizedBox(
             height: 100,
-            child: Text(
-              'Vocabulary section',
-              style: ralewayStyle.copyWith(
-                fontSize: 50,
-                color: AppColors.greyTextColor,
-                fontWeight: FontWeight.w900,
-              ),
+          ),
+          Text(
+            'Vocabulary section',
+            style: ralewayStyle.copyWith(
+              fontSize: 50,
+              color: AppColors.greyTextColor,
+              fontWeight: FontWeight.w900,
             ),
           ),
-          const HomePageHeader(),
+          const HomePageVocabulary(),
           SizedBox(
             height: 100,
             child: Text(
@@ -35,7 +37,7 @@ class HomePageView extends StatelessWidget {
               ),
             ),
           ),
-          const HomePageContent(),
+          const HomePageTraining(),
         ],
       ),
     );

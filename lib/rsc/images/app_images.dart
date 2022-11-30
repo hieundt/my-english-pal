@@ -7,25 +7,41 @@ class UserAvatar {
 }
 
 class HomePageImages {
-  static const headeroneImages = 'assets/images/home_page/header/header_1.png';
-  static const headertwoImages = 'assets/images/home_page/header/header_2.png';
-  static const headerthreeImages =
-      'assets/images/home_page/header/header_3.png';
-  static const headerfourImages = 'assets/images/home_page/header/header_4.jpg';
-  static const headerfiveImages = 'assets/images/home_page/header/header_5.png';
-  static const headersixImages = 'assets/images/home_page/header/header_6.jpg';
-  static const headersevenImages =
-      'assets/images/home_page/header/header_7.jpg';
-  static const headereightImages =
-      'assets/images/home_page/header/header_8.png';
+  static const headerImages = 'assets/images/home_page/header/header.jpg';
 
-  static const partoneImage = 'assets/images/home_page/content/part_1.jpg';
-  static const parttwoImage = 'assets/images/home_page/content/part_2.png';
-  static const partthreeImage = 'assets/images/home_page/content/part_3.png';
-  static const partfourImage = 'assets/images/home_page/content/part_4.png';
-  static const partfiveImage = 'assets/images/home_page/content/part_5.jpg';
-  static const partsixImage = 'assets/images/home_page/content/part_6.png';
-  static const partsevenImage = 'assets/images/home_page/content/part_7.png';
+  static const buisinessImages =
+      'assets/images/home_page/content/vocabulary/buisiness.jpg';
+  static const dailylifeImages =
+      'assets/images/home_page/content/vocabulary/daily_life.png';
+  static const dinningoutImages =
+      'assets/images/home_page/content/vocabulary/dinning_out.jpg';
+  static const educationImages =
+      'assets/images/home_page/content/vocabulary/education.png';
+  static const entertainmentImages =
+      'assets/images/home_page/content/vocabulary/entertainment.jpg';
+  static const healthImages =
+      'assets/images/home_page/content/vocabulary/health.jpg';
+  static const purchasingImages =
+      'assets/images/home_page/content/vocabulary/purchasing.jpg';
+  static const technologyImages =
+      'assets/images/home_page/content/vocabulary/technology.jpg';
+  static const travelImages =
+      'assets/images/home_page/content/vocabulary/travel.jpg';
+
+  static const partoneImage =
+      'assets/images/home_page/content/training/part_1.jpg';
+  static const parttwoImage =
+      'assets/images/home_page/content/training/part_2.png';
+  static const partthreeImage =
+      'assets/images/home_page/content/training/part_3.png';
+  static const partfourImage =
+      'assets/images/home_page/content/training/part_4.png';
+  static const partfiveImage =
+      'assets/images/home_page/content/training/part_5.jpg';
+  static const partsixImage =
+      'assets/images/home_page/content/training/part_6.png';
+  static const partsevenImage =
+      'assets/images/home_page/content/training/part_7.png';
 }
 
 class CommunityImages {

@@ -13,6 +13,11 @@ class ProfileView extends StatelessWidget {
           ProfileHeader(),
           SizedBox(
             height: 50,
+            child: Divider(
+              indent: 200,
+              endIndent: 200,
+              thickness: 2,
+            ),
           ),
           ProfileContent(),
           SizedBox(

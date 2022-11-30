@@ -16,9 +16,7 @@ class AppHorizontalCard extends StatelessWidget {
   final String title;
   final double titleFontSize;
 
-  final String image;
-  final double? imageHeight;
-  final double? imageWidth;
+  final Widget image;
 
   final String description;
   final double? descriptionFontSize;
@@ -37,12 +35,10 @@ class AppHorizontalCard extends StatelessWidget {
   factory AppHorizontalCard({
     required AppHorizontalCardType layout,
     required String title,
-    required String image,
+    required Widget image,
     required AppButton button,
     String description = '',
     double titleFontSize = 26,
-    double imageHeight = 400.0,
-    double imageWidth = 600,
     double descriptionFontSize = 10,
     double cardWidth = 1000,
     Color? color = AppColors.backColor,
@@ -56,8 +52,6 @@ class AppHorizontalCard extends StatelessWidget {
       title: title,
       titleFontSize: titleFontSize,
       image: image,
-      imageHeight: imageHeight,
-      imageWidth: imageWidth,
       description: description,
       descriptionFontSize: descriptionFontSize,
       button: button,
@@ -79,8 +73,6 @@ class AppHorizontalCard extends StatelessWidget {
     required this.cardWidth,
     required this.shadowColor,
     required this.button,
-    this.imageHeight,
-    this.imageWidth,
     this.descriptionFontSize,
     this.color,
     this.shape,
@@ -109,12 +101,7 @@ class AppHorizontalCard extends StatelessWidget {
                 children: [
                   ResponsiveRowColumnItem(
                     rowFlex: 6,
-                    child: Image.asset(
-                      image,
-                      height: imageHeight,
-                      width: imageWidth,
-                      fit: BoxFit.cover,
-                    ),
+                    child: image,
                   ),
                   const ResponsiveRowColumnItem(
                     rowFlex: 1,
@@ -194,15 +181,7 @@ class AppHorizontalCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  ResponsiveRowColumnItem(
-                    rowFlex: 1,
-                    child: Image.asset(
-                      image,
-                      height: imageHeight,
-                      width: imageWidth,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                  ResponsiveRowColumnItem(rowFlex: 1, child: image),
                 ],
               ),
       ),

@@ -20,18 +20,20 @@ class CommunityHeader extends StatelessWidget {
       ),
       titleFontSize: 50,
       descriptionFontSize: 20,
-      imageHeight: ResponsiveValue(
-        context,
-        defaultValue: 300.0,
-        valueWhen: [
-          const Condition.smallerThan(
-            name: TABLET,
-            value: 200.0,
-          ),
-        ],
-      ).value!,
       title: communityHeaderString.title,
-      image: communityHeaderString.image,
+      image: Image.asset(
+        communityHeaderString.image,
+        height: ResponsiveValue(
+          context,
+          defaultValue: 300.0,
+          valueWhen: [
+            const Condition.smallerThan(
+              name: TABLET,
+              value: 200.0,
+            ),
+          ],
+        ).value!,
+      ),
       description: communityHeaderString.description,
       button: AppButton(
         layout: AppButtonType.TEXTBUTTON,

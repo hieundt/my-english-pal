@@ -86,7 +86,8 @@ flutter:
     - assets/images/user_avatar/
 
     - assets/images/home_page/header/
-    - assets/images/home_page/content/
+    - assets/images/home_page/content/training/
+    - assets/images/home_page/content/vocabulary/
 
     - assets/images/community/header/
     - assets/images/community/content/

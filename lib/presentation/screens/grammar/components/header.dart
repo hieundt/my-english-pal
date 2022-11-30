@@ -15,21 +15,23 @@ class GrammarHeader extends StatelessWidget {
       color: AppColors.lightPinkColor,
       elevation: 100,
       titleFontSize: 70,
-      imageHeight: ResponsiveValue(
-        context,
-        defaultValue: 300.0,
-        valueWhen: [
-          const Condition.smallerThan(
-            name: TABLET,
-            value: 200.0,
-          ),
-        ],
-      ).value!,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
       title: 'Grammar Book',
-      image: GrammarImages.headerImage,
+      image: Image.asset(
+        GrammarImages.headerImage,
+        height: ResponsiveValue(
+          context,
+          defaultValue: 300.0,
+          valueWhen: [
+            const Condition.smallerThan(
+              name: TABLET,
+              value: 200.0,
+            ),
+          ],
+        ).value!,
+      ),
       button: AppButton(
         layout: AppButtonType.TEXTBUTTON,
         buttonText: '',

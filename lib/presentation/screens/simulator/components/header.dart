@@ -18,19 +18,21 @@ class SimulatorHeader extends StatelessWidget {
       ),
       elevation: 100,
       titleFontSize: 70,
-      imageHeight: ResponsiveValue(
-        context,
-        defaultValue: 300.0,
-        valueWhen: [
-          const Condition.smallerThan(
-            name: TABLET,
-            value: 200.0,
-          ),
-        ],
-      ).value!,
       layout: AppHorizontalCardType.IMAGEONTHERIGHT,
       title: 'Exam Simulator',
-      image: SimulatorImages.headerImage,
+      image: Image.asset(
+        SimulatorImages.headerImage,
+        height: ResponsiveValue(
+          context,
+          defaultValue: 300.0,
+          valueWhen: [
+            const Condition.smallerThan(
+              name: TABLET,
+              value: 200.0,
+            ),
+          ],
+        ).value!,
+      ),
       button: AppButton(
         layout: AppButtonType.TEXTBUTTON,
         buttonText: '',

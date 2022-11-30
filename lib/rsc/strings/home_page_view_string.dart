@@ -1,77 +1,77 @@
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
 
-class HomePageHeaderString {
-  static final homePageHeaderString = [
-    HomePageHeaderString(
-      title: 'Connect to community',
-      image: HomePageImages.headeroneImages,
+class HomePageVocabularyContentString {
+  static final homePageVocabularyString = [
+    HomePageVocabularyContentString(
+      title: 'Education',
+      image: HomePageImages.educationImages,
     ),
-    HomePageHeaderString(
-      title: 'Flexibly mastering TOEIC with our test bank',
-      image: HomePageImages.headertwoImages,
+    HomePageVocabularyContentString(
+      title: 'Dinning out',
+      image: HomePageImages.dinningoutImages,
     ),
-    HomePageHeaderString(
-      title: 'An investment in education pays the best interest',
-      image: HomePageImages.headerthreeImages,
+    HomePageVocabularyContentString(
+      title: 'Travel',
+      image: HomePageImages.travelImages,
     ),
-    HomePageHeaderString(
-      title: 'Detailed result statistics',
-      image: HomePageImages.headerfourImages,
+    HomePageVocabularyContentString(
+      title: 'Buisness',
+      image: HomePageImages.buisinessImages,
     ),
-    HomePageHeaderString(
-      title: 'Daily review calendar',
-      image: HomePageImages.headerfiveImages,
+    HomePageVocabularyContentString(
+      title: 'Daily life',
+      image: HomePageImages.dailylifeImages,
     ),
-    HomePageHeaderString(
-      title: 'Multiple sets of questions',
-      image: HomePageImages.headersixImages,
+    HomePageVocabularyContentString(
+      title: 'Entertainment',
+      image: HomePageImages.entertainmentImages,
     ),
-    HomePageHeaderString(
-      title: 'Smart device connected to the internet is all you need',
-      image: HomePageImages.headersevenImages,
+    HomePageVocabularyContentString(
+      title: 'Technology',
+      image: HomePageImages.technologyImages,
     ),
-    HomePageHeaderString(
-      title: 'Actual exam simulation',
-      image: HomePageImages.headereightImages,
+    HomePageVocabularyContentString(
+      title: 'Health',
+      image: HomePageImages.healthImages,
     ),
   ];
 
   final String title;
   final String image;
 
-  HomePageHeaderString({
+  HomePageVocabularyContentString({
     required this.image,
     required this.title,
   });
 }
 
-class HomePageContentString {
-  static final homePageContentString = [
-    HomePageContentString(
+class HomePageTrainingContentString {
+  static final homePageTrainingContentString = [
+    HomePageTrainingContentString(
       title: 'Part 1\nPhotographs',
       image: HomePageImages.partoneImage,
     ),
-    HomePageContentString(
+    HomePageTrainingContentString(
       title: 'Part 2\nQuestion and response',
       image: HomePageImages.parttwoImage,
     ),
-    HomePageContentString(
+    HomePageTrainingContentString(
       title: 'Part 3\nShort conversations',
       image: HomePageImages.partthreeImage,
     ),
-    HomePageContentString(
+    HomePageTrainingContentString(
       title: 'Part 4\nShort talks',
       image: HomePageImages.partfourImage,
     ),
-    HomePageContentString(
+    HomePageTrainingContentString(
       title: 'Part 5\nIncomplete sentences',
       image: HomePageImages.partfiveImage,
     ),
-    HomePageContentString(
+    HomePageTrainingContentString(
       title: 'Part 6\nText completion',
       image: HomePageImages.partsixImage,
     ),
-    HomePageContentString(
+    HomePageTrainingContentString(
       title: 'Part 7\nReading comprehension',
       image: HomePageImages.partsevenImage,
     ),
@@ -80,7 +80,7 @@ class HomePageContentString {
   final String title;
   final String image;
 
-  HomePageContentString({
+  HomePageTrainingContentString({
     required this.image,
     required this.title,
   });

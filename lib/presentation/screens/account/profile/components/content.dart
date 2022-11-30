@@ -1,31 +1,63 @@
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/presentation/screens/account/profile/components/achievements/average_score.dart';
-import 'package:myenglishpal_web/presentation/screens/account/profile/components/achievements/task_completion.dart';
+import 'package:myenglishpal_web/presentation/screens/account/profile/components/achievements/achivement.dart';
+import 'package:myenglishpal_web/presentation/screens/account/profile/components/statistical/day_streak.dart';
+import 'package:myenglishpal_web/presentation/screens/account/profile/components/statistical/time_on_task.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class ProfileContent extends StatelessWidget {
   const ProfileContent({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      clipBehavior: Clip.hardEdge,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: AppColors.blackColor,
-          width: 1,
-        ),
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Column(
-        children: const [
-          ProgressAverageScore(),
-          SizedBox(
-            height: 50,
+    return ListView(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      children: [
+        Text(
+          'Statistical',
+          style: ralewayStyle.copyWith(
+            fontSize: 30,
+            color: AppColors.greyTextColor,
+            fontWeight: FontWeight.w800,
           ),
-          ProgressTaskCompletion(),
-        ],
-      ),
+        ),
+        ResponsiveRowColumn(
+          layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
+              ? ResponsiveRowColumnType.COLUMN
+              : ResponsiveRowColumnType.ROW,
+          rowMainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            ResponsiveRowColumnItem(
+              rowFlex: 1,
+              child: ProgressDayStreak(),
+            ),
+            ResponsiveRowColumnItem(
+              rowFlex: 1,
+              child: ProgressTimeOnTask(),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 50,
+          child: Divider(
+            indent: 200,
+            endIndent: 200,
+            thickness: 2,
+          ),
+        ),
+        Text(
+          'Achievements',
+          style: ralewayStyle.copyWith(
+            fontSize: 30,
+            color: AppColors.greyTextColor,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+        const ProfileAchivement(),
+        //const ProgressTaskCompletion(),
+      ],
     );
   }
 }

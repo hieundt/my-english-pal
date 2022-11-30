@@ -22,9 +22,11 @@ class CommunityContent extends StatelessWidget {
           ),
           titleFontSize: 20,
           descriptionFontSize: 10,
-          imageHeight: 350,
           title: communityContentString[0].title,
-          image: communityContentString[0].image,
+          image: Image.asset(
+            communityContentString[0].image,
+            height: 350,
+          ),
           description: communityContentString[0].description,
           button: AppButton(
             layout: AppButtonType.OUTLINEDBUTTON,
@@ -41,9 +43,11 @@ class CommunityContent extends StatelessWidget {
           ),
           titleFontSize: 30,
           descriptionFontSize: 10,
-          imageHeight: 350,
           title: communityContentString[1].title,
-          image: communityContentString[1].image,
+          image: Image.asset(
+            communityContentString[1].image,
+            height: 350,
+          ),
           description: communityContentString[1].description,
           button: AppButton(
             layout: AppButtonType.OUTLINEDBUTTON,

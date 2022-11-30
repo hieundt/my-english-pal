@@ -3,20 +3,19 @@ import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/strings/home_page_view_string.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_vertical_card.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
-class HomePageContent extends StatefulWidget {
-  const HomePageContent({super.key});
+class HomePageTraining extends StatefulWidget {
+  const HomePageTraining({super.key});
 
   @override
-  State<HomePageContent> createState() => _HomePageContentState();
+  State<HomePageTraining> createState() => _HomePageTrainingState();
 }
 
-class _HomePageContentState extends State<HomePageContent> {
+class _HomePageTrainingState extends State<HomePageTraining> {
   @override
   Widget build(BuildContext context) {
-    List<HomePageContentString> homePageContentString =
-        HomePageContentString.homePageContentString;
+    List<HomePageTrainingContentString> homePageContentString =
+        HomePageTrainingContentString.homePageTrainingContentString;
 
     return GridView.builder(
       shrinkWrap: true,
