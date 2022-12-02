@@ -5,19 +5,43 @@ import 'package:myenglishpal_web/rsc/strings/grammar_view_string.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class GrammarContent extends StatelessWidget {
-  const GrammarContent({super.key});
+  const GrammarContent({
+    super.key,
+  });
+
+  List<Widget> builItem(
+    List<String> item,
+  ) {
+    return item
+        .map(
+          (e) => Text(
+            e,
+          ),
+        )
+        .toList();
+  }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
     List<GrammarContentCardTitleString> grammarContentCardTitleString =
         GrammarContentCardTitleString.grammarContentCardTitleString;
 
     return ResponsiveRowColumn(
-      layout: ResponsiveWrapper.of(context).isSmallerThan(TABLET)
+      layout: ResponsiveWrapper.of(
+        context,
+      ).isSmallerThan(
+        TABLET,
+      )
           ? ResponsiveRowColumnType.COLUMN
           : ResponsiveRowColumnType.ROW,
-      rowPadding: const EdgeInsets.all(20),
-      columnPadding: const EdgeInsets.all(20),
+      rowPadding: const EdgeInsets.all(
+        20,
+      ),
+      columnPadding: const EdgeInsets.all(
+        20,
+      ),
       rowCrossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ResponsiveRowColumnItem(
@@ -25,13 +49,19 @@ class GrammarContent extends StatelessWidget {
           child: AppListTitleCard(
             elevation: 10,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(
+                30,
+              ),
             ),
             cardColor: AppColors.lightBlueColor,
             iTemCount: GrammarContentCardItemString.cardItemTitle.length,
-            cardTitle: grammarContentCardTitleString[0].cardTitle,
+            cardTitle: Text(
+              grammarContentCardTitleString[0].cardTitle,
+            ),
             cardLeadingIcon: grammarContentCardTitleString[0].cardTitleIcon,
-            cardItemTitle: GrammarContentCardItemString.cardItemTitle,
+            cardItemTitle: builItem(
+              GrammarContentCardItemString.cardItemTitle,
+            ),
             cardItemLeadingIcon: GrammarContentCardItemString.cardItemIcon,
           ),
         ),
@@ -40,13 +70,17 @@ class GrammarContent extends StatelessWidget {
           child: AppListTitleCard(
             elevation: 10,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(
+                30,
+              ),
             ),
             cardColor: AppColors.lightBlueColor,
             iTemCount: GrammarContentCardItemString.cardItemTitle.length,
-            cardTitle: grammarContentCardTitleString[1].cardTitle,
+            cardTitle: Text(grammarContentCardTitleString[1].cardTitle),
             cardLeadingIcon: grammarContentCardTitleString[1].cardTitleIcon,
-            cardItemTitle: GrammarContentCardItemString.cardItemTitle,
+            cardItemTitle: builItem(
+              GrammarContentCardItemString.cardItemTitle,
+            ),
             cardItemLeadingIcon: GrammarContentCardItemString.cardItemIcon,
           ),
         ),
@@ -55,13 +89,17 @@ class GrammarContent extends StatelessWidget {
           child: AppListTitleCard(
             elevation: 10,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(
+                30,
+              ),
             ),
             cardColor: AppColors.lightBlueColor,
             iTemCount: GrammarContentCardItemString.cardItemTitle.length,
-            cardTitle: grammarContentCardTitleString[2].cardTitle,
+            cardTitle: Text(grammarContentCardTitleString[2].cardTitle),
             cardLeadingIcon: grammarContentCardTitleString[2].cardTitleIcon,
-            cardItemTitle: GrammarContentCardItemString.cardItemTitle,
+            cardItemTitle: builItem(
+              GrammarContentCardItemString.cardItemTitle,
+            ),
             cardItemLeadingIcon: GrammarContentCardItemString.cardItemIcon,
           ),
         ),

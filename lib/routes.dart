@@ -3,8 +3,9 @@ const splashRoute = '/';
 const navigateControllerRoute = '/navigateController/';
 
 const signInRoute = '/signin/';
-const registerRoute = '/register/';
+const signUpRoute = '/signup/';
 const verifyEmailRoute = '/verify-email/';
+const forgotPasswordRoute = '/forgot-password/';
 const profileRoute = '/profile/';
 
 const homePageRoute = '/home-page/';

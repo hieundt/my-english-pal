@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:myenglishpal_web/initiator.dart';
+import 'package:myenglishpal_web/presentation/navigation/navigate_controller.dart';
+
 import 'package:page_transition/page_transition.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
@@ -14,7 +16,7 @@ class SplashView extends StatelessWidget {
     return AnimatedSplashScreen.withScreenFunction(
       splash: AppLogo.myEnglishPalLogo,
       screenFunction: () async {
-        return const Initiator();
+        return const NavigateController();
       },
       splashIconSize: ResponsiveValue(
         context,

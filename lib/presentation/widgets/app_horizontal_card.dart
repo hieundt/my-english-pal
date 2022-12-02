@@ -1,65 +1,53 @@
-// ignore_for_file: constant_identifier_names
-
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
-import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 enum AppHorizontalCardType {
-  IMAGEONTHELEFT,
-  IMAGEONTHERIGHT,
+  imageOnTheLeft,
+  imageOnTheRight,
 }
 
 class AppHorizontalCard extends StatelessWidget {
   final AppHorizontalCardType layout;
-  final String title;
-  final double titleFontSize;
-
   final Widget image;
+  final Widget title;
 
-  final String description;
-  final double? descriptionFontSize;
-
-  final AppButton button;
-
-  final double cardWidth;
+  final Widget? description;
+  final AppButton? button;
+  final double? cardWidth;
+  final double? elevation;
   final Color? color;
   final Color? shadowColor;
   final RoundedRectangleBorder? shape;
-  final double? elevation;
   final EdgeInsetsGeometry? margin;
-  get isLeft => layout == AppHorizontalCardType.IMAGEONTHELEFT;
-  get isRight => layout == AppHorizontalCardType.IMAGEONTHERIGHT;
+  get isLeft => layout == AppHorizontalCardType.imageOnTheLeft;
+  get isRight => layout == AppHorizontalCardType.imageOnTheRight;
 
   factory AppHorizontalCard({
     required AppHorizontalCardType layout,
-    required String title,
     required Widget image,
-    required AppButton button,
-    String description = '',
-    double titleFontSize = 26,
-    double descriptionFontSize = 10,
-    double cardWidth = 1000,
+    required Widget title,
+    Widget? description,
+    AppButton? button,
+    double cardWidth = double.infinity,
+    double? elevation = 0,
     Color? color = AppColors.backColor,
     Color? shadowColor = AppColors.greyColor,
     RoundedRectangleBorder? shape,
-    double? elevation = 50.0,
     EdgeInsetsGeometry? margin,
   }) {
     return AppHorizontalCard._internal(
       layout: layout,
-      title: title,
-      titleFontSize: titleFontSize,
       image: image,
+      title: title,
       description: description,
-      descriptionFontSize: descriptionFontSize,
       button: button,
       cardWidth: cardWidth,
+      elevation: elevation,
       color: color,
       shadowColor: shadowColor,
       shape: shape,
-      elevation: elevation,
       margin: margin,
     );
   }
@@ -67,16 +55,14 @@ class AppHorizontalCard extends StatelessWidget {
   const AppHorizontalCard._internal({
     required this.layout,
     required this.title,
-    required this.titleFontSize,
     required this.image,
-    required this.description,
-    required this.cardWidth,
-    required this.shadowColor,
-    required this.button,
-    this.descriptionFontSize,
-    this.color,
-    this.shape,
+    this.description,
+    this.button,
+    this.cardWidth,
     this.elevation,
+    this.color,
+    this.shadowColor,
+    this.shape,
     this.margin,
   });
 
@@ -85,12 +71,12 @@ class AppHorizontalCard extends StatelessWidget {
     return SizedBox(
       width: cardWidth,
       child: Card(
-        shape: shape,
-        color: color,
         elevation: elevation,
+        color: color,
         shadowColor: shadowColor,
+        shape: shape,
         margin: margin,
-        child: (layout == AppHorizontalCardType.IMAGEONTHELEFT)
+        child: (layout == AppHorizontalCardType.imageOnTheLeft)
             ? ResponsiveRowColumn(
                 layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
                     ? ResponsiveRowColumnType.COLUMN
@@ -106,7 +92,7 @@ class AppHorizontalCard extends StatelessWidget {
                   const ResponsiveRowColumnItem(
                     rowFlex: 1,
                     child: SizedBox(
-                      width: 10,
+                      width: 20,
                     ),
                   ),
                   ResponsiveRowColumnItem(
@@ -115,28 +101,19 @@ class AppHorizontalCard extends StatelessWidget {
                       layout: ResponsiveRowColumnType.COLUMN,
                       children: [
                         ResponsiveRowColumnItem(
-                          child: Text(
-                            title,
-                            style: ralewayStyle.copyWith(
-                              fontSize: titleFontSize,
-                              color: AppColors.greyTextColor,
-                              fontWeight: FontWeight.w800,
-                            ),
+                          child: title,
+                        ),
+                        ResponsiveRowColumnItem(
+                          child: SizedBox(
+                            child: description,
                           ),
                         ),
                         ResponsiveRowColumnItem(
-                          child: Text(
-                            description,
-                            style: ralewayStyle.copyWith(
-                              fontSize: descriptionFontSize,
-                              color: AppColors.greyTextColor,
-                              fontWeight: FontWeight.w800,
-                            ),
+                          rowFlex: 1,
+                          child: SizedBox(
+                            child: button,
                           ),
                         ),
-                        ResponsiveRowColumnItem(
-                          child: button,
-                        )
                       ],
                     ),
                   ),
@@ -151,37 +128,36 @@ class AppHorizontalCard extends StatelessWidget {
                 columnPadding: const EdgeInsets.all(15.0),
                 children: [
                   ResponsiveRowColumnItem(
-                    rowFlex: 1,
+                    rowFlex: 6,
                     child: ResponsiveRowColumn(
                       layout: ResponsiveRowColumnType.COLUMN,
                       children: [
                         ResponsiveRowColumnItem(
-                          child: Text(
-                            title,
-                            style: ralewayStyle.copyWith(
-                              fontSize: titleFontSize,
-                              color: AppColors.greyTextColor,
-                              fontWeight: FontWeight.w800,
-                            ),
+                          child: title,
+                        ),
+                        ResponsiveRowColumnItem(
+                          child: SizedBox(
+                            child: description,
                           ),
                         ),
                         ResponsiveRowColumnItem(
-                          child: Text(
-                            description,
-                            style: ralewayStyle.copyWith(
-                              fontSize: descriptionFontSize,
-                              color: AppColors.greyTextColor,
-                              fontWeight: FontWeight.w800,
-                            ),
+                          rowFlex: 1,
+                          child: SizedBox(
+                            child: button,
                           ),
                         ),
-                        ResponsiveRowColumnItem(
-                          child: button,
-                        )
                       ],
                     ),
                   ),
-                  ResponsiveRowColumnItem(rowFlex: 1, child: image),
+                  const ResponsiveRowColumnItem(
+                    child: SizedBox(
+                      width: 20,
+                    ),
+                  ),
+                  ResponsiveRowColumnItem(
+                    rowFlex: 3,
+                    child: image,
+                  ),
                 ],
               ),
       ),

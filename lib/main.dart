@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/firebase_options.dart';
 import 'package:myenglishpal_web/presentation/screens/account/profile/profile_view.dart';
-import 'package:myenglishpal_web/presentation/screens/account/register_view.dart';
+import 'package:myenglishpal_web/presentation/screens/account/signup_view.dart';
 import 'package:myenglishpal_web/presentation/screens/account/signin_view.dart';
 import 'package:myenglishpal_web/presentation/screens/account/verify_email_view.dart';
 import 'package:myenglishpal_web/presentation/screens/grammar/grammar_view.dart';
@@ -14,6 +14,7 @@ import 'package:myenglishpal_web/presentation/screens/comunity/community_view.da
 import 'package:myenglishpal_web/presentation/screens/homepage/home_page_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'presentation/screens/account/password_edit_view.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,15 +24,12 @@ Future main() async {
   runApp(const MyEnglishPal());
 }
 
-final navigatorKey = GlobalKey<NavigatorState>();
-
 class MyEnglishPal extends StatelessWidget {
   const MyEnglishPal({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: navigatorKey,
       scrollBehavior: AppScrollBehavior(),
       builder: (context, widget) => ResponsiveWrapper.builder(
         ClampingScrollWrapper.builder(
@@ -61,8 +59,9 @@ class MyEnglishPal extends StatelessWidget {
       routes: {
         splashRoute: (context) => const SplashView(),
         signInRoute: (context) => const SignInView(),
-        registerRoute: (context) => const RegisterView(),
+        signUpRoute: (context) => const SignUpView(),
         verifyEmailRoute: (context) => const VerifyEmailView(),
+        forgotPasswordRoute: (context) => const ForgotPasswordView(),
         profileRoute: (context) => const ProfileView(),
         navigateControllerRoute: (context) => const NavigateController(),
         homePageRoute: (context) => const HomePageView(),

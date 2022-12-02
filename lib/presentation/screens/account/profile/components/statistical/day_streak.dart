@@ -15,16 +15,15 @@ class ProgressDayStreak extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
-      layout: AppHorizontalCardType.IMAGEONTHELEFT,
-      title: '0',
-      description: 'Day streak',
+      layout: AppHorizontalCardType.imageOnTheLeft,
+      title: Text('0'),
+      description: Text('Day streak'),
       image: const Icon(
         CupertinoIcons.flame_fill,
         color: AppColors.deepOrangeColor,
       ),
       button: AppButton(
-        layout: AppButtonType.TEXTBUTTON,
-        buttonText: '',
+        layout: AppButtonType.textButton,
         onPressed: () {},
       ),
     );

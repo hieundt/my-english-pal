@@ -11,14 +11,14 @@ class GrammarHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppHorizontalCard(
-      layout: AppHorizontalCardType.IMAGEONTHERIGHT,
+      layout: AppHorizontalCardType.imageOnTheRight,
       color: AppColors.lightPinkColor,
       elevation: 10,
-      titleFontSize: 70,
+      //titleFontSize: 70,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
-      title: 'Grammar Book',
+      title: Text('Grammar Book'),
       image: Image.asset(
         GrammarImages.headerImage,
         height: ResponsiveValue(
@@ -33,8 +33,7 @@ class GrammarHeader extends StatelessWidget {
         ).value!,
       ),
       button: AppButton(
-        layout: AppButtonType.TEXTBUTTON,
-        buttonText: '',
+        layout: AppButtonType.textButton,
         onPressed: () {},
       ),
     );

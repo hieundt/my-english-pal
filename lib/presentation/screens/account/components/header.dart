@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
+
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
-import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
+
 import 'package:responsive_framework/responsive_framework.dart';
 
 class AccountViewHeader extends StatelessWidget {
-  final String title;
-  final String description;
+  final Widget title;
+  final Widget description;
   final double? headerHeight;
 
   factory AccountViewHeader({
-    required String title,
-    required String description,
+    required Widget title,
+    required Widget description,
     double? headerHeight = 200,
   }) {
     return AccountViewHeader._internal(
@@ -39,30 +39,16 @@ class AccountViewHeader extends StatelessWidget {
             columnFlex: 1,
             child: Image.asset(
               AppLogo.myEnglishPalLogo,
-              scale: 3,
+              scale: 2,
             ),
           ),
           ResponsiveRowColumnItem(
             columnFlex: 1,
-            child: Text(
-              title,
-              style: ralewayStyle.copyWith(
-                fontSize: 50,
-                color: AppColors.blackColor,
-                fontWeight: FontWeight.w900,
-              ),
-            ),
+            child: title,
           ),
           ResponsiveRowColumnItem(
             columnFlex: 1,
-            child: Text(
-              description,
-              style: ralewayStyle.copyWith(
-                fontSize: 20,
-                color: AppColors.greyColor,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+            child: description,
           ),
         ],
       ),

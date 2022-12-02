@@ -9,20 +9,19 @@ import 'package:myenglishpal_web/presentation/widgets/app_text_field.dart';
 import 'package:myenglishpal_web/routes.dart';
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
 import 'package:myenglishpal_web/utils.dart';
-import 'package:responsive_framework/responsive_framework.dart';
+import 'package:responsive_framework/responsive_row_column.dart';
 
-class SignInView extends StatefulWidget {
-  const SignInView({
+class SignUpView extends StatefulWidget {
+  const SignUpView({
     super.key,
   });
 
   @override
-  State<SignInView> createState() => _SignInViewState();
+  State<SignUpView> createState() => _SignUpViewState();
 }
 
-class _SignInViewState extends State<SignInView> {
+class _SignUpViewState extends State<SignUpView> {
   final formKey = GlobalKey<FormState>();
-
   late final TextEditingController _emailController;
   late final TextEditingController _passwordController;
 
@@ -37,12 +36,13 @@ class _SignInViewState extends State<SignInView> {
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
+
     super.dispose();
   }
 
-  Future<void> signInWithEmailPasword() async {
+  signUpWithEmailPasword() async {
     try {
-      await FirebaseAuthServices().signInWithEmailAndPassword(
+      await FirebaseAuthServices().signUpWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
@@ -62,38 +62,37 @@ class _SignInViewState extends State<SignInView> {
           layout: ResponsiveRowColumnType.COLUMN,
           children: [
             ResponsiveRowColumnItem(
-              columnFlex: 3,
+              columnFlex: 9,
               child: AccountViewHeader(
                 title: Text('Welcome!'),
-                description: Text('Sign in to your account'),
+                description: Text('Provide us your information'),
               ),
             ),
             ResponsiveRowColumnItem(
-              rowFlex: 2,
-              child: AppButton(
-                layout: AppButtonType.floatingActionButton,
-                buttonLeading: Image.asset(
-                  scale: 15,
-                  UserViewImages.googleImage,
-                ),
-                buttonTitle: Text('Continue with Google'),
-              ),
-            ),
-            const ResponsiveRowColumnItem(
-              rowFlex: 1,
-              child: SizedBox(
-                width: 10,
-              ),
-            ),
-            ResponsiveRowColumnItem(
-              rowFlex: 2,
-              child: AppButton(
-                layout: AppButtonType.floatingActionButton,
-                buttonLeading: Image.asset(
-                  scale: 15,
-                  UserViewImages.facebookImage,
-                ),
-                buttonTitle: Text('Continue with Facebook'),
+              columnFlex: 3,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AppButton(
+                    layout: AppButtonType.floatingActionButton,
+                    buttonLeading: Image.asset(
+                      scale: 15,
+                      UserViewImages.googleImage,
+                    ),
+                    buttonTitle: Text('Continue with Google'),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  AppButton(
+                    layout: AppButtonType.floatingActionButton,
+                    buttonLeading: Image.asset(
+                      scale: 15,
+                      UserViewImages.facebookImage,
+                    ),
+                    buttonTitle: Text('Continue with Facebook'),
+                  ),
+                ],
               ),
             ),
             const ResponsiveRowColumnItem(
@@ -131,26 +130,12 @@ class _SignInViewState extends State<SignInView> {
               ),
             ),
             ResponsiveRowColumnItem(
-              columnFlex: 1,
-              child: AppButton(
-                layout: AppButtonType.textButton,
-                buttonTitle: Text('Forgot password?'),
-                //buttonTextColor: AppColors.darkBlueColor,
-                onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                    forgotPasswordRoute,
-                    (route) => false,
-                  );
-                },
-              ),
-            ),
-            ResponsiveRowColumnItem(
               columnFlex: 2,
               child: AppButton(
                 layout: AppButtonType.floatingActionButton,
-                buttonTitle: Text('Sign In'),
-                onPressed: signInWithEmailPasword,
-                //,
+                buttonTitle: Text('Sign Up'),
+                onPressed: signUpWithEmailPasword,
+                //signUpUser,
               ),
             ),
             const ResponsiveRowColumnItem(
@@ -162,13 +147,13 @@ class _SignInViewState extends State<SignInView> {
             ResponsiveRowColumnItem(
               columnFlex: 1,
               child: AccountViewFooter(
-                leading: Text("Don't have an account? "),
+                leading: Text("Already have an account? "),
                 trailing: AppButton(
                   layout: AppButtonType.textButton,
-                  buttonTitle: Text('Create'),
+                  buttonTitle: Text('Sign In'),
                   onPressed: () {
                     Navigator.of(context).pushNamedAndRemoveUntil(
-                      signUpRoute,
+                      signInRoute,
                       (route) => false,
                     );
                   },

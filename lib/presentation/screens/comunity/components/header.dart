@@ -14,14 +14,14 @@ class CommunityHeader extends StatelessWidget {
         CommunityHeaderString.communityHeaderString;
     return AppHorizontalCard(
       elevation: 10,
-      layout: AppHorizontalCardType.IMAGEONTHERIGHT,
+      layout: AppHorizontalCardType.imageOnTheRight,
       color: AppColors.lightBlueColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
-      titleFontSize: 50,
-      descriptionFontSize: 20,
-      title: communityHeaderString.title,
+      //titleFontSize: 50,
+      //descriptionFontSize: 20,
+      title: Text(communityHeaderString.title),
       image: Image.asset(
         communityHeaderString.image,
         height: ResponsiveValue(
@@ -35,10 +35,9 @@ class CommunityHeader extends StatelessWidget {
           ],
         ).value!,
       ),
-      description: communityHeaderString.description,
+      description: Text(communityHeaderString.description),
       button: AppButton(
-        layout: AppButtonType.TEXTBUTTON,
-        buttonText: '',
+        layout: AppButtonType.textButton,
         onPressed: () {},
       ),
     );

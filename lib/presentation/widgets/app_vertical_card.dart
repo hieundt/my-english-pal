@@ -1,84 +1,63 @@
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
-import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class AppVerticalCard extends StatelessWidget {
-  final String title;
-  final double? titleFontSize;
-
-  final String image;
-  final double? imageHeight;
-  final double? imageWidth;
-
-  final String description;
-  final double? descriptionFontSize;
-
-  final AppButton button;
-
+  final Widget image;
+  final Widget title;
+  final Widget? description;
+  final AppButton? button;
+  final double? elevation;
   final Color? color;
   final Color? shadowColor;
   final RoundedRectangleBorder? shape;
-  final double? elevation;
   final EdgeInsetsGeometry? margin;
 
   factory AppVerticalCard({
-    required String title,
-    double? titleFontSize = 26,
-    required String image,
-    double? imageHeight = 400.0,
-    double? imageWidth = 600,
-    String description = '',
-    double? descriptionFontSize = 10,
-    required AppButton button,
-    Color? color = Colors.white,
-    Color? shadowColor = Colors.grey,
+    required Widget image,
+    required Widget title,
+    Widget? description,
+    AppButton? button,
+    double? elevation = 0,
+    Color? color = AppColors.whiteColor,
+    Color? shadowColor = AppColors.greyColor,
     RoundedRectangleBorder? shape,
-    double? elevation = 50.0,
     EdgeInsetsGeometry? margin,
   }) {
     return AppVerticalCard._internal(
-      title: title,
-      titleFontSize: titleFontSize,
       image: image,
-      imageHeight: imageHeight,
-      imageWidth: imageWidth,
+      title: title,
       description: description,
-      descriptionFontSize: descriptionFontSize,
       button: button,
-      color: color,
-      shadowColor: shadowColor,
       shape: shape,
       elevation: elevation,
+      color: color,
+      shadowColor: shadowColor,
       margin: margin,
     );
   }
 
   const AppVerticalCard._internal({
-    required this.title,
-    required this.titleFontSize,
     required this.image,
-    required this.imageHeight,
-    required this.imageWidth,
-    required this.description,
-    required this.descriptionFontSize,
-    required this.button,
-    required this.color,
-    required this.shadowColor,
-    required this.shape,
-    required this.elevation,
-    required this.margin,
+    required this.title,
+    this.description,
+    this.button,
+    this.elevation,
+    this.color,
+    this.shadowColor,
+    this.shape,
+    this.margin,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: Card(
-        shape: shape,
         elevation: elevation,
         color: color,
         shadowColor: shadowColor,
+        shape: shape,
         margin: margin,
         child: ResponsiveRowColumn(
           layout: ResponsiveRowColumnType.COLUMN,
@@ -88,38 +67,23 @@ class AppVerticalCard extends StatelessWidget {
           children: [
             ResponsiveRowColumnItem(
               rowFlex: 2,
-              child: Image.asset(
-                image,
-                height: imageHeight,
-                width: imageWidth,
-                fit: BoxFit.cover,
+              child: image,
+            ),
+            ResponsiveRowColumnItem(
+              rowFlex: 1,
+              child: title,
+            ),
+            ResponsiveRowColumnItem(
+              rowFlex: 1,
+              child: SizedBox(
+                child: description,
               ),
             ),
             ResponsiveRowColumnItem(
               rowFlex: 1,
-              child: Text(
-                title,
-                style: ralewayStyle.copyWith(
-                  fontSize: titleFontSize,
-                  color: AppColors.greyTextColor,
-                  fontWeight: FontWeight.w800,
-                ),
+              child: SizedBox(
+                child: button,
               ),
-            ),
-            ResponsiveRowColumnItem(
-              rowFlex: 1,
-              child: Text(
-                description,
-                style: ralewayStyle.copyWith(
-                  fontSize: descriptionFontSize,
-                  color: AppColors.whiteColor,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-            ),
-            ResponsiveRowColumnItem(
-              rowFlex: 1,
-              child: button,
             ),
           ],
         ),

@@ -3,6 +3,7 @@ import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_horizontal_card.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/strings/community_view_string.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 
 class CommunityContent extends StatelessWidget {
   const CommunityContent({super.key});
@@ -14,44 +15,51 @@ class CommunityContent extends StatelessWidget {
     return Column(
       children: [
         AppHorizontalCard(
-          layout: AppHorizontalCardType.IMAGEONTHELEFT,
+          layout: AppHorizontalCardType.imageOnTheLeft,
           elevation: 10,
           color: AppColors.blueGreyColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          titleFontSize: 20,
-          descriptionFontSize: 10,
-          title: communityContentString[0].title,
+          title: Text(communityContentString[0].title),
           image: Image.asset(
             communityContentString[0].image,
-            height: 350,
+            height: 300,
+            width: 500,
           ),
-          description: communityContentString[0].description,
+          description: Text(communityContentString[0].description),
           button: AppButton(
-            layout: AppButtonType.OUTLINEDBUTTON,
-            buttonText: 'Discover',
+            layout: AppButtonType.floatingActionButton,
+            buttonTitle: Text(
+              'Discover',
+              style: AppTextStyle.appButtonText,
+            ),
             onPressed: () {},
           ),
         ),
+        const SizedBox(
+          height: 20,
+        ),
         AppHorizontalCard(
-          layout: AppHorizontalCardType.IMAGEONTHELEFT,
+          layout: AppHorizontalCardType.imageOnTheLeft,
           elevation: 10,
           color: AppColors.blueGreyColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          titleFontSize: 30,
-          descriptionFontSize: 10,
-          title: communityContentString[1].title,
+          title: Text(communityContentString[1].title),
           image: Image.asset(
             communityContentString[1].image,
-            height: 350,
+            height: 300,
+            width: 500,
           ),
-          description: communityContentString[1].description,
+          description: Text(communityContentString[1].description),
           button: AppButton(
-            layout: AppButtonType.OUTLINEDBUTTON,
-            buttonText: 'Discover',
+            layout: AppButtonType.floatingActionButton,
+            buttonTitle: Text(
+              'Discover',
+              style: AppTextStyle.appButtonText,
+            ),
             onPressed: () {},
           ),
         ),

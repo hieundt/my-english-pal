@@ -4,6 +4,7 @@ import 'package:myenglishpal_web/app_scroll_behavior.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_vertical_card.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/strings/home_page_view_string.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class HomePageVocabulary extends StatelessWidget {
@@ -16,21 +17,20 @@ class HomePageVocabulary extends StatelessWidget {
     List<HomePageVocabularyContentString> homePageVocabularyString =
         HomePageVocabularyContentString.homePageVocabularyString;
     return SizedBox(
-      height: MediaQuery.of(context).size.height /
-          ResponsiveValue(
-            context,
-            defaultValue: 1.5,
-            valueWhen: const [
-              Condition.smallerThan(
-                name: DESKTOP,
-                value: 1.5,
-              ),
-              Condition.smallerThan(
-                name: TABLET,
-                value: 2.0,
-              ),
-            ],
-          ).value!,
+      height: ResponsiveValue(
+        context,
+        defaultValue: 400.0,
+        valueWhen: const [
+          Condition.smallerThan(
+            name: DESKTOP,
+            value: 400.0,
+          ),
+          Condition.smallerThan(
+            name: TABLET,
+            value: 350.0,
+          ),
+        ],
+      ).value!,
       child: ScrollConfiguration(
         behavior: AppScrollBehavior(),
         child: ListView.separated(
@@ -42,18 +42,23 @@ class HomePageVocabulary extends StatelessWidget {
             width: 10,
           ),
           itemBuilder: (context, index) => AppVerticalCard(
-            elevation: 10,
+            elevation: 30,
             button: AppButton(
-              layout: AppButtonType.OUTLINEDBUTTON,
-              buttonText: 'Learn',
+              layout: AppButtonType.floatingActionButton,
+              buttonTitle: Text(
+                'Learn',
+                style: AppTextStyle.appButtonText,
+              ),
               buttonColor: AppColors.pinkColor,
               onPressed: () {},
             ),
-            image: homePageVocabularyString[index].image,
-            title: homePageVocabularyString[index].title,
-            imageWidth: 300,
-            imageHeight: 200,
-            titleFontSize: 20,
+            image: Image.asset(
+              homePageVocabularyString[index].image,
+              width: 300,
+              height: 200,
+            ),
+            title: Text(homePageVocabularyString[index].title),
+            //titleFontSize: 20,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),

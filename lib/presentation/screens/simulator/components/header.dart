@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_horizontal_card.dart';
-
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -17,9 +16,18 @@ class SimulatorHeader extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
       ),
       elevation: 10,
-      titleFontSize: 70,
-      layout: AppHorizontalCardType.IMAGEONTHERIGHT,
-      title: 'Exam Simulator',
+      // titleFontSize: ResponsiveValue(
+      //   context,
+      //   defaultValue: 90.0,
+      //   valueWhen: [
+      //     const Condition.smallerThan(
+      //       name: TABLET,
+      //       value: 70.0,
+      //     ),
+      //   ],
+      // ).value!,
+      layout: AppHorizontalCardType.imageOnTheRight,
+      title: Text('Exam Simulator'),
       image: Image.asset(
         SimulatorImages.headerImage,
         height: ResponsiveValue(
@@ -34,8 +42,7 @@ class SimulatorHeader extends StatelessWidget {
         ).value!,
       ),
       button: AppButton(
-        layout: AppButtonType.TEXTBUTTON,
-        buttonText: '',
+        layout: AppButtonType.textButton,
         onPressed: () {},
       ),
     );

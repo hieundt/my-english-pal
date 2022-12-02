@@ -1,70 +1,70 @@
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
-import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 
 class AppListTitleCard extends StatelessWidget {
-  final int iTemCount;
-  final String cardTitle;
-  final double? cardTitleFontSize;
-
+  final Widget cardTitle;
   final Widget cardLeadingIcon;
-
-  final List<String> cardItemTitle;
-  final double? cardItemTitleFontSize;
-
+  final int iTemCount;
+  final List<Widget> cardItemTitle;
   final List<Widget> cardItemLeadingIcon;
+  final void Function()? onItemTap;
+  final double? cardTitleFontSize;
+  final double? cardItemTitleFontSize;
+  final double? elevation;
   final Color? cardColor;
   final Color? cardTitleColor;
   final Color? shadowColor;
   final RoundedRectangleBorder? shape;
-  final double? elevation;
   final EdgeInsetsGeometry? margin;
 
   factory AppListTitleCard({
-    required int iTemCount,
-    required String cardTitle,
+    required Widget cardTitle,
     required Widget cardLeadingIcon,
-    required List<String> cardItemTitle,
+    required int iTemCount,
+    required List<Widget> cardItemTitle,
     required List<Widget> cardItemLeadingIcon,
-    double cardTitleFontSize = 30.0,
-    double cardItemTitleFontSize = 20.0,
+    void Function()? onItemTap,
+    double? cardTitleFontSize = 30.0,
+    double? cardItemTitleFontSize = 20.0,
+    double? elevation = 50.0,
     Color? cardColor = AppColors.whiteColor,
     Color? cardTitleColor = AppColors.backColor,
     Color? shadowColor = AppColors.greyColor,
     RoundedRectangleBorder? shape,
-    double? elevation = 50.0,
     EdgeInsetsGeometry? margin,
   }) {
     return AppListTitleCard._internal(
-      iTemCount: iTemCount,
       cardTitle: cardTitle,
       cardLeadingIcon: cardLeadingIcon,
+      iTemCount: iTemCount,
       cardItemTitle: cardItemTitle,
       cardItemLeadingIcon: cardItemLeadingIcon,
+      onItemTap: onItemTap,
       cardTitleFontSize: cardTitleFontSize,
       cardItemTitleFontSize: cardItemTitleFontSize,
+      elevation: elevation,
       cardColor: cardColor,
       cardTitleColor: cardTitleColor,
       shadowColor: shadowColor,
       shape: shape,
-      elevation: elevation,
       margin: margin,
     );
   }
 
   const AppListTitleCard._internal({
-    required this.iTemCount,
     required this.cardTitle,
     required this.cardLeadingIcon,
+    required this.iTemCount,
     required this.cardItemTitle,
     required this.cardItemLeadingIcon,
+    this.onItemTap,
     this.cardTitleFontSize,
     this.cardItemTitleFontSize,
+    this.elevation,
     this.cardColor,
     this.cardTitleColor,
     this.shadowColor,
     this.shape,
-    this.elevation,
     this.margin,
   });
 
@@ -79,14 +79,7 @@ class AppListTitleCard extends StatelessWidget {
       child: ExpansionTile(
         initiallyExpanded: true,
         leading: cardLeadingIcon,
-        title: Text(
-          cardTitle,
-          style: ralewayStyle.copyWith(
-            fontSize: cardTitleFontSize,
-            color: AppColors.greyTextColor,
-            fontWeight: FontWeight.w800,
-          ),
-        ),
+        title: cardTitle,
         children: [
           Card(
             shape: shape,
@@ -101,16 +94,9 @@ class AppListTitleCard extends StatelessWidget {
                 index,
               ) {
                 return ListTile(
-                  title: Text(
-                    cardItemTitle[index],
-                    style: ralewayStyle.copyWith(
-                      fontSize: cardItemTitleFontSize,
-                      color: AppColors.greyTextColor,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
+                  title: cardItemTitle[index],
                   leading: cardItemLeadingIcon[index],
-                  onTap: () {},
+                  onTap: onItemTap,
                 );
               },
               itemCount: iTemCount,

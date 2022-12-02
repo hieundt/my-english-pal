@@ -17,11 +17,7 @@ class ProfileContent extends StatelessWidget {
       children: [
         Text(
           'Statistical',
-          style: ralewayStyle.copyWith(
-            fontSize: 30,
-            color: AppColors.greyTextColor,
-            fontWeight: FontWeight.w800,
-          ),
+          style: AppTextStyle.appTitle,
         ),
         ResponsiveRowColumn(
           layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
@@ -49,11 +45,7 @@ class ProfileContent extends StatelessWidget {
         ),
         Text(
           'Achievements',
-          style: ralewayStyle.copyWith(
-            fontSize: 30,
-            color: AppColors.greyTextColor,
-            fontWeight: FontWeight.w800,
-          ),
+          style: AppTextStyle.appTitle,
         ),
         const ProfileAchivement(),
         //const ProgressTaskCompletion(),

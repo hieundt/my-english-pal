@@ -76,4 +76,6 @@ class GrammarImages {
 
 class UserViewImages {
   static const backgroundImage = 'assets/images/user_view/background.jpg';
+  static const googleImage = 'assets/images/user_view/google.png';
+  static const facebookImage = 'assets/images/user_view/facebook.png';
 }

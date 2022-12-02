@@ -1,57 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
-import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
-import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
+
 import 'package:responsive_framework/responsive_framework.dart';
 
 class AccountViewFooter extends StatelessWidget {
-  final String description;
-  final String buttonText;
-  final void Function()? onPressed;
+  final Widget leading;
+  final AppButton trailing;
 
   factory AccountViewFooter({
-    required String description,
-    required String buttonText,
-    required void Function()? onPressed,
+    required Widget leading,
+    required AppButton trailing,
   }) {
     return AccountViewFooter._internal(
-      description: description,
-      buttonText: buttonText,
-      onPressed: onPressed,
+      leading: leading,
+      trailing: trailing,
     );
   }
 
   const AccountViewFooter._internal({
-    required this.description,
-    required this.buttonText,
-    required this.onPressed,
+    required this.leading,
+    required this.trailing,
   });
 
   @override
   Widget build(BuildContext context) {
     return ResponsiveRowColumn(
-      layout: ResponsiveRowColumnType.ROW,
       rowMainAxisAlignment: MainAxisAlignment.center,
+      layout: ResponsiveRowColumnType.ROW,
       children: [
         ResponsiveRowColumnItem(
           rowFlex: 1,
-          child: Text(
-            description,
-            style: ralewayStyle.copyWith(
-              fontSize: 15,
-              color: AppColors.greyColor,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          child: leading,
         ),
         ResponsiveRowColumnItem(
           rowFlex: 1,
-          child: AppButton(
-            layout: AppButtonType.TEXTBUTTON,
-            buttonText: buttonText,
-            buttonTextColor: AppColors.mainThemeColor,
-            onPressed: onPressed,
-          ),
+          child: trailing,
         ),
       ],
     );

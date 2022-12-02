@@ -3,6 +3,7 @@ import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/strings/home_page_view_string.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_vertical_card.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 
 class HomePageTraining extends StatefulWidget {
   const HomePageTraining({super.key});
@@ -35,18 +36,24 @@ class _HomePageTrainingState extends State<HomePageTraining> {
             AppVerticalCard(
               elevation: 10,
               button: AppButton(
-                layout: AppButtonType.ELEVATEDBUTTON,
-                buttonText: 'Start',
-                buttonColor: AppColors.lightPinkColor,
+                layout: AppButtonType.floatingActionButton,
+                buttonTitle: Text(
+                  'Start',
+                  style: AppTextStyle.appButtonText,
+                ),
+                buttonColor: AppColors.pinkColor,
                 onPressed: () {},
               ),
-              imageHeight: 200,
-              titleFontSize: 10,
+              //titleFontSize: 10,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
-              title: homePageContentString[index].title,
-              image: homePageContentString[index].image,
+              title: Text(homePageContentString[index].title),
+              image: Image.asset(
+                homePageContentString[index].image,
+                height: 200,
+                width: 400,
+              ),
             ),
           ],
         );
