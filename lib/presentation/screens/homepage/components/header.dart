@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_horizontal_card.dart';
@@ -10,15 +11,16 @@ class HomePageHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
     return AppHorizontalCard(
       color: AppColors.lightPinkColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
-      elevation: 100,
+      elevation: 10,
       titleFontSize: 70,
       layout: AppHorizontalCardType.IMAGEONTHERIGHT,
-      title: 'Welcome back!',
+      title: 'Welcome!',
       image: Image.asset(
         HomePageImages.headerImages,
         height: ResponsiveValue(

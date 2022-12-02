@@ -4,6 +4,7 @@ import 'package:myenglishpal_web/presentation/screens/homepage/components/conten
 import 'package:myenglishpal_web/presentation/screens/homepage/components/header.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class HomePageView extends StatelessWidget {
   const HomePageView({super.key});
@@ -12,6 +13,7 @@ class HomePageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
+        padding: const EdgeInsets.all(15.0),
         children: [
           const HomePageHeader(),
           const SizedBox(
@@ -20,22 +22,46 @@ class HomePageView extends StatelessWidget {
           Text(
             'Vocabulary section',
             style: ralewayStyle.copyWith(
-              fontSize: 50,
+              fontSize: ResponsiveValue(
+                context,
+                defaultValue: 50.0,
+                valueWhen: [
+                  const Condition.smallerThan(
+                    name: MOBILE,
+                    value: 40.0,
+                  ),
+                ],
+              ).value,
               color: AppColors.greyTextColor,
               fontWeight: FontWeight.w900,
             ),
           ),
+          const SizedBox(
+            height: 30,
+          ),
           const HomePageVocabulary(),
-          SizedBox(
+          const SizedBox(
             height: 100,
-            child: Text(
-              'Trainning section',
-              style: ralewayStyle.copyWith(
-                fontSize: 50,
-                color: AppColors.greyTextColor,
-                fontWeight: FontWeight.w900,
-              ),
+          ),
+          Text(
+            'Trainning section',
+            style: ralewayStyle.copyWith(
+              fontSize: ResponsiveValue(
+                context,
+                defaultValue: 50.0,
+                valueWhen: [
+                  const Condition.smallerThan(
+                    name: MOBILE,
+                    value: 40.0,
+                  ),
+                ],
+              ).value,
+              color: AppColors.greyTextColor,
+              fontWeight: FontWeight.w900,
             ),
+          ),
+          const SizedBox(
+            height: 30,
           ),
           const HomePageTraining(),
         ],

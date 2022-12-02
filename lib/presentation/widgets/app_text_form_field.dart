@@ -1,4 +1,5 @@
 // ignore_for_file: constant_identifier_names
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
@@ -9,50 +10,37 @@ enum AppTextFieldType {
   PASSWORD,
 }
 
-class AppTextField extends StatefulWidget {
+class AppTextFormField extends StatefulWidget {
   final AppTextFieldType layout;
   final String? hintText;
+  final TextEditingController? controller;
 
   get isEmail => layout == AppTextFieldType.EMAIL;
   get isPassword => layout == AppTextFieldType.PASSWORD;
 
-  factory AppTextField({
+  factory AppTextFormField({
     required AppTextFieldType layout,
     required String hintText,
+    TextEditingController? controller,
   }) {
-    return AppTextField._internal(
+    return AppTextFormField._internal(
       layout: layout,
       hintText: hintText,
+      controller: controller,
     );
   }
 
-  const AppTextField._internal({
+  const AppTextFormField._internal({
     required this.layout,
     required this.hintText,
+    this.controller,
   });
 
   @override
-  State<AppTextField> createState() => _AppTextFieldState();
+  State<AppTextFormField> createState() => _AppTextFormFieldState();
 }
 
-class _AppTextFieldState extends State<AppTextField> {
-  late final TextEditingController _email;
-  late final TextEditingController _password;
-
-  @override
-  void initState() {
-    _email = TextEditingController();
-    _password = TextEditingController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _email.dispose();
-    _password.dispose();
-    super.dispose();
-  }
-
+class _AppTextFormFieldState extends State<AppTextFormField> {
   bool _obscureText = true;
   get isEmail => widget.layout == AppTextFieldType.EMAIL;
   get isPassword => widget.layout == AppTextFieldType.PASSWORD;
@@ -60,7 +48,6 @@ class _AppTextFieldState extends State<AppTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width / 3,
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         boxShadow: [
@@ -80,10 +67,19 @@ class _AppTextFieldState extends State<AppTextField> {
           30,
         ),
       ),
-      child: TextField(
+      child: TextFormField(
+        controller: widget.controller,
         keyboardType: TextInputType.emailAddress,
         enableSuggestions: false,
         autocorrect: false,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: (widget.layout == AppTextFieldType.EMAIL)
+            ? (value) => value != null && !EmailValidator.validate(value)
+                ? 'Enter a valid email'
+                : null
+            : (value) => value != null && value.length < 6
+                ? 'Password must have at least 6 characters'
+                : null,
         obscureText: (widget.layout == AppTextFieldType.EMAIL)
             ? !_obscureText
             : _obscureText,

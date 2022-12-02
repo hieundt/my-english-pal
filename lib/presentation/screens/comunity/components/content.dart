@@ -15,7 +15,7 @@ class CommunityContent extends StatelessWidget {
       children: [
         AppHorizontalCard(
           layout: AppHorizontalCardType.IMAGEONTHELEFT,
-          elevation: 0,
+          elevation: 10,
           color: AppColors.blueGreyColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
@@ -36,7 +36,7 @@ class CommunityContent extends StatelessWidget {
         ),
         AppHorizontalCard(
           layout: AppHorizontalCardType.IMAGEONTHELEFT,
-          elevation: 0,
+          elevation: 10,
           color: AppColors.blueGreyColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),

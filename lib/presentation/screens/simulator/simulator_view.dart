@@ -9,6 +9,7 @@ class SimulatorView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
+        padding: const EdgeInsets.all(15.0),
         children: const [
           SimulatorHeader(),
           SimulatorContent(),

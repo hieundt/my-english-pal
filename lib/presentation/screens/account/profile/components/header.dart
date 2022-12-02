@@ -11,7 +11,7 @@ class ProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppHorizontalCard(
-      elevation: 0,
+      elevation: 10,
       titleFontSize: 50,
       color: AppColors.mainThemeColor,
       layout: AppHorizontalCardType.IMAGEONTHELEFT,

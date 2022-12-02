@@ -13,7 +13,7 @@ class GrammarHeader extends StatelessWidget {
     return AppHorizontalCard(
       layout: AppHorizontalCardType.IMAGEONTHERIGHT,
       color: AppColors.lightPinkColor,
-      elevation: 100,
+      elevation: 10,
       titleFontSize: 70,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),

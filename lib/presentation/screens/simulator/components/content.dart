@@ -25,7 +25,7 @@ class SimulatorContent extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
-            elevation: 0,
+            elevation: 10,
             imageWidth: 500,
             imageHeight: 300,
             color: AppColors.lightBlueColor,
@@ -49,7 +49,7 @@ class SimulatorContent extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
-            elevation: 0,
+            elevation: 10,
             imageWidth: 500,
             imageHeight: 300,
             color: AppColors.lightBlueColor,
