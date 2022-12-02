@@ -23,6 +23,7 @@ class GrammarContent extends StatelessWidget {
         ResponsiveRowColumnItem(
           rowFlex: 1,
           child: AppListTitleCard(
+            elevation: 10,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
@@ -37,6 +38,7 @@ class GrammarContent extends StatelessWidget {
         ResponsiveRowColumnItem(
           rowFlex: 1,
           child: AppListTitleCard(
+            elevation: 10,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
@@ -51,6 +53,7 @@ class GrammarContent extends StatelessWidget {
         ResponsiveRowColumnItem(
           rowFlex: 1,
           child: AppListTitleCard(
+            elevation: 10,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),

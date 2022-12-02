@@ -1,11 +1,12 @@
 // ignore_for_file: constant_identifier_names
 
+import 'dart:developer' as devtools show log;
 import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/navigation/navigate_items.dart';
+import 'package:myenglishpal_web/presentation/navigation/show_dialog.dart';
 import 'package:myenglishpal_web/presentation/screens/simulator/simulator_view.dart';
 import 'package:myenglishpal_web/presentation/screens/comunity/community_view.dart';
 import 'package:myenglishpal_web/presentation/screens/grammar/grammar_view.dart';
@@ -17,7 +18,6 @@ import 'package:myenglishpal_web/rsc/images/app_images.dart';
 import 'package:myenglishpal_web/rsc/strings/popup_menu_button_string.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import '../widgets/main_appabar.dart';
 
 class NavigateController extends StatefulWidget {
   const NavigateController({super.key});
@@ -51,7 +51,16 @@ class _NavigateControllerState extends State<NavigateController> {
         title: Text(
           'My English Pal',
           style: ralewayStyle.copyWith(
-            fontSize: 30,
+            fontSize: ResponsiveValue(
+              context,
+              defaultValue: 30.0,
+              valueWhen: [
+                const Condition.smallerThan(
+                  name: MOBILE,
+                  value: 15.0,
+                ),
+              ],
+            ).value,
             color: AppColors.greyTextColor,
             fontWeight: FontWeight.w800,
           ),
@@ -145,7 +154,7 @@ class _NavigateControllerState extends State<NavigateController> {
             ),
           ),
           PopupMenuButton<UserMenuAction>(
-            onSelected: (value) {
+            onSelected: (value) async {
               switch (value) {
                 case UserMenuAction.PROFILE:
                   Navigator.of(context).pushNamedAndRemoveUntil(
@@ -154,7 +163,7 @@ class _NavigateControllerState extends State<NavigateController> {
                   );
                   break;
                 case UserMenuAction.SIGNOUT:
-                  return log('signout');
+                  return await FirebaseAuth.instance.signOut();
               }
             },
             itemBuilder: (context) => userInfoButtonString

@@ -16,7 +16,7 @@ class SimulatorHeader extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
-      elevation: 100,
+      elevation: 10,
       titleFontSize: 70,
       layout: AppHorizontalCardType.IMAGEONTHERIGHT,
       title: 'Exam Simulator',

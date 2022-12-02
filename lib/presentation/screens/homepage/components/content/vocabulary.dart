@@ -42,6 +42,7 @@ class HomePageVocabulary extends StatelessWidget {
             width: 10,
           ),
           itemBuilder: (context, index) => AppVerticalCard(
+            elevation: 10,
             button: AppButton(
               layout: AppButtonType.OUTLINEDBUTTON,
               buttonText: 'Learn',

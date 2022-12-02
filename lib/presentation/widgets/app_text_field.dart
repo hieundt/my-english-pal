@@ -12,6 +12,7 @@ enum AppTextFieldType {
 class AppTextField extends StatefulWidget {
   final AppTextFieldType layout;
   final String? hintText;
+  final TextEditingController? controller;
 
   get isEmail => layout == AppTextFieldType.EMAIL;
   get isPassword => layout == AppTextFieldType.PASSWORD;
@@ -19,16 +20,19 @@ class AppTextField extends StatefulWidget {
   factory AppTextField({
     required AppTextFieldType layout,
     required String hintText,
+    TextEditingController? controller,
   }) {
     return AppTextField._internal(
       layout: layout,
       hintText: hintText,
+      controller: controller,
     );
   }
 
   const AppTextField._internal({
     required this.layout,
     required this.hintText,
+    this.controller,
   });
 
   @override
@@ -36,23 +40,6 @@ class AppTextField extends StatefulWidget {
 }
 
 class _AppTextFieldState extends State<AppTextField> {
-  late final TextEditingController _email;
-  late final TextEditingController _password;
-
-  @override
-  void initState() {
-    _email = TextEditingController();
-    _password = TextEditingController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _email.dispose();
-    _password.dispose();
-    super.dispose();
-  }
-
   bool _obscureText = true;
   get isEmail => widget.layout == AppTextFieldType.EMAIL;
   get isPassword => widget.layout == AppTextFieldType.PASSWORD;
@@ -81,6 +68,7 @@ class _AppTextFieldState extends State<AppTextField> {
         ),
       ),
       child: TextField(
+        controller: widget.controller,
         keyboardType: TextInputType.emailAddress,
         enableSuggestions: false,
         autocorrect: false,

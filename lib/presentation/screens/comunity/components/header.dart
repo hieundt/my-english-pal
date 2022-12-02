@@ -13,6 +13,7 @@ class CommunityHeader extends StatelessWidget {
     CommunityHeaderString communityHeaderString =
         CommunityHeaderString.communityHeaderString;
     return AppHorizontalCard(
+      elevation: 10,
       layout: AppHorizontalCardType.IMAGEONTHERIGHT,
       color: AppColors.lightBlueColor,
       shape: RoundedRectangleBorder(

@@ -33,6 +33,7 @@ class _HomePageTrainingState extends State<HomePageTraining> {
         return Column(
           children: [
             AppVerticalCard(
+              elevation: 10,
               button: AppButton(
                 layout: AppButtonType.ELEVATEDBUTTON,
                 buttonText: 'Start',
