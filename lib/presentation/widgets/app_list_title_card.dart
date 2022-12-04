@@ -12,7 +12,6 @@ class AppListTitleCard extends StatelessWidget {
   final double? cardItemTitleFontSize;
   final double? elevation;
   final Color? cardColor;
-  final Color? cardTitleColor;
   final Color? shadowColor;
   final RoundedRectangleBorder? shape;
   final EdgeInsetsGeometry? margin;
@@ -28,8 +27,7 @@ class AppListTitleCard extends StatelessWidget {
     double? cardItemTitleFontSize = 20.0,
     double? elevation = 50.0,
     Color? cardColor = AppColors.whiteColor,
-    Color? cardTitleColor = AppColors.backColor,
-    Color? shadowColor = AppColors.greyColor,
+    Color? shadowColor = AppColors.darkGreyColor,
     RoundedRectangleBorder? shape,
     EdgeInsetsGeometry? margin,
   }) {
@@ -44,7 +42,6 @@ class AppListTitleCard extends StatelessWidget {
       cardItemTitleFontSize: cardItemTitleFontSize,
       elevation: elevation,
       cardColor: cardColor,
-      cardTitleColor: cardTitleColor,
       shadowColor: shadowColor,
       shape: shape,
       margin: margin,
@@ -62,7 +59,6 @@ class AppListTitleCard extends StatelessWidget {
     this.cardItemTitleFontSize,
     this.elevation,
     this.cardColor,
-    this.cardTitleColor,
     this.shadowColor,
     this.shape,
     this.margin,
@@ -83,7 +79,6 @@ class AppListTitleCard extends StatelessWidget {
         children: [
           Card(
             shape: shape,
-            color: cardTitleColor,
             child: ListView.builder(
               shrinkWrap: true,
               physics: const ScrollPhysics(

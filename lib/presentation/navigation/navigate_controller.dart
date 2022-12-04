@@ -1,11 +1,10 @@
 import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/navigation_bar.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/navigation_rail.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/popup_menu_button.dart';
-import 'package:myenglishpal_web/presentation/screens/simulator/simulator_view.dart';
+import 'package:myenglishpal_web/presentation/screens/assessment/assessment_view.dart';
 import 'package:myenglishpal_web/presentation/screens/comunity/community_view.dart';
 import 'package:myenglishpal_web/presentation/screens/grammar/grammar_view.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/home_page_view.dart';
@@ -13,11 +12,11 @@ import 'package:myenglishpal_web/routes.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
 import 'package:myenglishpal_web/rsc/strings/popup_menu_button_string.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class NavigateController extends StatefulWidget {
   const NavigateController({super.key});
-
   @override
   State<NavigateController> createState() => _NavigateControllerState();
 }
@@ -28,7 +27,7 @@ class _NavigateControllerState extends State<NavigateController> {
   final List<Widget> _screens = [
     const HomePageView(),
     const CommunityView(),
-    const SimulatorView(),
+    const AssessmentView(),
     const GrammarView(),
   ];
 
@@ -43,7 +42,10 @@ class _NavigateControllerState extends State<NavigateController> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.mainThemeColor,
-        title: Text('My English Pal'),
+        title: Text(
+          'My English Pal',
+          style: AppTextStyle.robotoMono15,
+        ),
         leading: Transform.scale(
           scale: 1,
           child: Image.asset(AppLogo.myEnglishPalLogo),

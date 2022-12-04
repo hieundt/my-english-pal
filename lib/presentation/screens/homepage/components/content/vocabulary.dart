@@ -47,7 +47,7 @@ class HomePageVocabulary extends StatelessWidget {
               layout: AppButtonType.floatingActionButton,
               buttonTitle: Text(
                 'Learn',
-                style: AppTextStyle.appButtonText,
+                style: AppTextStyle.bungeeHairline15,
               ),
               buttonColor: AppColors.pinkColor,
               onPressed: () {},
@@ -57,8 +57,10 @@ class HomePageVocabulary extends StatelessWidget {
               width: 300,
               height: 200,
             ),
-            title: Text(homePageVocabularyString[index].title),
-            //titleFontSize: 20,
+            title: Text(
+              homePageVocabularyString[index].title,
+              style: AppTextStyle.bungee20,
+            ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),

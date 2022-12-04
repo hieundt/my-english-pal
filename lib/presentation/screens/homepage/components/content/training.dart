@@ -30,7 +30,10 @@ class _HomePageTrainingState extends State<HomePageTraining> {
         crossAxisSpacing: 20,
         childAspectRatio: 3 / 2,
       ),
-      itemBuilder: (context, index) {
+      itemBuilder: (
+        context,
+        index,
+      ) {
         return Column(
           children: [
             AppVerticalCard(
@@ -39,16 +42,22 @@ class _HomePageTrainingState extends State<HomePageTraining> {
                 layout: AppButtonType.floatingActionButton,
                 buttonTitle: Text(
                   'Start',
-                  style: AppTextStyle.appButtonText,
+                  style: AppTextStyle.bungeeHairline15,
                 ),
                 buttonColor: AppColors.pinkColor,
                 onPressed: () {},
               ),
-              //titleFontSize: 10,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
-              title: Text(homePageContentString[index].title),
+              title: Text(
+                homePageContentString[index].title,
+                style: AppTextStyle.bungee15,
+              ),
+              description: Text(
+                homePageContentString[index].description,
+                style: AppTextStyle.robotoMono15,
+              ),
               image: Image.asset(
                 homePageContentString[index].image,
                 height: 200,

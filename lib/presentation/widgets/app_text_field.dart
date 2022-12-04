@@ -88,7 +88,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
         filled: true,
         fillColor: AppColors.whiteColor,
         hintText: widget.hintText,
-        hintStyle: AppTextStyle.appNormalText,
+        hintStyle: AppTextStyle.robotoMono15,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(
             8,

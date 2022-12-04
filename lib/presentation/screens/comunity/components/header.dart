@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_horizontal_card.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/strings/community_view_string.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class CommunityHeader extends StatelessWidget {
@@ -19,26 +19,20 @@ class CommunityHeader extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
-      //titleFontSize: 50,
-      //descriptionFontSize: 20,
-      title: Text(communityHeaderString.title),
+      title: Text(
+        communityHeaderString.title,
+        style: (ResponsiveWrapper.of(context).isSmallerThan(MOBILE))
+            ? AppTextStyle.bungee30
+            : AppTextStyle.bungee70,
+      ),
       image: Image.asset(
         communityHeaderString.image,
-        height: ResponsiveValue(
-          context,
-          defaultValue: 300.0,
-          valueWhen: [
-            const Condition.smallerThan(
-              name: TABLET,
-              value: 200.0,
-            ),
-          ],
-        ).value!,
+        height: 250,
+        fit: BoxFit.cover,
       ),
-      description: Text(communityHeaderString.description),
-      button: AppButton(
-        layout: AppButtonType.textButton,
-        onPressed: () {},
+      description: Text(
+        communityHeaderString.description,
+        style: AppTextStyle.robotoMono15,
       ),
     );
   }

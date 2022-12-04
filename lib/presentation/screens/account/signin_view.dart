@@ -1,13 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/data/services/firebase/firebase_auth_methods.dart';
+import 'package:myenglishpal_web/data/services/firebase/firebase_auth_services.dart';
 import 'package:myenglishpal_web/presentation/screens/account/background.dart';
 import 'package:myenglishpal_web/presentation/screens/account/components/footer.dart';
 import 'package:myenglishpal_web/presentation/screens/account/components/header.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_text_field.dart';
 import 'package:myenglishpal_web/routes.dart';
+import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:myenglishpal_web/utils.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -21,39 +23,6 @@ class SignInView extends StatefulWidget {
 }
 
 class _SignInViewState extends State<SignInView> {
-  final formKey = GlobalKey<FormState>();
-
-  late final TextEditingController _emailController;
-  late final TextEditingController _passwordController;
-
-  @override
-  void initState() {
-    _emailController = TextEditingController();
-    _passwordController = TextEditingController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
-  Future<void> signInWithEmailPasword() async {
-    try {
-      await FirebaseAuthServices().signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
-    } on FirebaseAuthException catch (e) {
-      showSnackBar(
-        context,
-        e.message!,
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,30 +30,46 @@ class _SignInViewState extends State<SignInView> {
         child: ResponsiveRowColumn(
           layout: ResponsiveRowColumnType.COLUMN,
           children: [
+            //* Header
             ResponsiveRowColumnItem(
               columnFlex: 3,
               child: AccountViewHeader(
-                title: Text('Welcome!'),
-                description: Text('Sign in to your account'),
+                title: Text(
+                  'Welcome!',
+                  style: AppTextStyle.bungee50,
+                ),
+                description: Text(
+                  'Sign in to your account',
+                  style: AppTextStyle.bungeeHairline20,
+                ),
               ),
             ),
+            //* Google sign in button
             ResponsiveRowColumnItem(
-              rowFlex: 2,
+              rowFlex: 1,
               child: AppButton(
                 layout: AppButtonType.floatingActionButton,
                 buttonLeading: Image.asset(
                   scale: 15,
                   UserViewImages.googleImage,
                 ),
-                buttonTitle: Text('Continue with Google'),
+                buttonTitle: Text(
+                  'Continue with Google    ',
+                  style: AppTextStyle.bungee15,
+                ),
+                onPressed: () {
+                  FirebaseAuthServices(FirebaseAuth.instance)
+                      .signInWithGoogle(context);
+                },
               ),
             ),
             const ResponsiveRowColumnItem(
               rowFlex: 1,
               child: SizedBox(
-                width: 10,
+                height: 30,
               ),
             ),
+            //* Facebook sign in button
             ResponsiveRowColumnItem(
               rowFlex: 2,
               child: AppButton(
@@ -93,79 +78,38 @@ class _SignInViewState extends State<SignInView> {
                   scale: 15,
                   UserViewImages.facebookImage,
                 ),
-                buttonTitle: Text('Continue with Facebook'),
+                buttonTitle: Text(
+                  'Continue with Facebook',
+                  style: AppTextStyle.bungee15,
+                ),
               ),
             ),
             const ResponsiveRowColumnItem(
               columnFlex: 1,
               child: SizedBox(
-                height: 20,
+                height: 50,
               ),
             ),
-            ResponsiveRowColumnItem(
-              columnFlex: 3,
-              child: AppTextFormField(
-                layout: AppTextFieldType.EMAIL,
-                hintText: 'Enter your email here',
-                controller: _emailController,
-              ),
-            ),
-            const ResponsiveRowColumnItem(
-              columnFlex: 1,
-              child: SizedBox(
-                height: 10,
-              ),
-            ),
-            ResponsiveRowColumnItem(
-              columnFlex: 3,
-              child: AppTextFormField(
-                layout: AppTextFieldType.PASSWORD,
-                hintText: 'Enter your password here',
-                controller: _passwordController,
-              ),
-            ),
-            const ResponsiveRowColumnItem(
-              columnFlex: 1,
-              child: SizedBox(
-                height: 15,
-              ),
-            ),
-            ResponsiveRowColumnItem(
-              columnFlex: 1,
-              child: AppButton(
-                layout: AppButtonType.textButton,
-                buttonTitle: Text('Forgot password?'),
-                //buttonTextColor: AppColors.darkBlueColor,
-                onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                    forgotPasswordRoute,
-                    (route) => false,
-                  );
-                },
-              ),
-            ),
-            ResponsiveRowColumnItem(
-              columnFlex: 2,
-              child: AppButton(
-                layout: AppButtonType.floatingActionButton,
-                buttonTitle: Text('Sign In'),
-                onPressed: signInWithEmailPasword,
-                //,
-              ),
-            ),
-            const ResponsiveRowColumnItem(
-              columnFlex: 1,
-              child: SizedBox(
-                height: 20,
-              ),
-            ),
+            //* Footer
             ResponsiveRowColumnItem(
               columnFlex: 1,
               child: AccountViewFooter(
-                leading: Text("Don't have an account? "),
+                leading: Text(
+                  "Don't have an account?",
+                  style: (ResponsiveWrapper.of(context).isSmallerThan(MOBILE))
+                      ? AppTextStyle.robotoMono10
+                      : AppTextStyle.robotoMono15,
+                ),
                 trailing: AppButton(
                   layout: AppButtonType.textButton,
-                  buttonTitle: Text('Create'),
+                  buttonTitle: Text(
+                    'Create',
+                    style: (ResponsiveWrapper.of(context).isSmallerThan(MOBILE))
+                        ? AppTextStyle.robotoMono10
+                            .copyWith(color: AppColors.darkBlueColor)
+                        : AppTextStyle.robotoMono15
+                            .copyWith(color: AppColors.darkBlueColor),
+                  ),
                   onPressed: () {
                     Navigator.of(context).pushNamedAndRemoveUntil(
                       signUpRoute,

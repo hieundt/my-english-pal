@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/screens/account/profile/components/achievements/achivement.dart';
 import 'package:myenglishpal_web/presentation/screens/account/profile/components/statistical/day_streak.dart';
 import 'package:myenglishpal_web/presentation/screens/account/profile/components/statistical/time_on_task.dart';
-import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
+
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -17,7 +17,7 @@ class ProfileContent extends StatelessWidget {
       children: [
         Text(
           'Statistical',
-          style: AppTextStyle.appTitle,
+          style: AppTextStyle.bungee30,
         ),
         ResponsiveRowColumn(
           layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
@@ -45,7 +45,7 @@ class ProfileContent extends StatelessWidget {
         ),
         Text(
           'Achievements',
-          style: AppTextStyle.appTitle,
+          style: AppTextStyle.bungee30,
         ),
         const ProfileAchivement(),
         //const ProgressTaskCompletion(),

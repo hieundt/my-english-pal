@@ -17,22 +17,28 @@ class CommunityContent extends StatelessWidget {
         AppHorizontalCard(
           layout: AppHorizontalCardType.imageOnTheLeft,
           elevation: 10,
-          color: AppColors.blueGreyColor,
+          color: AppColors.lightGreyColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          title: Text(communityContentString[0].title),
+          title: Text(
+            communityContentString[0].title,
+            style: AppTextStyle.bungee20,
+          ),
           image: Image.asset(
             communityContentString[0].image,
-            height: 300,
-            width: 500,
+            height: 250,
+            fit: BoxFit.cover,
           ),
-          description: Text(communityContentString[0].description),
+          description: Text(
+            communityContentString[0].description,
+            style: AppTextStyle.robotoMono15,
+          ),
           button: AppButton(
             layout: AppButtonType.floatingActionButton,
             buttonTitle: Text(
               'Discover',
-              style: AppTextStyle.appButtonText,
+              style: AppTextStyle.bungeeHairline15,
             ),
             onPressed: () {},
           ),
@@ -43,22 +49,28 @@ class CommunityContent extends StatelessWidget {
         AppHorizontalCard(
           layout: AppHorizontalCardType.imageOnTheLeft,
           elevation: 10,
-          color: AppColors.blueGreyColor,
+          color: AppColors.lightGreyColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          title: Text(communityContentString[1].title),
+          title: Text(
+            communityContentString[1].title,
+            style: AppTextStyle.bungee20,
+          ),
           image: Image.asset(
             communityContentString[1].image,
-            height: 300,
-            width: 500,
+            height: 250,
+            fit: BoxFit.cover,
           ),
-          description: Text(communityContentString[1].description),
+          description: Text(
+            communityContentString[1].description,
+            style: AppTextStyle.robotoMono15,
+          ),
           button: AppButton(
             layout: AppButtonType.floatingActionButton,
             buttonTitle: Text(
               'Discover',
-              style: AppTextStyle.appButtonText,
+              style: AppTextStyle.bungeeHairline15,
             ),
             onPressed: () {},
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 
 class AppNavigationBar extends StatelessWidget {
   final int selectedIndex;
@@ -25,7 +26,7 @@ class AppNavigationBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.doc_checkmark_fill),
-          label: 'Simulator',
+          label: 'Assessment',
         ),
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.create),
@@ -35,8 +36,8 @@ class AppNavigationBar extends StatelessWidget {
       currentIndex: selectedIndex,
       onTap: onTap,
       type: BottomNavigationBarType.fixed,
-      unselectedItemColor: AppColors.greyColor,
-      selectedItemColor: AppColors.pinkColor,
+      unselectedItemColor: AppColors.darkGreyColor,
+      selectedItemColor: AppColors.darkGreenColor,
     );
   }
 }
