@@ -5,7 +5,7 @@ import 'package:myenglishpal_web/presentation/screens/account/signup_view.dart';
 import 'package:myenglishpal_web/presentation/screens/account/signin_view.dart';
 import 'package:myenglishpal_web/presentation/screens/account/verify_email_view.dart';
 import 'package:myenglishpal_web/presentation/screens/grammar/grammar_view.dart';
-import 'package:myenglishpal_web/presentation/screens/simulator/simulator_view.dart';
+import 'package:myenglishpal_web/presentation/screens/assessment/simulator_view.dart';
 import 'package:myenglishpal_web/presentation/screens/splash/splash_view.dart';
 import 'package:myenglishpal_web/app_scroll_behavior.dart';
 import 'package:myenglishpal_web/routes.dart';
@@ -67,7 +67,7 @@ class MyEnglishPal extends StatelessWidget {
         homePageRoute: (context) => const HomePageView(),
         comunityRoute: (context) => const CommunityView(),
         grammarRoute: (context) => const GrammarView(),
-        simulatorRoute: (context) => const SimulatorView(),
+        simulatorRoute: (context) => const AssessmentView(),
       },
       debugShowCheckedModeBanner: false,
     );

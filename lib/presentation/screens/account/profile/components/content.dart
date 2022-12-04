@@ -17,7 +17,7 @@ class ProfileContent extends StatelessWidget {
       children: [
         Text(
           'Statistical',
-          style: AppTextStyle.appTitle,
+          style: AppTextStyle.bungee30,
         ),
         ResponsiveRowColumn(
           layout: ResponsiveWrapper.of(context).isSmallerThan(DESKTOP)
@@ -45,7 +45,7 @@ class ProfileContent extends StatelessWidget {
         ),
         Text(
           'Achievements',
-          style: AppTextStyle.appTitle,
+          style: AppTextStyle.bungee30,
         ),
         const ProfileAchivement(),
         //const ProgressTaskCompletion(),

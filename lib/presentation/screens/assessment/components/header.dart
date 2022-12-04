@@ -3,10 +3,11 @@ import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_horizontal_card.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-class SimulatorHeader extends StatelessWidget {
-  const SimulatorHeader({super.key});
+class AssessmentHeader extends StatelessWidget {
+  const AssessmentHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,30 +17,16 @@ class SimulatorHeader extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
       ),
       elevation: 10,
-      // titleFontSize: ResponsiveValue(
-      //   context,
-      //   defaultValue: 90.0,
-      //   valueWhen: [
-      //     const Condition.smallerThan(
-      //       name: TABLET,
-      //       value: 70.0,
-      //     ),
-      //   ],
-      // ).value!,
       layout: AppHorizontalCardType.imageOnTheRight,
-      title: Text('Exam Simulator'),
+      title: Text(
+        'Assessment',
+        style: (ResponsiveWrapper.of(context).isSmallerThan(TABLET))
+            ? AppTextStyle.bungee50
+            : AppTextStyle.bungee70,
+      ),
       image: Image.asset(
         SimulatorImages.headerImage,
-        height: ResponsiveValue(
-          context,
-          defaultValue: 300.0,
-          valueWhen: [
-            const Condition.smallerThan(
-              name: TABLET,
-              value: 200.0,
-            ),
-          ],
-        ).value!,
+        height: 300,
       ),
       button: AppButton(
         layout: AppButtonType.textButton,

@@ -48,40 +48,49 @@ class HomePageVocabularyContentString {
 class HomePageTrainingContentString {
   static final homePageTrainingContentString = [
     HomePageTrainingContentString(
-      title: 'Part 1\nPhotographs',
+      title: 'Part 1',
+      description: 'Photographs',
       image: HomePageImages.partoneImage,
     ),
     HomePageTrainingContentString(
-      title: 'Part 2\nQuestion and response',
+      title: 'Part 2',
+      description: 'Question and response',
       image: HomePageImages.parttwoImage,
     ),
     HomePageTrainingContentString(
-      title: 'Part 3\nShort conversations',
+      title: 'Part 3',
+      description: 'Short conversations',
       image: HomePageImages.partthreeImage,
     ),
     HomePageTrainingContentString(
-      title: 'Part 4\nShort talks',
+      title: 'Part 4',
+      description: 'Short talks',
       image: HomePageImages.partfourImage,
     ),
     HomePageTrainingContentString(
-      title: 'Part 5\nIncomplete sentences',
+      title: 'Part 5',
+      description: 'Incomplete sentences',
       image: HomePageImages.partfiveImage,
     ),
     HomePageTrainingContentString(
-      title: 'Part 6\nText completion',
+      title: 'Part 6',
+      description: 'Text completion',
       image: HomePageImages.partsixImage,
     ),
     HomePageTrainingContentString(
-      title: 'Part 7\nReading comprehension',
+      title: 'Part 7',
+      description: 'Reading comprehension',
       image: HomePageImages.partsevenImage,
     ),
   ];
 
   final String title;
   final String image;
+  final String description;
 
   HomePageTrainingContentString({
     required this.image,
     required this.title,
+    required this.description,
   });
 }

@@ -7,7 +7,9 @@ import 'package:myenglishpal_web/presentation/screens/account/components/header.
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_text_field.dart';
 import 'package:myenglishpal_web/routes.dart';
+import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:myenglishpal_web/utils.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -64,25 +66,34 @@ class _SignInViewState extends State<SignInView> {
             ResponsiveRowColumnItem(
               columnFlex: 3,
               child: AccountViewHeader(
-                title: Text('Welcome!'),
-                description: Text('Sign in to your account'),
+                title: Text(
+                  'Welcome!',
+                  style: AppTextStyle.bungee50,
+                ),
+                description: Text(
+                  'Sign in to your account',
+                  style: AppTextStyle.bungeeHairline30,
+                ),
               ),
             ),
             ResponsiveRowColumnItem(
-              rowFlex: 2,
+              rowFlex: 1,
               child: AppButton(
                 layout: AppButtonType.floatingActionButton,
                 buttonLeading: Image.asset(
                   scale: 15,
                   UserViewImages.googleImage,
                 ),
-                buttonTitle: Text('Continue with Google'),
+                buttonTitle: Text(
+                  'Continue with Google    ',
+                  style: AppTextStyle.bungee15,
+                ),
               ),
             ),
             const ResponsiveRowColumnItem(
               rowFlex: 1,
               child: SizedBox(
-                width: 10,
+                height: 30,
               ),
             ),
             ResponsiveRowColumnItem(
@@ -93,79 +104,33 @@ class _SignInViewState extends State<SignInView> {
                   scale: 15,
                   UserViewImages.facebookImage,
                 ),
-                buttonTitle: Text('Continue with Facebook'),
+                buttonTitle: Text(
+                  'Continue with Facebook',
+                  style: AppTextStyle.bungee15,
+                ),
               ),
             ),
             const ResponsiveRowColumnItem(
               columnFlex: 1,
               child: SizedBox(
-                height: 20,
-              ),
-            ),
-            ResponsiveRowColumnItem(
-              columnFlex: 3,
-              child: AppTextFormField(
-                layout: AppTextFieldType.EMAIL,
-                hintText: 'Enter your email here',
-                controller: _emailController,
-              ),
-            ),
-            const ResponsiveRowColumnItem(
-              columnFlex: 1,
-              child: SizedBox(
-                height: 10,
-              ),
-            ),
-            ResponsiveRowColumnItem(
-              columnFlex: 3,
-              child: AppTextFormField(
-                layout: AppTextFieldType.PASSWORD,
-                hintText: 'Enter your password here',
-                controller: _passwordController,
-              ),
-            ),
-            const ResponsiveRowColumnItem(
-              columnFlex: 1,
-              child: SizedBox(
-                height: 15,
-              ),
-            ),
-            ResponsiveRowColumnItem(
-              columnFlex: 1,
-              child: AppButton(
-                layout: AppButtonType.textButton,
-                buttonTitle: Text('Forgot password?'),
-                //buttonTextColor: AppColors.darkBlueColor,
-                onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                    forgotPasswordRoute,
-                    (route) => false,
-                  );
-                },
-              ),
-            ),
-            ResponsiveRowColumnItem(
-              columnFlex: 2,
-              child: AppButton(
-                layout: AppButtonType.floatingActionButton,
-                buttonTitle: Text('Sign In'),
-                onPressed: signInWithEmailPasword,
-                //,
-              ),
-            ),
-            const ResponsiveRowColumnItem(
-              columnFlex: 1,
-              child: SizedBox(
-                height: 20,
+                height: 50,
               ),
             ),
             ResponsiveRowColumnItem(
               columnFlex: 1,
               child: AccountViewFooter(
-                leading: Text("Don't have an account? "),
+                leading: Text(
+                  "Don't have an account? ",
+                  style: AppTextStyle.robotoMono15,
+                ),
                 trailing: AppButton(
                   layout: AppButtonType.textButton,
-                  buttonTitle: Text('Create'),
+                  buttonTitle: Text(
+                    'Create',
+                    style: AppTextStyle.robotoMono15.copyWith(
+                      color: AppColors.darkBlueColor,
+                    ),
+                  ),
                   onPressed: () {
                     Navigator.of(context).pushNamedAndRemoveUntil(
                       signUpRoute,

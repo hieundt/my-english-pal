@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 
 class AppNavigationRail extends StatelessWidget {
   final int selectedIndex;
@@ -14,30 +15,42 @@ class AppNavigationRail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NavigationRail(
-      destinations: const [
+      destinations: [
         NavigationRailDestination(
-          icon: Icon(CupertinoIcons.house_fill),
-          label: Text('Home'),
+          icon: const Icon(CupertinoIcons.house_fill),
+          label: Text(
+            'Home',
+            style: AppTextStyle.robotoMono15,
+          ),
         ),
         NavigationRailDestination(
-          icon: Icon(CupertinoIcons.group_solid),
-          label: Text('Comunity'),
+          icon: const Icon(CupertinoIcons.group_solid),
+          label: Text(
+            'Comunity',
+            style: AppTextStyle.robotoMono15,
+          ),
         ),
         NavigationRailDestination(
-          icon: Icon(CupertinoIcons.doc_checkmark_fill),
-          label: Text('Simulator'),
+          icon: const Icon(CupertinoIcons.doc_checkmark_fill),
+          label: Text(
+            'Simulator',
+            style: AppTextStyle.robotoMono15,
+          ),
         ),
         NavigationRailDestination(
-          icon: Icon(CupertinoIcons.create),
-          label: Text('Grammar'),
+          icon: const Icon(CupertinoIcons.create),
+          label: Text(
+            'Grammar',
+            style: AppTextStyle.robotoMono15,
+          ),
         ),
       ],
-      minWidth: 100,
       labelType: NavigationRailLabelType.selected,
       selectedIconTheme: const IconThemeData(
-        color: AppColors.pinkColor,
+        color: AppColors.darkGreenColor,
         size: 50,
       ),
+      backgroundColor: AppColors.lightGreenColor,
       selectedIndex: selectedIndex,
       onDestinationSelected: onDestinationSelected,
     );

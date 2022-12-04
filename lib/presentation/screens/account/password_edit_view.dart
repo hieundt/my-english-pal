@@ -45,9 +45,14 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
             ResponsiveRowColumnItem(
               columnFlex: 5,
               child: AccountViewHeader(
-                title: Text('Forgot your password?'),
+                title: Text(
+                  'Forgot your password?',
+                  style: AppTextStyle.bungee30,
+                ),
                 description: Text(
-                    "Enter the email you registered with and we'll send a link to reset the password"),
+                  "Enter the email you registered with and we'll send a link to reset the password",
+                  style: AppTextStyle.bungee15,
+                ),
               ),
             ),
             ResponsiveRowColumnItem(
@@ -70,7 +75,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                 layout: AppButtonType.floatingActionButton,
                 buttonTitle: Text(
                   'Sign Up',
-                  style: AppTextStyle.appButtonText,
+                  style: AppTextStyle.bungeeHairline15,
                 ),
                 onPressed: () {},
               ),
@@ -87,7 +92,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                 layout: AppButtonType.textButton,
                 buttonTitle: Text(
                   'Back to sign in',
-                  style: AppTextStyle.appButtonText,
+                  style: AppTextStyle.bungeeHairline15,
                 ),
                 onPressed: () {
                   Navigator.of(context).pushNamedAndRemoveUntil(

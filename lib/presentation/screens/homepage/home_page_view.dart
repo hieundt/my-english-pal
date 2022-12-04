@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/components/content/training.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/components/content/vocabulary.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/components/header.dart';
+import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 
 class HomePageView extends StatelessWidget {
@@ -17,23 +18,37 @@ class HomePageView extends StatelessWidget {
           const SizedBox(
             height: 100,
           ),
-          Text(
-            'Vocabulary section',
-            style: AppTextStyle.appTitle,
+          Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: AppColors.lightGreenColor,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Text(
+              'Vocabulary training',
+              style: AppTextStyle.robotoMono50,
+            ),
           ),
           const SizedBox(
-            height: 30,
+            height: 5,
           ),
           const HomePageVocabulary(),
           const SizedBox(
             height: 100,
           ),
-          Text(
-            'Trainning section',
-            style: AppTextStyle.appTitle,
+          Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: AppColors.lightGreenColor,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Text(
+              'Skills training',
+              style: AppTextStyle.robotoMono50,
+            ),
           ),
           const SizedBox(
-            height: 30,
+            height: 5,
           ),
           const HomePageTraining(),
         ],

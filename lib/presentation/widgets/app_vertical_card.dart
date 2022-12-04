@@ -8,6 +8,7 @@ class AppVerticalCard extends StatelessWidget {
   final Widget title;
   final Widget? description;
   final AppButton? button;
+  final double? cardHeight;
   final double? elevation;
   final Color? color;
   final Color? shadowColor;
@@ -19,9 +20,10 @@ class AppVerticalCard extends StatelessWidget {
     required Widget title,
     Widget? description,
     AppButton? button,
+    double? cardHeight,
     double? elevation = 0,
     Color? color = AppColors.whiteColor,
-    Color? shadowColor = AppColors.greyColor,
+    Color? shadowColor = AppColors.darkGreyColor,
     RoundedRectangleBorder? shape,
     EdgeInsetsGeometry? margin,
   }) {
@@ -31,6 +33,7 @@ class AppVerticalCard extends StatelessWidget {
       description: description,
       button: button,
       shape: shape,
+      cardHeight: cardHeight,
       elevation: elevation,
       color: color,
       shadowColor: shadowColor,
@@ -43,6 +46,7 @@ class AppVerticalCard extends StatelessWidget {
     required this.title,
     this.description,
     this.button,
+    this.cardHeight,
     this.elevation,
     this.color,
     this.shadowColor,
@@ -53,6 +57,7 @@ class AppVerticalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: cardHeight,
       child: Card(
         elevation: elevation,
         color: color,
@@ -66,21 +71,21 @@ class AppVerticalCard extends StatelessWidget {
           columnPadding: const EdgeInsets.all(15.0),
           children: [
             ResponsiveRowColumnItem(
-              rowFlex: 2,
+              rowFlex: 4,
               child: image,
             ),
             ResponsiveRowColumnItem(
-              rowFlex: 1,
+              rowFlex: 2,
               child: title,
             ),
             ResponsiveRowColumnItem(
-              rowFlex: 1,
+              rowFlex: 2,
               child: SizedBox(
                 child: description,
               ),
             ),
             ResponsiveRowColumnItem(
-              rowFlex: 1,
+              rowFlex: 2,
               child: SizedBox(
                 child: button,
               ),

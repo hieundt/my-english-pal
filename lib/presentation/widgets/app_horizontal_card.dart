@@ -12,10 +12,8 @@ class AppHorizontalCard extends StatelessWidget {
   final AppHorizontalCardType layout;
   final Widget image;
   final Widget title;
-
   final Widget? description;
   final AppButton? button;
-  final double? cardWidth;
   final double? elevation;
   final Color? color;
   final Color? shadowColor;
@@ -30,10 +28,9 @@ class AppHorizontalCard extends StatelessWidget {
     required Widget title,
     Widget? description,
     AppButton? button,
-    double cardWidth = double.infinity,
     double? elevation = 0,
-    Color? color = AppColors.backColor,
-    Color? shadowColor = AppColors.greyColor,
+    Color? color = AppColors.blackColor,
+    Color? shadowColor = AppColors.darkGreyColor,
     RoundedRectangleBorder? shape,
     EdgeInsetsGeometry? margin,
   }) {
@@ -43,7 +40,6 @@ class AppHorizontalCard extends StatelessWidget {
       title: title,
       description: description,
       button: button,
-      cardWidth: cardWidth,
       elevation: elevation,
       color: color,
       shadowColor: shadowColor,
@@ -58,7 +54,6 @@ class AppHorizontalCard extends StatelessWidget {
     required this.image,
     this.description,
     this.button,
-    this.cardWidth,
     this.elevation,
     this.color,
     this.shadowColor,
@@ -69,7 +64,6 @@ class AppHorizontalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: cardWidth,
       child: Card(
         elevation: elevation,
         color: color,
@@ -86,7 +80,7 @@ class AppHorizontalCard extends StatelessWidget {
                 columnPadding: const EdgeInsets.all(20.0),
                 children: [
                   ResponsiveRowColumnItem(
-                    rowFlex: 6,
+                    rowFlex: 3,
                     child: image,
                   ),
                   const ResponsiveRowColumnItem(
@@ -96,7 +90,7 @@ class AppHorizontalCard extends StatelessWidget {
                     ),
                   ),
                   ResponsiveRowColumnItem(
-                    rowFlex: 3,
+                    rowFlex: 7,
                     child: ResponsiveRowColumn(
                       layout: ResponsiveRowColumnType.COLUMN,
                       children: [
@@ -128,7 +122,7 @@ class AppHorizontalCard extends StatelessWidget {
                 columnPadding: const EdgeInsets.all(15.0),
                 children: [
                   ResponsiveRowColumnItem(
-                    rowFlex: 6,
+                    rowFlex: 7,
                     child: ResponsiveRowColumn(
                       layout: ResponsiveRowColumnType.COLUMN,
                       children: [

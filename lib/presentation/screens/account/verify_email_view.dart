@@ -4,6 +4,7 @@ import 'package:myenglishpal_web/presentation/screens/account/background.dart';
 
 import 'package:myenglishpal_web/presentation/screens/account/components/header.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
+import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -25,15 +26,24 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
             ResponsiveRowColumnItem(
               columnFlex: 1,
               child: AccountViewHeader(
-                title: Text('Verify your email address'),
-                description: Text("We've sent an email verification to"),
+                title: Text(
+                  'Verify your email address',
+                  style: AppTextStyle.bungee15,
+                ),
+                description: Text(
+                  "We've sent an email verification to",
+                  style: AppTextStyle.bungee15,
+                ),
               ),
             ),
             ResponsiveRowColumnItem(
               columnFlex: 1,
               child: AppButton(
                 layout: AppButtonType.floatingActionButton,
-                buttonTitle: Text('Re-send verify email'),
+                buttonTitle: Text(
+                  'Re-send verify email',
+                  style: AppTextStyle.bungee15,
+                ),
                 onPressed: () {},
               ),
             ),
