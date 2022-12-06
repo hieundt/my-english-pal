@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:dictionary_app/Model/model.dart';
 import 'package:dictionary_app/Services/service.dart';
@@ -29,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   TextEditingController controller = TextEditingController();
 
   AudioPlayer? audioPlayer;
-
+  String phonticsText = '';
   @override
   void initState() {
     super.initState();
@@ -112,39 +114,37 @@ class _HomePageState extends State<HomePage> {
                                   children: List.generate(snapshot.data!.length,
                                       (index) {
                                     final data = snapshot.data![index];
-                                    return Container(
-                                      child: Column(
-                                        children: [
-                                          Container(
-                                            child: ListTile(
-                                              title: Text(data.word!),
-                                              subtitle: Text(
-                                                  data.phonetics![index].text!),
-                                              trailing: IconButton(
-                                                  onPressed: () {
-                                                    final path = data
-                                                        .phonetics![index]
-                                                        .audio;
+                                    for (int i = 0;
+                                        i < data.phonetics!.length;
+                                        i++) {
+                                      if (data.phonetics![i].text == null) {
+                                      } else {
+                                        phonticsText = data.phonetics![i].text!;
+                                      }
+                                    }
+                                    return Column(
+                                      children: [
+                                        ListTile(
+                                          title: Text(data.word!),
+                                          subtitle: Text(phonticsText),
+                                          trailing: IconButton(
+                                              onPressed: () {
+                                                final path = data
+                                                    .phonetics![index].audio;
 
-                                                    playAudio("https:$path");
-                                                  },
-                                                  icon: const Icon(
-                                                      Icons.audiotrack)),
-                                            ),
-                                          ),
-                                          Container(
-                                            child: ListTile(
-                                              title: Text(data
-                                                  .meanings![index]
-                                                  .definitions![index]
-                                                  .definition!),
-                                              subtitle: Text(data
-                                                  .meanings![index]
-                                                  .partOfSpeech!),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                                playAudio("$path");
+                                                log("$path");
+                                              },
+                                              icon:
+                                                  const Icon(Icons.audiotrack)),
+                                        ),
+                                        ListTile(
+                                          title: Text(data.meanings![index]
+                                              .definitions![index].definition!),
+                                          subtitle: Text(data
+                                              .meanings![index].partOfSpeech!),
+                                        ),
+                                      ],
                                     );
                                   }),
                                 ),
