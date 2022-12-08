@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:myenglishpal_web/presentation/screens/quiz/quiz_view.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_vertical_card.dart';
+import 'package:myenglishpal_web/routes.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/strings/simulator_view_string.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
@@ -20,6 +22,7 @@ class AssessmentContent extends StatelessWidget {
       rowPadding: const EdgeInsets.all(20),
       columnPadding: const EdgeInsets.all(20),
       children: [
+        //* Skill assesment
         ResponsiveRowColumnItem(
           rowFlex: 1,
           child: AppVerticalCard(
@@ -30,7 +33,7 @@ class AssessmentContent extends StatelessWidget {
             color: AppColors.lightBlueColor,
             title: Text(
               simulatorContentString[0].title,
-              style: AppTextStyle.bungee30,
+              style: AppTextStyle.robotoMono30,
             ),
             image: Image.asset(
               simulatorContentString[0].image,
@@ -43,10 +46,16 @@ class AssessmentContent extends StatelessWidget {
                 'Start',
                 style: AppTextStyle.bungeeHairline15,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  quizRoute,
+                  (route) => false,
+                );
+              },
             ),
           ),
         ),
+        //* Vocabulary assesment
         ResponsiveRowColumnItem(
           rowFlex: 1,
           child: AppVerticalCard(
@@ -65,7 +74,7 @@ class AssessmentContent extends StatelessWidget {
             color: AppColors.lightBlueColor,
             title: Text(
               simulatorContentString[1].title,
-              style: AppTextStyle.bungee30,
+              style: AppTextStyle.robotoMono30,
             ),
             image: Image.asset(
               simulatorContentString[1].image,

@@ -3,6 +3,7 @@ import 'package:myenglishpal_web/presentation/widgets/app_horizontal_card.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/strings/community_view_string.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class CommunityHeader extends StatelessWidget {
   const CommunityHeader({super.key});
@@ -20,7 +21,9 @@ class CommunityHeader extends StatelessWidget {
       ),
       title: Text(
         communityHeaderString.title,
-        style: AppTextStyle.bungee70,
+        style: (ResponsiveWrapper.of(context).isSmallerThan(MOBILE))
+            ? AppTextStyle.bungee30
+            : AppTextStyle.bungee70,
       ),
       image: Image.asset(
         communityHeaderString.image,

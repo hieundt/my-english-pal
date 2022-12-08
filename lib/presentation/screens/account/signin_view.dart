@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/data/services/firebase/firebase_auth_methods.dart';
+import 'package:myenglishpal_web/data/services/firebase/firebase_auth_services.dart';
 import 'package:myenglishpal_web/presentation/screens/account/background.dart';
 import 'package:myenglishpal_web/presentation/screens/account/components/footer.dart';
 import 'package:myenglishpal_web/presentation/screens/account/components/header.dart';
@@ -23,39 +23,6 @@ class SignInView extends StatefulWidget {
 }
 
 class _SignInViewState extends State<SignInView> {
-  final formKey = GlobalKey<FormState>();
-
-  late final TextEditingController _emailController;
-  late final TextEditingController _passwordController;
-
-  @override
-  void initState() {
-    _emailController = TextEditingController();
-    _passwordController = TextEditingController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
-  Future<void> signInWithEmailPasword() async {
-    try {
-      await FirebaseAuthServices().signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
-    } on FirebaseAuthException catch (e) {
-      showSnackBar(
-        context,
-        e.message!,
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,6 +30,7 @@ class _SignInViewState extends State<SignInView> {
         child: ResponsiveRowColumn(
           layout: ResponsiveRowColumnType.COLUMN,
           children: [
+            //* Header
             ResponsiveRowColumnItem(
               columnFlex: 3,
               child: AccountViewHeader(
@@ -72,10 +40,11 @@ class _SignInViewState extends State<SignInView> {
                 ),
                 description: Text(
                   'Sign in to your account',
-                  style: AppTextStyle.bungeeHairline30,
+                  style: AppTextStyle.bungeeHairline20,
                 ),
               ),
             ),
+            //* Google sign in button
             ResponsiveRowColumnItem(
               rowFlex: 1,
               child: AppButton(
@@ -88,6 +57,10 @@ class _SignInViewState extends State<SignInView> {
                   'Continue with Google    ',
                   style: AppTextStyle.bungee15,
                 ),
+                onPressed: () {
+                  FirebaseAuthServices(FirebaseAuth.instance)
+                      .signInWithGoogle(context);
+                },
               ),
             ),
             const ResponsiveRowColumnItem(
@@ -96,6 +69,7 @@ class _SignInViewState extends State<SignInView> {
                 height: 30,
               ),
             ),
+            //* Facebook sign in button
             ResponsiveRowColumnItem(
               rowFlex: 2,
               child: AppButton(
@@ -116,20 +90,25 @@ class _SignInViewState extends State<SignInView> {
                 height: 50,
               ),
             ),
+            //* Footer
             ResponsiveRowColumnItem(
               columnFlex: 1,
               child: AccountViewFooter(
                 leading: Text(
-                  "Don't have an account? ",
-                  style: AppTextStyle.robotoMono15,
+                  "Don't have an account?",
+                  style: (ResponsiveWrapper.of(context).isSmallerThan(MOBILE))
+                      ? AppTextStyle.robotoMono10
+                      : AppTextStyle.robotoMono15,
                 ),
                 trailing: AppButton(
                   layout: AppButtonType.textButton,
                   buttonTitle: Text(
                     'Create',
-                    style: AppTextStyle.robotoMono15.copyWith(
-                      color: AppColors.darkBlueColor,
-                    ),
+                    style: (ResponsiveWrapper.of(context).isSmallerThan(MOBILE))
+                        ? AppTextStyle.robotoMono10
+                            .copyWith(color: AppColors.darkBlueColor)
+                        : AppTextStyle.robotoMono15
+                            .copyWith(color: AppColors.darkBlueColor),
                   ),
                   onPressed: () {
                     Navigator.of(context).pushNamedAndRemoveUntil(
