@@ -1,11 +1,11 @@
 import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myenglishpal_web/data/services/firebase_auth_services.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/navigation_bar.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/navigation_rail.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/popup_menu_button.dart';
-import 'package:myenglishpal_web/presentation/screens/assessment/simulator_view.dart';
+import 'package:myenglishpal_web/presentation/screens/assessment/assessment_view.dart';
 import 'package:myenglishpal_web/presentation/screens/comunity/community_view.dart';
 import 'package:myenglishpal_web/presentation/screens/grammar/grammar_view.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/home_page_view.dart';
@@ -60,11 +60,14 @@ class _NavigateControllerState extends State<NavigateController> {
               }
             },
           ),
+          //* Dictionary function
+          //TODO Implement dictionry
           DocumentPopupMenu(
             onSelected: (value) {
               switch (value) {
                 case DocumentMenuAction.DICTIONARY:
-                  return log('dictionary');
+                  //
+                  return;
               }
             },
           ),
@@ -78,7 +81,7 @@ class _NavigateControllerState extends State<NavigateController> {
                   );
                   break;
                 case UserMenuAction.SIGNOUT:
-                  return await FirebaseAuth.instance.signOut();
+                  return await AuthService().signOut();
               }
             },
           ),

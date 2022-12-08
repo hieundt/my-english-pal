@@ -21,11 +21,11 @@ class AssessmentHeader extends StatelessWidget {
       title: Text(
         'Assessment',
         style: (ResponsiveWrapper.of(context).isSmallerThan(TABLET))
-            ? AppTextStyle.bungee50
+            ? AppTextStyle.bungee30
             : AppTextStyle.bungee70,
       ),
       image: Image.asset(
-        SimulatorImages.headerImage,
+        AssessmentImages.headerImage,
         height: 300,
       ),
       button: AppButton(

@@ -1,16 +1,16 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/data/services/firebase/firebase_auth_methods.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:myenglishpal_web/data/services/firebase_auth_services.dart';
 import 'package:myenglishpal_web/presentation/screens/account/background.dart';
 import 'package:myenglishpal_web/presentation/screens/account/components/footer.dart';
 import 'package:myenglishpal_web/presentation/screens/account/components/header.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
-import 'package:myenglishpal_web/presentation/widgets/app_text_field.dart';
 import 'package:myenglishpal_web/routes.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:myenglishpal_web/utils.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_framework/responsive_row_column.dart';
 
 class SignUpView extends StatefulWidget {
@@ -23,39 +23,6 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
-  final formKey = GlobalKey<FormState>();
-  late final TextEditingController _emailController;
-  late final TextEditingController _passwordController;
-
-  @override
-  void initState() {
-    _emailController = TextEditingController();
-    _passwordController = TextEditingController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-
-    super.dispose();
-  }
-
-  signUpWithEmailPasword() async {
-    try {
-      await FirebaseAuthServices().signUpWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
-    } on FirebaseAuthException catch (e) {
-      showSnackBar(
-        context,
-        e.message!,
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +39,7 @@ class _SignUpViewState extends State<SignUpView> {
                 ),
                 description: Text(
                   'Let\'s create your account',
-                  style: AppTextStyle.bungeeHairline30,
+                  style: AppTextStyle.bungeeHairline20,
                 ),
               ),
             ),
@@ -121,15 +88,19 @@ class _SignUpViewState extends State<SignUpView> {
               child: AccountViewFooter(
                 leading: Text(
                   "Already have an account? ",
-                  style: AppTextStyle.robotoMono15,
+                  style: (ResponsiveWrapper.of(context).isSmallerThan(MOBILE))
+                      ? AppTextStyle.robotoMono10
+                      : AppTextStyle.robotoMono15,
                 ),
                 trailing: AppButton(
                   layout: AppButtonType.textButton,
                   buttonTitle: Text(
                     'Sign in',
-                    style: AppTextStyle.robotoMono15.copyWith(
-                      color: AppColors.darkBlueColor,
-                    ),
+                    style: (ResponsiveWrapper.of(context).isSmallerThan(MOBILE))
+                        ? AppTextStyle.robotoMono10
+                            .copyWith(color: AppColors.darkBlueColor)
+                        : AppTextStyle.robotoMono15
+                            .copyWith(color: AppColors.darkBlueColor),
                   ),
                   onPressed: () {
                     Navigator.of(context).pushNamedAndRemoveUntil(

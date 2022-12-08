@@ -12,7 +12,6 @@ class AppButton extends StatelessWidget {
   final Widget? buttonLeading;
   final void Function()? onPressed;
   final Color? buttonColor;
-  final Color? leadingIconColor;
   get isElevated => layout == AppButtonType.floatingActionButton;
   get isText => layout == AppButtonType.textButton;
 
@@ -22,7 +21,6 @@ class AppButton extends StatelessWidget {
     Widget? buttonLeading,
     void Function()? onPressed,
     Color? buttonColor = AppColors.mainThemeColor,
-    Color? leadingIconColor = AppColors.mainThemeColor,
   }) {
     return AppButton._internal(
       layout: layout,
@@ -30,7 +28,6 @@ class AppButton extends StatelessWidget {
       buttonLeading: buttonLeading,
       onPressed: onPressed,
       buttonColor: buttonColor,
-      leadingIconColor: leadingIconColor,
     );
   }
 
@@ -40,7 +37,6 @@ class AppButton extends StatelessWidget {
     this.buttonLeading,
     this.onPressed,
     this.buttonColor,
-    this.leadingIconColor,
   });
 
   @override

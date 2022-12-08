@@ -4,6 +4,7 @@ import 'package:myenglishpal_web/presentation/screens/homepage/components/conten
 import 'package:myenglishpal_web/presentation/screens/homepage/components/header.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class HomePageView extends StatelessWidget {
   const HomePageView({super.key});
@@ -26,7 +27,9 @@ class HomePageView extends StatelessWidget {
             ),
             child: Text(
               'Vocabulary training',
-              style: AppTextStyle.robotoMono50,
+              style: (ResponsiveWrapper.of(context).isSmallerThan(MOBILE))
+                  ? AppTextStyle.robotoMono30
+                  : AppTextStyle.robotoMono50,
             ),
           ),
           const SizedBox(
@@ -44,7 +47,9 @@ class HomePageView extends StatelessWidget {
             ),
             child: Text(
               'Skills training',
-              style: AppTextStyle.robotoMono50,
+              style: (ResponsiveWrapper.of(context).isSmallerThan(MOBILE))
+                  ? AppTextStyle.robotoMono30
+                  : AppTextStyle.robotoMono50,
             ),
           ),
           const SizedBox(

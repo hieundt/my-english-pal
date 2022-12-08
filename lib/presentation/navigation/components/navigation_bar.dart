@@ -26,7 +26,7 @@ class AppNavigationBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.doc_checkmark_fill),
-          label: 'Simulator',
+          label: 'Assessment',
         ),
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.create),
@@ -37,8 +37,7 @@ class AppNavigationBar extends StatelessWidget {
       onTap: onTap,
       type: BottomNavigationBarType.fixed,
       unselectedItemColor: AppColors.darkGreyColor,
-      selectedItemColor: AppColors.pinkColor,
-      selectedLabelStyle: AppTextStyle.robotoMono15,
+      selectedItemColor: AppColors.darkGreenColor,
     );
   }
 }

@@ -29,7 +29,7 @@ class AppHorizontalCard extends StatelessWidget {
     Widget? description,
     AppButton? button,
     double? elevation = 0,
-    Color? color = AppColors.blackColor,
+    Color? color = AppColors.lightGreenColor,
     Color? shadowColor = AppColors.darkGreyColor,
     RoundedRectangleBorder? shape,
     EdgeInsetsGeometry? margin,
