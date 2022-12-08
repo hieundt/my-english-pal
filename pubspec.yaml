@@ -45,6 +45,8 @@ dependencies:
   cloud_firestore: ^4.1.0
   firebase_analytics: ^10.0.6
 
+  json_annotation: ^4.7.0
+
   email_validator: ^2.1.17
   google_sign_in: ^5.4.2
   
@@ -95,8 +97,8 @@ flutter:
     - assets/images/community/header/
     - assets/images/community/content/
     
-    - assets/images/simulator/header/
-    - assets/images/simulator/content/
+    - assets/images/assessment/header/
+    - assets/images/assessment/content/
     
     - assets/images/progress/header/
 

@@ -33,7 +33,7 @@ class AppNavigationRail extends StatelessWidget {
         NavigationRailDestination(
           icon: const Icon(CupertinoIcons.doc_checkmark_fill),
           label: Text(
-            'Simulator',
+            'Assessment',
             style: AppTextStyle.robotoMono15,
           ),
         ),
@@ -47,10 +47,10 @@ class AppNavigationRail extends StatelessWidget {
       ],
       labelType: NavigationRailLabelType.selected,
       selectedIconTheme: const IconThemeData(
-        color: AppColors.darkGreenColor,
+        color: AppColors.pinkColor,
         size: 50,
       ),
-      backgroundColor: AppColors.lightGreenColor,
+      backgroundColor: AppColors.whiteColor,
       selectedIndex: selectedIndex,
       onDestinationSelected: onDestinationSelected,
     );

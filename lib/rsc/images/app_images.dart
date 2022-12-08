@@ -1,5 +1,6 @@
 class AppLogo {
   static const myEnglishPalLogo = 'assets/images/app_logo/my_english_pal.png';
+  static const waitIcon = 'assets/images/app_logo/wait.png';
 }
 
 class UserAvatar {
@@ -52,12 +53,12 @@ class CommunityImages {
       'assets/images/community/content/talking_idioms.png';
 }
 
-class SimulatorImages {
+class AssessmentImages {
   static const headerImage =
-      'assets/images/simulator/header/simulator_header.png';
-  static const normalModeImage =
-      'assets/images/simulator/content/normal_mode.jpg';
-  static const hardModeImage = 'assets/images/simulator/content/hard_mode.jpg';
+      'assets/images/assessment/header/assessment_header.png';
+  static const skillImage = 'assets/images/assessment/content/skill.png';
+  static const vocabularyImage =
+      'assets/images/assessment/content/vocabulary.jpg';
 }
 
 class ProgressImages {

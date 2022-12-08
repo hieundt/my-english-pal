@@ -11,4 +11,6 @@ const profileRoute = '/profile/';
 const homePageRoute = '/home-page/';
 const comunityRoute = '/comunity/';
 const grammarRoute = '/grammar/';
-const simulatorRoute = '/simulator/';
+const assessmentRoute = '/assessment/';
+
+const quizRoute = '/quiz/';

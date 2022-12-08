@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:myenglishpal_web/presentation/screens/quiz/quiz_view.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_vertical_card.dart';
+import 'package:myenglishpal_web/routes.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
-import 'package:myenglishpal_web/rsc/strings/simulator_view_string.dart';
+import 'package:myenglishpal_web/rsc/strings/assessment_view_string.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -11,8 +13,8 @@ class AssessmentContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<SimulatorContentString> simulatorContentString =
-        SimulatorContentString.simulatorContentString;
+    List<AssessmentContentString> assessmentContentString =
+        AssessmentContentString.assessmentContentString;
     return ResponsiveRowColumn(
       layout: ResponsiveWrapper.of(context).isSmallerThan(TABLET)
           ? ResponsiveRowColumnType.COLUMN
@@ -20,6 +22,7 @@ class AssessmentContent extends StatelessWidget {
       rowPadding: const EdgeInsets.all(20),
       columnPadding: const EdgeInsets.all(20),
       children: [
+        //* Skill assesment
         ResponsiveRowColumnItem(
           rowFlex: 1,
           child: AppVerticalCard(
@@ -29,11 +32,11 @@ class AssessmentContent extends StatelessWidget {
             elevation: 10,
             color: AppColors.lightBlueColor,
             title: Text(
-              simulatorContentString[0].title,
-              style: AppTextStyle.bungee30,
+              assessmentContentString[0].title,
+              style: AppTextStyle.robotoMono30,
             ),
             image: Image.asset(
-              simulatorContentString[0].image,
+              assessmentContentString[0].image,
               width: 500,
               height: 300,
             ),
@@ -43,10 +46,16 @@ class AssessmentContent extends StatelessWidget {
                 'Start',
                 style: AppTextStyle.bungeeHairline15,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  quizRoute,
+                  (route) => false,
+                );
+              },
             ),
           ),
         ),
+        //* Vocabulary assesment
         ResponsiveRowColumnItem(
           rowFlex: 1,
           child: AppVerticalCard(
@@ -64,11 +73,11 @@ class AssessmentContent extends StatelessWidget {
             elevation: 10,
             color: AppColors.lightBlueColor,
             title: Text(
-              simulatorContentString[1].title,
-              style: AppTextStyle.bungee30,
+              assessmentContentString[1].title,
+              style: AppTextStyle.robotoMono30,
             ),
             image: Image.asset(
-              simulatorContentString[1].image,
+              assessmentContentString[1].image,
               width: 500,
               height: 300,
             ),
