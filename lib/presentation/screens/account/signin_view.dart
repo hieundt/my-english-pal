@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/data/services/firebase/firebase_auth_services.dart';
+import 'package:myenglishpal_web/data/services/firebase_auth_services.dart';
 import 'package:myenglishpal_web/presentation/screens/account/background.dart';
 import 'package:myenglishpal_web/presentation/screens/account/components/footer.dart';
 import 'package:myenglishpal_web/presentation/screens/account/components/header.dart';
@@ -57,10 +57,7 @@ class _SignInViewState extends State<SignInView> {
                   'Continue with Google    ',
                   style: AppTextStyle.bungee15,
                 ),
-                onPressed: () {
-                  FirebaseAuthServices(FirebaseAuth.instance)
-                      .signInWithGoogle(context);
-                },
+                onPressed: () => AuthService().googleSignin(),
               ),
             ),
             const ResponsiveRowColumnItem(
@@ -69,21 +66,7 @@ class _SignInViewState extends State<SignInView> {
                 height: 30,
               ),
             ),
-            //* Facebook sign in button
-            ResponsiveRowColumnItem(
-              rowFlex: 2,
-              child: AppButton(
-                layout: AppButtonType.floatingActionButton,
-                buttonLeading: Image.asset(
-                  scale: 15,
-                  UserViewImages.facebookImage,
-                ),
-                buttonTitle: Text(
-                  'Continue with Facebook',
-                  style: AppTextStyle.bungee15,
-                ),
-              ),
-            ),
+
             const ResponsiveRowColumnItem(
               columnFlex: 1,
               child: SizedBox(

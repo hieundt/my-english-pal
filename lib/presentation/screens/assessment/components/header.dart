@@ -25,7 +25,7 @@ class AssessmentHeader extends StatelessWidget {
             : AppTextStyle.bungee70,
       ),
       image: Image.asset(
-        SimulatorImages.headerImage,
+        AssessmentImages.headerImage,
         height: 300,
       ),
       button: AppButton(

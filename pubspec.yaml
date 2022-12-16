@@ -97,8 +97,8 @@ flutter:
     - assets/images/community/header/
     - assets/images/community/content/
     
-    - assets/images/simulator/header/
-    - assets/images/simulator/content/
+    - assets/images/assessment/header/
+    - assets/images/assessment/content/
     
     - assets/images/progress/header/
 

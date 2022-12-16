@@ -65,7 +65,7 @@ class MyEnglishPal extends StatelessWidget {
         comunityRoute: (context) => const CommunityView(),
         grammarRoute: (context) => const GrammarView(),
         assessmentRoute: (context) => const AssessmentView(),
-        quizRoute: (context) => const QuizView(),
+        //quizRoute: (context) => const QuizView(),
       },
       debugShowCheckedModeBanner: false,
     );

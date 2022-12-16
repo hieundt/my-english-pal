@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:myenglishpal_web/data/services/firebase_auth_services.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/navigation_bar.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/navigation_rail.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/popup_menu_button.dart';
@@ -80,7 +81,7 @@ class _NavigateControllerState extends State<NavigateController> {
                   );
                   break;
                 case UserMenuAction.SIGNOUT:
-                  return await FirebaseAuth.instance.signOut();
+                  return await AuthService().signOut();
               }
             },
           ),

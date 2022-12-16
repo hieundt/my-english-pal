@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/data/services/firebase/firebase_auth_services.dart';
+import 'package:myenglishpal_web/data/services/firebase_auth_services.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_horizontal_card.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
