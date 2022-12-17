@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:myenglishpal_web/data/services/firebase_auth_services.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/navigation_bar.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/navigation_rail.dart';
@@ -17,7 +18,9 @@ import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class NavigateController extends StatefulWidget {
-  const NavigateController({super.key});
+  const NavigateController({
+    super.key,
+  });
   @override
   State<NavigateController> createState() => _NavigateControllerState();
 }
@@ -26,7 +29,7 @@ class _NavigateControllerState extends State<NavigateController> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    const HomePageView(),
+    HomePageView(),
     const CommunityView(),
     const AssessmentView(),
     const GrammarView(),
