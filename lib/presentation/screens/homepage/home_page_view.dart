@@ -55,7 +55,7 @@ class HomePageView extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          const HomePageTraining(),
+          const HomePageSkillTraining(),
         ],
       ),
     );

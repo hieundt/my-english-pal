@@ -1,239 +1,253 @@
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/material.dart';
-// import 'package:myenglishpal_web/data/model/quizz/quiz_models.dart';
-// import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
-// import 'package:myenglishpal_web/routes.dart';
-// import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:myenglishpal_web/data/model/skill_training/skill_training_model.dart';
+import 'package:myenglishpal_web/data/services/firestore_database.dart';
+import 'package:myenglishpal_web/presentation/screens/quiz/quiz_state.dart';
+import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
+import 'package:myenglishpal_web/presentation/widgets/app_loading_dialog.dart';
+import 'package:myenglishpal_web/routes.dart';
+import 'package:myenglishpal_web/rsc/images/app_images.dart';
+import 'package:provider/provider.dart';
 
-// class QuizView extends StatefulWidget {
-//   const QuizView({super.key});
+class QuizView extends StatelessWidget {
+  final String topicId;
+  const QuizView({
+    super.key,
+    required this.topicId,
+  });
 
-//   @override
-//   State<QuizView> createState() => _QuizViewState();
-// }
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => QuizState(),
+      child: FutureBuilder<SkillTopic>(
+        future: FirestoreDatabaseService().getTopicQuiz(topicId),
+        builder: (context, snapshot) {
+          var state = Provider.of<QuizState>(context);
 
-// class _QuizViewState extends State<QuizView> {
-//   int _score = 0;
-//   bool _isLocked = false;
-//   int _questionNumber = 1;
-//   late PageController _controller;
+          if (!snapshot.hasData || snapshot.hasError) {
+            return const LoadingDialog();
+          } else {
+            var topic = snapshot.data!;
 
-//   @override
-//   void initState() {
-//     super.initState();
-//     _controller = PageController(initialPage: 0);
-//   }
+            return Scaffold(
+              // appBar: AppBar(
+              //   title: AnimatedProgressbar(value: state.progress),
+              //   leading: IconButton(
+              //     icon: const Icon(FontAwesomeIcons.xmark),
+              //     onPressed: () => Navigator.pop(context),
+              //   ),
+              // ),
+              body: PageView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                controller: state.controller,
+                onPageChanged: (int idx) =>
+                    state.progress = (idx / (topic.quizzes.length + 1)),
+                itemBuilder: (BuildContext context, int idx) {
+                  if (idx == 0) {
+                    return TutorialView(topic: topic);
+                  } else if (idx == topic.quizzes.length + 1) {
+                    return CongratsView(topic: topic);
+                  } else {
+                    return QuizzesView(quiz: topic.quizzes[idx - 1]);
+                  }
+                },
+              ),
+            );
+          }
+        },
+      ),
+    );
+  }
+}
 
-//   Column buildQuestion(Question question) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         question.title,
-//         question.description,
-//         const SizedBox(height: 30),
-//         Expanded(
-//           child: OptionWidget(
-//             question: question,
-//             onClickedOption: (option) {
-//               if (question.isLocked) {
-//                 return;
-//               } else {
-//                 setState(() {
-//                   question.isLocked = true;
-//                   question.selectedOption = option;
-//                 });
-//                 _isLocked = question.isLocked;
-//                 if (question.selectedOption!.isCorrect) {
-//                   _score++;
-//                 }
-//               }
-//             },
-//           ),
-//         ),
-//       ],
-//     );
-//   }
+class TutorialView extends StatelessWidget {
+  final SkillTopic topic;
+  const TutorialView({
+    super.key,
+    required this.topic,
+  });
 
-//   AppButton buildButton() {
-//     return AppButton(
-//       layout: AppButtonType.floatingActionButton,
-//       onPressed: () {
-//         if (_questionNumber < questions.length) {
-//           _controller.nextPage(
-//             duration: const Duration(microseconds: 300),
-//             curve: Curves.easeInExpo,
-//           );
-//           setState(() {
-//             _questionNumber++;
-//             _isLocked = false;
-//           });
-//         } else {
-//           Navigator.of(context).pushReplacement(
-//             MaterialPageRoute(
-//               builder: (context) => ResultPage(score: _score),
-//             ),
-//           );
-//         }
-//       },
-//       buttonTitle: Text(
-//         _questionNumber < questions.length ? 'Next page' : 'See the result',
-//       ),
-//     );
-//   }
+  @override
+  Widget build(BuildContext context) {
+    var state = Provider.of<QuizState>(context);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Padding(
-//         padding: const EdgeInsets.symmetric(horizontal: 15.0),
-//         child: Column(
-//           children: [
-//             const SizedBox(height: 30),
-//             Text('Question $_questionNumber/${questions.length}'),
-//             const Divider(
-//               thickness: 1,
-//               color: AppColors.blackColor,
-//             ),
-//             Expanded(
-//               child: PageView.builder(
-//                 physics: const NeverScrollableScrollPhysics(),
-//                 controller: _controller,
-//                 itemCount: questions.length,
-//                 itemBuilder: (context, index) {
-//                   final question = questions[index];
-//                   return buildQuestion(question);
-//                 },
-//               ),
-//             ),
-//             _isLocked ? buildButton() : const SizedBox.shrink(),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+    return Container(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(topic.tutorial),
+          const Divider(),
+          AppButton(
+            layout: AppButtonType.floatingActionButton,
+            onPressed: state.nextPage,
+            buttonTitle: const Text('Start Quiz!'),
+            buttonLeading: const Icon(Icons.poll),
+          )
+        ],
+      ),
+    );
+  }
+}
 
-// class OptionWidget extends StatelessWidget {
-//   final Question question;
-//   final ValueChanged<Option> onClickedOption;
-//   const OptionWidget({
-//     super.key,
-//     required this.question,
-//     required this.onClickedOption,
-//   });
+class CongratsView extends StatelessWidget {
+  final SkillTopic topic;
+  const CongratsView({
+    super.key,
+    required this.topic,
+  });
 
-//   Color getColorForOption(
-//     Option option,
-//     Question question,
-//   ) {
-//     final isSelected = option == question.selectedOption;
-//     if (question.isLocked && isSelected) {
-//       return option.isCorrect ? AppColors.darkGreenColor : AppColors.redColor;
-//     } else if (option.isCorrect) {
-//       return AppColors.darkGreenColor;
-//     }
-//     return AppColors.lightGreyColor;
-//   }
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Congrats! You completed the ${topic.id} quiz',
+            textAlign: TextAlign.center,
+          ),
+          const Divider(),
+          Image.asset(AppLogo.myEnglishPalLogo),
+          const Divider(),
+          ElevatedButton.icon(
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.green,
+            ),
+            icon: const Icon(CupertinoIcons.checkmark_circle),
+            label: const Text(' Mark Complete!'),
+            onPressed: () {
+              //* FirestoreDatabaseService().updateUserReport(topic);
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                navigateControllerRoute,
+                (route) => false,
+              );
+            },
+          )
+        ],
+      ),
+    );
+  }
+}
 
-//   Widget buildOption(
-//     BuildContext context,
-//     Option option,
-//   ) {
-//     final color = getColorForOption(
-//       option,
-//       question,
-//     );
+class QuizzesView extends StatelessWidget {
+  final Quiz quiz;
+  const QuizzesView({
+    super.key,
+    required this.quiz,
+  });
 
-//     Widget getIconForOption(
-//       Option option,
-//       Question question,
-//     ) {
-//       final isSelected = option == question.selectedOption;
-//       if (question.isLocked && isSelected) {
-//         {
-//           return option.isCorrect
-//               ? const Icon(
-//                   CupertinoIcons.check_mark_circled_solid,
-//                   color: AppColors.darkGreenColor,
-//                 )
-//               : const Icon(
-//                   CupertinoIcons.clear_circled_solid,
-//                   color: AppColors.redColor,
-//                 );
-//         }
-//       } else if (option.isCorrect) {
-//         return const Icon(
-//           CupertinoIcons.check_mark_circled_solid,
-//           color: AppColors.darkGreenColor,
-//         );
-//       }
-//       return const SizedBox.shrink();
-//     }
+  @override
+  Widget build(BuildContext context) {
+    var state = Provider.of<QuizState>(context);
 
-//     return GestureDetector(
-//       onTap: () => onClickedOption(option),
-//       child: Container(
-//         height: 50,
-//         padding: const EdgeInsets.all(12),
-//         margin: const EdgeInsets.symmetric(vertical: 8),
-//         decoration: BoxDecoration(
-//           color: AppColors.lightGreyColor,
-//           borderRadius: BorderRadius.circular(15),
-//           border: Border.all(color: color),
-//         ),
-//         child: Row(
-//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//           children: [
-//             Text(option.text),
-//             getIconForOption(
-//               option,
-//               question,
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            alignment: Alignment.center,
+            child: Image.asset(quiz.description),
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: quiz.options.map(
+              (opt) {
+                return Container(
+                  height: 90,
+                  margin: const EdgeInsets.only(bottom: 10),
+                  color: Colors.black26,
+                  child: InkWell(
+                    onTap: () {
+                      state.selected = opt;
+                      _bottomSheet(context, opt, state);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(16),
+                      child: Row(
+                        children: [
+                          Icon(
+                            state.selected == opt
+                                ? CupertinoIcons.checkmark_circle_fill
+                                : CupertinoIcons.circle,
+                            size: 30,
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin: const EdgeInsets.only(left: 16),
+                              child: Text(
+                                opt.value,
+                                style: Theme.of(context).textTheme.bodyText2,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ).toList(),
+          ),
+        )
+      ],
+    );
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: question.options
-//           .map(
-//             (option) => buildOption(
-//               context,
-//               option,
-//             ),
-//           )
-//           .toList(),
-//     );
-//   }
-// }
+  /// Bottom sheet shown when Question is answered
+  _bottomSheet(BuildContext context, Option opt, QuizState state) {
+    bool correct = opt.isCorrect;
 
-// class ResultPage extends StatelessWidget {
-//   final int score;
-//   const ResultPage({
-//     super.key,
-//     required this.score,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Column(
-//         crossAxisAlignment: CrossAxisAlignment.center,
-//         children: [
-//           Text('You got $score/${questions.length}'),
-//           AppButton(
-//             layout: AppButtonType.floatingActionButton,
-//             buttonTitle: Text('Back to home page'),
-//             onPressed: () {
-//               Navigator.of(context)
-//                   .pushReplacementNamed(navigateControllerRoute);
-//             },
-//           )
-//         ],
-//       ),
-//     );
-//   }
-// }
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          height: 250,
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(correct ? 'Good Job!' : 'Wrong'),
+              Text(
+                opt.answer,
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Colors.white54,
+                ),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: correct ? Colors.green : Colors.red,
+                ),
+                child: Text(
+                  correct ? 'Onward!' : 'Try Again',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    letterSpacing: 1.5,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                onPressed: () {
+                  if (correct) {
+                    state.nextPage();
+                  }
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
