@@ -14,6 +14,7 @@ class CommunityContent extends StatelessWidget {
         CommunityContentString.communityContentString;
     return Column(
       children: [
+        //* Day la phan Discovery magazine
         AppHorizontalCard(
           layout: AppHorizontalCardType.imageOnTheLeft,
           elevation: 10,
@@ -40,9 +41,14 @@ class CommunityContent extends StatelessWidget {
               'Discover',
               style: AppTextStyle.bungeeHairline15,
             ),
-            onPressed: () {},
+            //*Tao file moi trong phan component cua community,
+            //*code logic web view trong do r implement vao function onpress nay
+            onPressed: () {
+              //TODO implement webview vao day
+            },
           ),
         ),
+        //*Cuoi phan discovery magazine
         const SizedBox(
           height: 20,
         ),
