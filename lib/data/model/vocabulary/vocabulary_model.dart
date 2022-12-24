@@ -1,0 +1,3 @@
+class VocabularyTopic {}
+
+class Vocabulary {}

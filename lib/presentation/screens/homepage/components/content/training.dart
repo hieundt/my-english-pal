@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/data/model/skill_training/skill_training_model.dart';
 import 'package:myenglishpal_web/data/services/firestore_database.dart';
@@ -21,72 +22,80 @@ class _HomePageSkillTrainingState extends State<HomePageSkillTraining> {
   Widget build(BuildContext context) {
     List<HomePageTrainingContentString> homePageTrainingContentString =
         HomePageTrainingContentString.homePageTrainingContentString;
+    Widget buidTopic(SkillTopic topic) {
+      return ListTile(
+        title: Text(topic.id),
+        subtitle: Text(topic.name),
+      );
+    }
 
-    return FutureBuilder<List<SkillTopic>>(
-      future: FirestoreDatabaseService().getSkillTopics(),
+    return StreamBuilder<List<SkillTopic>>(
+      stream: FirestoreDatabaseService().getAllSkillTopics(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingDialog();
         } else if (snapshot.hasError) {
           return Text(snapshot.error.toString());
         } else if (snapshot.hasData) {
-          var topics = snapshot.data!;
-          return GridView.builder(
-            shrinkWrap: true,
-            clipBehavior: Clip.none,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: homePageTrainingContentString.length,
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 500,
-              mainAxisExtent: 350,
-              mainAxisSpacing: 5,
-              crossAxisSpacing: 20,
-              childAspectRatio: 3 / 2,
-            ),
-            itemBuilder: (
-              context,
-              index,
-            ) {
-              return AppVerticalCard(
-                elevation: 10,
-                button: AppButton(
-                  layout: AppButtonType.floatingActionButton,
-                  buttonTitle: Text(
-                    'Start',
-                    style: AppTextStyle.bungeeHairline15,
-                  ),
-                  buttonColor: AppColors.pinkColor,
-                  onPressed: () {
-                    topics.map(
-                      (topic) => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => QuizView(
-                            topicId: topic.id,
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                title: Text(
-                  homePageTrainingContentString[index].title,
-                  style: AppTextStyle.bungee15,
-                ),
-                description: Text(
-                  homePageTrainingContentString[index].description,
-                  style: AppTextStyle.robotoMono15,
-                ),
-                image: Image.asset(
-                  homePageTrainingContentString[index].image,
-                  height: 200,
-                  width: 400,
-                ),
-              );
-            },
+          final topics = snapshot.data!;
+          return ListView(
+            children: topics.map(buidTopic).toList(),
           );
+          // return GridView.builder(
+          //   shrinkWrap: true,
+          //   clipBehavior: Clip.none,
+          //   physics: const NeverScrollableScrollPhysics(),
+          //   itemCount: homePageTrainingContentString.length,
+          //   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          //     maxCrossAxisExtent: 500,
+          //     mainAxisExtent: 350,
+          //     mainAxisSpacing: 5,
+          //     crossAxisSpacing: 20,
+          //     childAspectRatio: 3 / 2,
+          //   ),
+          //   itemBuilder: (
+          //     context,
+          //     index,
+          //   ) {
+          //     return AppVerticalCard(
+          //       elevation: 10,
+          //       button: AppButton(
+          //         layout: AppButtonType.floatingActionButton,
+          //         buttonTitle: Text(
+          //           'Start',
+          //           style: AppTextStyle.bungeeHairline15,
+          //         ),
+          //         buttonColor: AppColors.pinkColor,
+          //         onPressed: () {
+          //           log(topics[index].name);
+          //           // Navigator.of(context).push(
+          //           //   MaterialPageRoute(
+          //           //     builder: (BuildContext context) => QuizView(
+          //           //       topicId: topics[index],
+          //           //     ),
+          //           //   ),
+          //           // );
+          //         },
+          //       ),
+          //       shape: RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(30),
+          //       ),
+          //       title: Text(
+          //         homePageTrainingContentString[index].title,
+          //         style: AppTextStyle.bungee15,
+          //       ),
+          //       description: Text(
+          //         homePageTrainingContentString[index].description,
+          //         style: AppTextStyle.robotoMono15,
+          //       ),
+          //       image: Image.asset(
+          //         homePageTrainingContentString[index].image,
+          //         height: 200,
+          //         width: 400,
+          //       ),
+          //     );
+          //   },
+          // );
         } else {
           return const Text('No topics found');
         }
