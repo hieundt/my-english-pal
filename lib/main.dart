@@ -5,7 +5,7 @@ import 'package:myenglishpal_web/presentation/screens/account/signup_view.dart';
 import 'package:myenglishpal_web/presentation/screens/account/signin_view.dart';
 import 'package:myenglishpal_web/presentation/screens/grammar/grammar_view.dart';
 import 'package:myenglishpal_web/presentation/screens/assessment/assessment_view.dart';
-import 'package:myenglishpal_web/presentation/screens/quiz/quiz_view.dart';
+import 'package:myenglishpal_web/presentation/screens/homepage/components/content/training/training_quiz/training_quiz_view.dart';
 import 'package:myenglishpal_web/presentation/screens/splash/splash_view.dart';
 import 'package:myenglishpal_web/app_scroll_behavior.dart';
 import 'package:myenglishpal_web/routes.dart';

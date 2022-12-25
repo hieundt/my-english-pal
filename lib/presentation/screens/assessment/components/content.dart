@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/presentation/screens/quiz/quiz_view.dart';
+import 'package:myenglishpal_web/presentation/screens/homepage/components/content/training/training_quiz/training_quiz_view.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_vertical_card.dart';
 import 'package:myenglishpal_web/routes.dart';

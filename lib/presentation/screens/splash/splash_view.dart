@@ -3,7 +3,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:myenglishpal_web/initiator.dart';
 import 'package:myenglishpal_web/presentation/navigation/navigate_controller.dart';
 import 'package:myenglishpal_web/presentation/screens/account/signin_view.dart';
-import 'package:myenglishpal_web/presentation/screens/quiz/quiz_view.dart';
+import 'package:myenglishpal_web/presentation/screens/homepage/components/content/training/training_quiz/training_quiz_view.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_loading_dialog.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';

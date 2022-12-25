@@ -1,7 +1,6 @@
 import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/data/model/skill_training/skill_training_model.dart';
 import 'package:myenglishpal_web/data/services/firebase_auth_services.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/navigation_bar.dart';
 import 'package:myenglishpal_web/presentation/navigation/components/navigation_rail.dart';
