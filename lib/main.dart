@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                                 child: ListView(
                                   children: List.generate(snapshot.data!.length,
                                       (index) {
-                                    final data = snapshot.data![index];
+                                    final data = snapshot.data![0];
                                     for (int i = 0;
                                         i < data.phonetics!.length;
                                         i++) {
