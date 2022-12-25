@@ -8,13 +8,7 @@ import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class HomePageHeader extends StatelessWidget {
-  HomePageHeader({super.key});
-
-  //final User? user = FirebaseAuthServices(FirebaseAuth.instance).currentUser;
-
-  // Widget _userUid() {
-  //   return Text(user?.email ?? '');
-  // }
+  const HomePageHeader({super.key});
 
   @override
   Widget build(BuildContext context) {

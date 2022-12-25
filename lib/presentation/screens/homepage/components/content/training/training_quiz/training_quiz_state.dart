@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myenglishpal_web/data/model/skill_training/skill_training_model.dart';
+import 'package:myenglishpal_web/data/model/skill_training/option/option.dart';
 
-class QuizState with ChangeNotifier {
+class TrainingQuizState with ChangeNotifier {
   double _progress = 0;
   Option? _selected;
 
