@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/components/content/training/training.dart';
-import 'package:myenglishpal_web/presentation/screens/homepage/components/content/vocabulary/vocabulary.dart';
+import 'package:myenglishpal_web/presentation/screens/homepage/components/content/vocabulary_learn/vocabulary_learn.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/components/header.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';
@@ -15,7 +15,7 @@ class HomePageView extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(15.0),
         children: [
-          HomePageHeader(),
+          const HomePageHeader(),
           const SizedBox(
             height: 100,
           ),
@@ -26,7 +26,7 @@ class HomePageView extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
             ),
             child: Text(
-              'Vocabulary training',
+              'Vocabulary learn',
               style: (ResponsiveWrapper.of(context).isSmallerThan(MOBILE))
                   ? AppTextStyle.robotoMono30
                   : AppTextStyle.robotoMono50,

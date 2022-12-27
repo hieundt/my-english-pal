@@ -16,6 +16,7 @@ class SkillTraining with _$SkillTraining {
 
   factory SkillTraining.fromJson(Map<String, dynamic> json) =>
       _$SkillTrainingFromJson(json);
+
   //!Magic
   static Future<SkillTraining> fromDocument(Map<String, dynamic> json) async {
     final quizzesDocs = ((json['quizzes'] as List<dynamic>?)

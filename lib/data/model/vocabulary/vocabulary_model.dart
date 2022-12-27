@@ -1,3 +1,0 @@
-class VocabularyTopic {}
-
-class Vocabulary {}

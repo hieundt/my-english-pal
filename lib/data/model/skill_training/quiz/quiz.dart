@@ -15,6 +15,7 @@ class Quiz with _$Quiz {
   }) = _Quiz;
 
   factory Quiz.fromJson(Map<String, dynamic> json) => _$QuizFromJson(json);
+
   static Future<Quiz> fromDocument(Map<String, dynamic> json) async {
     final optionsDoc = ((json['options'] as List<dynamic>?)
                 ?.map((e) => e as DocumentReference<Map<String, dynamic>>))

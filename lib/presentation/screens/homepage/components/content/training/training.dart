@@ -25,7 +25,7 @@ class _HomePageSkillTrainingState extends State<HomePageSkillTraining> {
         HomePageTrainingContentString.homePageTrainingContentString;
 
     return StreamBuilder<List<SkillTraining>>(
-      stream: FirestoreDatabaseService().getAllSkillTopics(),
+      stream: SkillTrainingFirestoreDatabaseService().getAllSkillTopics(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingDialog();
@@ -38,7 +38,8 @@ class _HomePageSkillTrainingState extends State<HomePageSkillTraining> {
             shrinkWrap: true,
             clipBehavior: Clip.none,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: homePageTrainingContentString.length,
+            //* Chi render 4 part dau tien
+            itemCount: homePageTrainingContentString.length - 3,
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 500,
               mainAxisExtent: 350,
@@ -60,7 +61,6 @@ class _HomePageSkillTrainingState extends State<HomePageSkillTraining> {
                   ),
                   buttonColor: AppColors.pinkColor,
                   onPressed: () {
-                    log(topics[index].name);
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (BuildContext context) => TrainingQuizView(
