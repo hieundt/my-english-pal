@@ -5,7 +5,7 @@ class TrainingQuizState with ChangeNotifier {
   double _progress = 0;
   Option? _selected;
 
-  final PageController controller = PageController();
+  final controller = PageController();
 
   double get progress => _progress;
   Option? get selected => _selected;

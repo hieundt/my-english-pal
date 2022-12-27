@@ -15,7 +15,7 @@ class HomePageView extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(15.0),
         children: [
-          HomePageHeader(),
+          const HomePageHeader(),
           const SizedBox(
             height: 100,
           ),
@@ -26,7 +26,7 @@ class HomePageView extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
             ),
             child: Text(
-              'Vocabulary training',
+              'Vocabulary learn',
               style: (ResponsiveWrapper.of(context).isSmallerThan(MOBILE))
                   ? AppTextStyle.robotoMono30
                   : AppTextStyle.robotoMono50,

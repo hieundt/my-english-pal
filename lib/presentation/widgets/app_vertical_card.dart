@@ -4,11 +4,12 @@ import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class AppVerticalCard extends StatelessWidget {
-  final Widget image;
-  final Widget title;
+  final Widget? image;
+  final Widget? title;
   final Widget? description;
   final AppButton? button;
   final double? cardHeight;
+  final double? cardWidth;
   final double? elevation;
   final Color? color;
   final Color? shadowColor;
@@ -16,11 +17,12 @@ class AppVerticalCard extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
 
   factory AppVerticalCard({
-    required Widget image,
-    required Widget title,
+    Widget? image,
+    Widget? title,
     Widget? description,
     AppButton? button,
     double? cardHeight,
+    double? cardWidth,
     double? elevation = 0,
     Color? color = AppColors.whiteColor,
     Color? shadowColor = AppColors.darkGreyColor,
@@ -34,6 +36,7 @@ class AppVerticalCard extends StatelessWidget {
       button: button,
       shape: shape,
       cardHeight: cardHeight,
+      cardWidth: cardWidth,
       elevation: elevation,
       color: color,
       shadowColor: shadowColor,
@@ -47,6 +50,7 @@ class AppVerticalCard extends StatelessWidget {
     this.description,
     this.button,
     this.cardHeight,
+    this.cardWidth,
     this.elevation,
     this.color,
     this.shadowColor,
@@ -58,6 +62,7 @@ class AppVerticalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: cardHeight,
+      width: cardWidth,
       child: Card(
         elevation: elevation,
         color: color,
@@ -72,11 +77,11 @@ class AppVerticalCard extends StatelessWidget {
           children: [
             ResponsiveRowColumnItem(
               rowFlex: 4,
-              child: image,
+              child: SizedBox(child: image),
             ),
             ResponsiveRowColumnItem(
               rowFlex: 2,
-              child: title,
+              child: SizedBox(child: title),
             ),
             ResponsiveRowColumnItem(
               rowFlex: 2,

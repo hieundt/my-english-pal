@@ -4,19 +4,22 @@ import 'package:myenglishpal_web/data/model/skill_training/option/option.dart';
 import 'package:myenglishpal_web/data/model/skill_training/quiz/quiz.dart';
 import 'package:myenglishpal_web/data/model/skill_training/skill_training.dart';
 import 'package:myenglishpal_web/data/services/firestore_database.dart';
+import 'package:myenglishpal_web/presentation/screens/homepage/components/content/training/training_quiz/training_audio.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/components/content/training/training_quiz/training_quiz_state.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_animated_progress_bar.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_loading_dialog.dart';
 import 'package:myenglishpal_web/routes.dart';
+import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/images/app_images.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class TrainingQuizView extends StatelessWidget {
-  final SkillTraining topicId;
+  final SkillTraining topic;
   const TrainingQuizView({
     super.key,
-    required this.topicId,
+    required this.topic,
   });
 
   @override
@@ -24,7 +27,8 @@ class TrainingQuizView extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => TrainingQuizState(),
       child: StreamBuilder<SkillTraining>(
-        stream: FirestoreDatabaseService().getSkillTopicsById(topicId.id),
+        stream: SkillTrainingFirestoreDatabaseService()
+            .getSkillTopicsById(topic.id),
         builder: (context, snapshot) {
           var state = Provider.of<TrainingQuizState>(context);
           if (!snapshot.hasData || snapshot.hasError) {
@@ -80,7 +84,11 @@ class TrainingTutorialView extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(topic.tutorial),
+          Expanded(
+            child: Image(
+              image: NetworkImage(topic.tutorial),
+            ),
+          ),
           const Divider(),
           AppButton(
             layout: AppButtonType.floatingActionButton,
@@ -109,15 +117,19 @@ class TrainingCongratsView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Congrats! You completed the ${topic.id} quiz',
+            'Congrats! You completed the ${topic.name} quiz',
             textAlign: TextAlign.center,
           ),
           const Divider(),
-          Image.asset(AppLogo.myEnglishPalLogo),
+          Image.asset(
+            AppLogo.myEnglishPalLogo,
+            fit: BoxFit.cover,
+            scale: 2,
+          ),
           const Divider(),
           ElevatedButton.icon(
             style: TextButton.styleFrom(
-              backgroundColor: Colors.green,
+              backgroundColor: AppColors.darkGreenColor,
             ),
             icon: const Icon(CupertinoIcons.checkmark_circle),
             label: const Text(' Mark Complete!'),
@@ -147,57 +159,79 @@ class TrainingQuizzesView extends StatelessWidget {
   Widget build(BuildContext context) {
     var state = Provider.of<TrainingQuizState>(context);
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
+    return ResponsiveRowColumn(
+      layout: ResponsiveRowColumnType.COLUMN,
       children: [
-        Expanded(
+        ResponsiveRowColumnItem(
+          columnFlex: 1,
+          child: SizedBox(
+            child: TrainingQuizAudio(url: quiz.title!),
+          ),
+        ),
+        ResponsiveRowColumnItem(
+          columnFlex: 4,
           child: Container(
             padding: const EdgeInsets.all(16),
             alignment: Alignment.center,
-            child: Image.asset(quiz.description!),
+            child: Image(
+              image: NetworkImage(
+                quiz.description!,
+                scale: 0.5,
+              ),
+            ),
           ),
         ),
-        Container(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: quiz.options!.map(
-              (opt) {
-                return Container(
-                  height: 90,
-                  margin: const EdgeInsets.only(bottom: 10),
-                  color: Colors.black26,
-                  child: InkWell(
-                    onTap: () {
-                      state.selected = opt;
-                      _bottomSheet(context, opt, state);
-                    },
+        ResponsiveRowColumnItem(
+          columnFlex: 5,
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            child: ResponsiveRowColumn(
+              layout: ResponsiveRowColumnType.COLUMN,
+              columnMainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: quiz.options!.map(
+                (opt) {
+                  return ResponsiveRowColumnItem(
+                    columnFlex: 1,
                     child: Container(
-                      padding: const EdgeInsets.all(16),
-                      child: Row(
-                        children: [
-                          Icon(
-                            state.selected == opt
-                                ? CupertinoIcons.checkmark_circle_fill
-                                : CupertinoIcons.circle,
-                            size: 30,
-                          ),
-                          Expanded(
-                            child: Container(
-                              margin: const EdgeInsets.only(left: 16),
-                              child: Text(
-                                opt.value!,
-                                style: Theme.of(context).textTheme.bodyText2,
+                      height: 60,
+                      margin: const EdgeInsets.only(bottom: 10),
+                      color: AppColors.mainThemeColor,
+                      child: InkWell(
+                        onTap: () {
+                          state.selected = opt;
+                          _bottomSheet(context, opt, state);
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(16),
+                          child: Row(
+                            children: [
+                              Icon(
+                                state.selected == opt
+                                    ? (opt.isCorrect == true
+                                        ? CupertinoIcons.checkmark_circle_fill
+                                        : CupertinoIcons.xmark_circle_fill)
+                                    : CupertinoIcons.circle,
+                                size: 30,
                               ),
-                            ),
-                          )
-                        ],
+                              Expanded(
+                                child: Container(
+                                  margin: const EdgeInsets.only(left: 16),
+                                  child: Text(
+                                    opt.value!,
+                                    style:
+                                        Theme.of(context).textTheme.bodyText2,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                );
-              },
-            ).toList(),
+                  );
+                },
+              ).toList(),
+            ),
           ),
         )
       ],
@@ -223,17 +257,18 @@ class TrainingQuizzesView extends StatelessWidget {
                 opt.answer!,
                 style: const TextStyle(
                   fontSize: 18,
-                  color: Colors.white54,
+                  color: AppColors.blackColor,
                 ),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: correct ? Colors.green : Colors.red,
+                  backgroundColor:
+                      correct ? AppColors.darkGreenColor : AppColors.redColor,
                 ),
                 child: Text(
                   correct ? 'Onward!' : 'Try Again',
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: AppColors.whiteColor,
                     letterSpacing: 1.5,
                     fontWeight: FontWeight.bold,
                   ),
