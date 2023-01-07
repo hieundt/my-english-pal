@@ -9,6 +9,7 @@ class AppVerticalCard extends StatelessWidget {
   final Widget? description;
   final AppButton? button;
   final double? cardHeight;
+  final double? cardWidth;
   final double? elevation;
   final Color? color;
   final Color? shadowColor;
@@ -21,6 +22,7 @@ class AppVerticalCard extends StatelessWidget {
     Widget? description,
     AppButton? button,
     double? cardHeight,
+    double? cardWidth,
     double? elevation = 0,
     Color? color = AppColors.whiteColor,
     Color? shadowColor = AppColors.darkGreyColor,
@@ -34,6 +36,7 @@ class AppVerticalCard extends StatelessWidget {
       button: button,
       shape: shape,
       cardHeight: cardHeight,
+      cardWidth: cardWidth,
       elevation: elevation,
       color: color,
       shadowColor: shadowColor,
@@ -47,6 +50,7 @@ class AppVerticalCard extends StatelessWidget {
     this.description,
     this.button,
     this.cardHeight,
+    this.cardWidth,
     this.elevation,
     this.color,
     this.shadowColor,
@@ -58,6 +62,7 @@ class AppVerticalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: cardHeight,
+      width: cardWidth,
       child: Card(
         elevation: elevation,
         color: color,

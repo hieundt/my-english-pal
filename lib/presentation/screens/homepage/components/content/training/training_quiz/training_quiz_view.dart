@@ -16,10 +16,10 @@ import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class TrainingQuizView extends StatelessWidget {
-  final SkillTraining topicId;
+  final SkillTraining topic;
   const TrainingQuizView({
     super.key,
-    required this.topicId,
+    required this.topic,
   });
 
   @override
@@ -28,7 +28,7 @@ class TrainingQuizView extends StatelessWidget {
       create: (_) => TrainingQuizState(),
       child: StreamBuilder<SkillTraining>(
         stream: SkillTrainingFirestoreDatabaseService()
-            .getSkillTopicsById(topicId.id),
+            .getSkillTopicsById(topic.id),
         builder: (context, snapshot) {
           var state = Provider.of<TrainingQuizState>(context);
           if (!snapshot.hasData || snapshot.hasError) {

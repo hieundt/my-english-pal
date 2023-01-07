@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/data/model/vocabulary_topic/vocabulary_topic.dart';
 import 'package:myenglishpal_web/data/services/firestore_database.dart';
+import 'package:myenglishpal_web/presentation/screens/homepage/components/content/vocabulary/vocabulary_slider/vocabulary_learn.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_button.dart';
 import 'package:myenglishpal_web/app_scroll_behavior.dart';
 import 'package:myenglishpal_web/presentation/widgets/app_loading_dialog.dart';
@@ -50,6 +51,7 @@ class HomePageVocabulary extends StatelessWidget {
               return Text(snapshot.error.toString());
             } else if (snapshot.hasData) {
               final topics = snapshot.data!;
+
               return ScrollConfiguration(
                 behavior: AppScrollBehavior(),
                 child: ListView.separated(
@@ -70,7 +72,13 @@ class HomePageVocabulary extends StatelessWidget {
                       ),
                       buttonColor: AppColors.pinkColor,
                       onPressed: () {
-                        log(topics[index].name.toString());
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => VocabularyLearn(
+                              topic: topics[index],
+                            ),
+                          ),
+                        );
                       },
                     ),
                     image: Image.asset(

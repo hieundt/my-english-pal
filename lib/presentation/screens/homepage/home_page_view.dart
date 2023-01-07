@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myenglishpal_web/presentation/screens/homepage/components/content/training/training.dart';
-import 'package:myenglishpal_web/presentation/screens/homepage/components/content/vocabulary_learn/vocabulary_learn.dart';
+import 'package:myenglishpal_web/presentation/screens/homepage/components/content/vocabulary/vocabulary.dart';
+
 import 'package:myenglishpal_web/presentation/screens/homepage/components/header.dart';
 import 'package:myenglishpal_web/rsc/colors/app_colors.dart';
 import 'package:myenglishpal_web/rsc/styles/app_styles.dart';

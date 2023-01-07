@@ -64,7 +64,7 @@ class _HomePageSkillTrainingState extends State<HomePageSkillTraining> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (BuildContext context) => TrainingQuizView(
-                          topicId: topics[index],
+                          topic: topics[index],
                         ),
                       ),
                     );

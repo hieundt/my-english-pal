@@ -104,7 +104,7 @@ class _SignUpViewState extends State<SignUpView> {
                   ),
                   onPressed: () {
                     Navigator.of(context).pushNamedAndRemoveUntil(
-                      signInRoute,
+                      navigateControllerRoute,
                       (route) => false,
                     );
                   },

@@ -28,7 +28,7 @@ class _NavigateControllerState extends State<NavigateController> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    HomePageView(),
+    const HomePageView(),
     const CommunityView(),
     const AssessmentView(),
     const GrammarView(),

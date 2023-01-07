@@ -86,7 +86,8 @@ class _TrainingQuizAudioState extends State<TrainingQuizAudio> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(formatTime(position.inSeconds)),
-              Text(formatTime((duration - position).inSeconds))
+              const Text('/'),
+              Text(formatTime((duration.inSeconds))),
             ],
           ),
         ),
